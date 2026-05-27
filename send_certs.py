@@ -278,7 +278,8 @@ LIST_KWARGS = {"supportsAllDrives": True, "includeItemsFromAllDrives": True}
 def upload_pdf_to_drive(drive, pdf_bytes, filename, parent_folder_id):
     media = MediaIoBaseUpload(io.BytesIO(pdf_bytes), mimetype="application/pdf", resumable=False)
     body = {"name": filename, "parents": [parent_folder_id]}
-    drive.files().create(body=body, media_body=media, fields="id", **DRIVE_KWARGS).execute()
+    f = drive.files().create(body=body, media_body=media, fields="id", **DRIVE_KWARGS).execute()
+    return f["id"]
 
 
 def find_or_create_drive_folder(drive, name, parent_id):
@@ -394,6 +395,146 @@ def course_date_to_slug(s):
         return re.sub(r"[^a-zA-Z0-9]+", "-", s).strip("-").lower()
 
 
+# ============================================================
+# CERTS.JSON BUILDER
+#
+# After the send loop, walk every row in the sign-in sheet that has a non-empty
+# cert_sent value, group by (course_date, training), and emit a public JSON
+# summary the eval dashboard can fetch. Includes per-attendee Drive file URLs
+# (looked up by listing each dated folder once and matching sanitized name).
+# ============================================================
+CERTS_JSON_PATH = os.path.join(REPO_ROOT, "data", "certs.json")
+
+
+def parse_cert_sent(cell):
+    """`<iso timestamp> resend:<id>` -> (sent_at, resend_id). Tolerates older formats."""
+    if not cell:
+        return None, None
+    sent_at = None
+    resend_id = None
+    parts = cell.split(" resend:", 1)
+    sent_at = parts[0].strip() or None
+    if len(parts) == 2:
+        resend_id = parts[1].strip() or None
+    return sent_at, resend_id
+
+
+def list_drive_folder_files(drive, folder_id):
+    """Return [(name, id, web_view_link), ...] for files in a folder. Pages through results."""
+    out = []
+    page_token = None
+    while True:
+        resp = drive.files().list(
+            q=f"'{folder_id}' in parents and trashed=false",
+            fields="nextPageToken, files(id, name, webViewLink)",
+            pageSize=1000,
+            pageToken=page_token,
+            **LIST_KWARGS,
+        ).execute()
+        for f in resp.get("files", []):
+            out.append((f["name"], f["id"], f.get("webViewLink")))
+        page_token = resp.get("nextPageToken")
+        if not page_token:
+            break
+    return out
+
+
+def find_drive_subfolder(drive, parent_id, name):
+    """Return (folder_id, web_view_link) for the named subfolder, or (None, None)."""
+    q = (f"name='{name}' and mimeType='application/vnd.google-apps.folder' "
+         f"and '{parent_id}' in parents and trashed=false")
+    res = drive.files().list(
+        q=q, fields="files(id, webViewLink)", **LIST_KWARGS,
+    ).execute()
+    items = res.get("files", [])
+    if not items:
+        return None, None
+    return items[0]["id"], items[0].get("webViewLink")
+
+
+def session_date_from_timestamp(ts_str):
+    """Convert a sign-in timestamp into a YYYY-MM-DD date string in Eastern.
+    The cron treats the sheet as Eastern (UTC-4 EDT during training season)."""
+    utc_dt = parse_sheet_timestamp(ts_str)
+    if not utc_dt:
+        return None
+    eastern = utc_dt - timedelta(hours=4)
+    return eastern.strftime("%Y-%m-%d")
+
+
+def build_certs_json(sheets, drive, courses, rows):
+    """
+    Walk the sheet for completed cert rows, group into sessions keyed by
+    'YYYY-MM-DD|<training>', resolve Drive file URLs by listing the dated
+    folder once per session, write data/certs.json.
+    """
+    # Group rows by session key
+    sessions = {}
+    for row in rows:
+        if not row["cert_sent"]:
+            continue
+        training = row["training"]
+        if training not in courses:
+            continue  # only known courses get a structured entry
+        date_str = session_date_from_timestamp(row["timestamp"])
+        if not date_str:
+            continue
+        full_name = f"{row['first']} {row['last']}".strip()
+        if full_name.isupper() or full_name.islower():
+            full_name = full_name.title()
+        sent_at, resend_id = parse_cert_sent(row["cert_sent"])
+        key = f"{date_str}|{training}"
+        sess = sessions.setdefault(key, {
+            "date": date_str,
+            "course": training,
+            "course_slug": re.sub(r"[^a-z0-9]+", "-", training.lower()).strip("-"),
+            "attendees": [],
+        })
+        sess["attendees"].append({
+            "name": full_name,
+            "sanitized": sanitize(full_name),
+            "sent_at": sent_at,
+            "resend_id": resend_id,
+        })
+
+    # Resolve Drive folder + file URLs per session
+    # Cache course-slug folder lookups so we don't repeat them per session.
+    course_folders = {}  # course_slug -> (folder_id, link)
+    for key, sess in sessions.items():
+        slug = sess["course_slug"]
+        if slug not in course_folders:
+            course_folders[slug] = find_drive_subfolder(drive, DRIVE_BACKUP_FOLDER_ID, slug)
+        course_folder_id, _ = course_folders[slug]
+        if not course_folder_id:
+            sess["drive_folder_url"] = None
+        else:
+            date_folder_id, date_folder_link = find_drive_subfolder(drive, course_folder_id, sess["date"])
+            sess["drive_folder_url"] = date_folder_link
+            file_index = {}
+            if date_folder_id:
+                for name, file_id, link in list_drive_folder_files(drive, date_folder_id):
+                    # Strip .pdf to match against sanitize(full_name)
+                    base = name[:-4] if name.lower().endswith(".pdf") else name
+                    file_index[base] = link
+            for a in sess["attendees"]:
+                a["drive_pdf_url"] = file_index.get(a["sanitized"])
+        # Drop sanitized field from final output (only needed for lookup)
+        for a in sess["attendees"]:
+            a.pop("sanitized", None)
+        sess["cert_count"] = len(sess["attendees"])
+        # Stable sort by attendee name
+        sess["attendees"].sort(key=lambda a: a["name"].lower())
+
+    payload = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "sessions": sessions,
+    }
+    os.makedirs(os.path.dirname(CERTS_JSON_PATH), exist_ok=True)
+    with open(CERTS_JSON_PATH, "w") as f:
+        json.dump(payload, f, indent=2, sort_keys=True)
+    print(f"Wrote {CERTS_JSON_PATH} with {len(sessions)} sessions")
+
+
 def main():
     if not RESEND_API_KEY or not SHEET_ID or not DRIVE_BACKUP_FOLDER_ID:
         sys.exit("ERROR: RESEND_API_KEY, SHEET_ID, DRIVE_BACKUP_FOLDER_ID required")
@@ -458,6 +599,15 @@ def main():
 
     print(f"\nSummary: processed={processed} already_sent={skipped_already_sent} "
           f"too_new={skipped_too_new} other={skipped_other} errors={errors}")
+
+    # Refresh the public certs.json that the eval dashboard consumes.
+    # Re-read the sheet to pick up any cert_sent writes from this run.
+    if not DRY_RUN:
+        try:
+            fresh_rows = read_sheet_rows(sheets)
+            build_certs_json(sheets, drive, courses, fresh_rows)
+        except Exception as e:
+            print(f"certs.json refresh failed (non-fatal): {e}")
 
 
 if __name__ == "__main__":

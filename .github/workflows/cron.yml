@@ -13,7 +13,7 @@ on:
 
 permissions:
   id-token: write       # required for WIF OIDC token
-  contents: read
+  contents: write       # required to commit refreshed data/certs.json
 
 env:
   SHEET_ID: 1Z0dpILZColNERZU1t2XFImXX6cYTPT_vrkbJKpupaFs
@@ -48,3 +48,20 @@ jobs:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '' }}
         run: python send_certs.py
+
+      - name: Commit certs.json if changed
+        if: ${{ !inputs.dry_run }}
+        run: |
+          if [ ! -f data/certs.json ]; then
+            echo "data/certs.json not produced this run; nothing to commit"
+            exit 0
+          fi
+          git config user.name "icp-cert-sender bot"
+          git config user.email "actions@github.com"
+          git add data/certs.json
+          if git diff --cached --quiet; then
+            echo "certs.json unchanged"
+            exit 0
+          fi
+          git commit -m "Refresh certs.json [skip ci]"
+          git push
