@@ -269,22 +269,27 @@ def write_cert_error(sheets, sheet_row, value):
     ).execute()
 
 
+# Shared Drive support: every Drive API call needs supportsAllDrives=True;
+# list queries also need includeItemsFromAllDrives=True. Works for My Drive too.
+DRIVE_KWARGS = {"supportsAllDrives": True}
+LIST_KWARGS = {"supportsAllDrives": True, "includeItemsFromAllDrives": True}
+
+
 def upload_pdf_to_drive(drive, pdf_bytes, filename, parent_folder_id):
-    """Upload a PDF to Drive. Creates date-stamped subfolder under parent."""
     media = MediaIoBaseUpload(io.BytesIO(pdf_bytes), mimetype="application/pdf", resumable=False)
     body = {"name": filename, "parents": [parent_folder_id]}
-    drive.files().create(body=body, media_body=media, fields="id").execute()
+    drive.files().create(body=body, media_body=media, fields="id", **DRIVE_KWARGS).execute()
 
 
 def find_or_create_drive_folder(drive, name, parent_id):
     q = (f"name='{name}' and mimeType='application/vnd.google-apps.folder' "
          f"and '{parent_id}' in parents and trashed=false")
-    res = drive.files().list(q=q, fields="files(id)").execute()
+    res = drive.files().list(q=q, fields="files(id)", **LIST_KWARGS).execute()
     items = res.get("files", [])
     if items:
         return items[0]["id"]
     meta = {"name": name, "mimeType": "application/vnd.google-apps.folder", "parents": [parent_id]}
-    f = drive.files().create(body=meta, fields="id").execute()
+    f = drive.files().create(body=meta, fields="id", **DRIVE_KWARGS).execute()
     return f["id"]
 
 
