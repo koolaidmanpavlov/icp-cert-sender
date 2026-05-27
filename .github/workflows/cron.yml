@@ -28,18 +28,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install Merriweather font
-        run: |
-          sudo mkdir -p /usr/share/fonts/truetype/merriweather
-          # Pull from Google Fonts; mirrors are stable enough for CI.
-          curl -fsSL "https://github.com/google/fonts/raw/main/ofl/merriweather/Merriweather-Regular.ttf" \
-            -o /tmp/Merriweather-Regular.ttf
-          curl -fsSL "https://github.com/google/fonts/raw/main/ofl/merriweather/Merriweather-Bold.ttf" \
-            -o /tmp/Merriweather-Bold.ttf
-          sudo mv /tmp/Merriweather-Regular.ttf /usr/share/fonts/truetype/merriweather/
-          sudo mv /tmp/Merriweather-Bold.ttf /usr/share/fonts/truetype/merriweather/
-          sudo fc-cache -f
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:

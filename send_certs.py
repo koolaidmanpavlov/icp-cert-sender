@@ -89,16 +89,11 @@ DATE_LINE_CENTER_Y = 715
 DATE_LINE_FONT_SIZE = 26
 DATE_LINE_COLOR = (41, 182, 231)
 
-# GitHub Actions Linux fonts (installed via apt in cron.yml)
-NAME_FONT_PATH = "/usr/share/fonts/truetype/merriweather/Merriweather-Regular.ttf"
-TITLE_FONT_PATH = "/usr/share/fonts/truetype/merriweather/Merriweather-Bold.ttf"
-DATE_FONT_PATH = "/usr/share/fonts/truetype/merriweather/Merriweather-Regular.ttf"
-
-# Fallback for local dev on Mac
-if not os.path.exists(NAME_FONT_PATH):
-    NAME_FONT_PATH = "/Library/Fonts/Merriweather_Regular.ttf"
-    TITLE_FONT_PATH = "/Library/Fonts/Merriweather_Bold.ttf"
-    DATE_FONT_PATH = "/Library/Fonts/Merriweather_Regular.ttf"
+# Fonts bundled in the repo (SIL Open Font License — bundling is fine)
+FONT_DIR = os.path.join(REPO_ROOT, "fonts")
+NAME_FONT_PATH = os.path.join(FONT_DIR, "Merriweather_Regular.ttf")
+TITLE_FONT_PATH = os.path.join(FONT_DIR, "Merriweather_Bold.ttf")
+DATE_FONT_PATH = os.path.join(FONT_DIR, "Merriweather_Regular.ttf")
 
 
 # ============================================================
