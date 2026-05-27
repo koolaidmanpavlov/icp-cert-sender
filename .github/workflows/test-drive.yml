@@ -1,0 +1,65 @@
+name: Test Drive write
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install google-api-python-client google-auth
+
+      - uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/998997004675/locations/global/workloadIdentityPools/github-actions/providers/github
+          service_account: icp-cert-sender@icp-scheduling.iam.gserviceaccount.com
+
+      - name: Try writing a test file to the Drive folder
+        run: |
+          python <<'PY'
+          import io
+          from datetime import datetime, timezone
+          from google.auth import default
+          from googleapiclient.discovery import build
+          from googleapiclient.http import MediaIoBaseUpload
+
+          FOLDER_ID = "1__R6NI7co32HTebvgGVTw-3r8Gylh78I"
+          SCOPES = ["https://www.googleapis.com/auth/drive.file"]
+
+          creds, _ = default(scopes=SCOPES)
+          drive = build("drive", "v3", credentials=creds)
+
+          # 1. List files in the folder (verifies read access)
+          listing = drive.files().list(
+              q=f"'{FOLDER_ID}' in parents and trashed=false",
+              fields="files(id, name)",
+              supportsAllDrives=True,
+              includeItemsFromAllDrives=True,
+          ).execute()
+          print(f"Found {len(listing.get('files', []))} existing items in folder")
+
+          # 2. Upload a small test file
+          ts = datetime.now(timezone.utc).isoformat()
+          content = f"icp-cert-sender Drive write test at {ts}\n".encode()
+          media = MediaIoBaseUpload(io.BytesIO(content), mimetype="text/plain")
+          body = {"name": f"_drive_write_test_{ts}.txt", "parents": [FOLDER_ID]}
+          f = drive.files().create(
+              body=body,
+              media_body=media,
+              fields="id, name, webViewLink",
+              supportsAllDrives=True,
+          ).execute()
+          print(f"SUCCESS: uploaded {f['name']}")
+          print(f"  id: {f['id']}")
+          print(f"  link: {f.get('webViewLink')}")
+          PY
