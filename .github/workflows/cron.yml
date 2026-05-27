@@ -1,0 +1,62 @@
+name: Send pending certificates
+
+on:
+  schedule:
+    # Every 15 minutes
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (don't send or mark as sent)"
+        type: boolean
+        default: false
+
+permissions:
+  id-token: write       # required for WIF OIDC token
+  contents: read
+
+env:
+  SHEET_ID: 1Z0dpILZColNERZU1t2XFImXX6cYTPT_vrkbJKpupaFs
+  DRIVE_BACKUP_FOLDER_ID: 1__R6NI7co32HTebvgGVTw-3r8Gylh78I
+  CERT_DELAY_MINUTES: "90"
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Merriweather font
+        run: |
+          sudo mkdir -p /usr/share/fonts/truetype/merriweather
+          # Pull from Google Fonts; mirrors are stable enough for CI.
+          curl -fsSL "https://github.com/google/fonts/raw/main/ofl/merriweather/Merriweather-Regular.ttf" \
+            -o /tmp/Merriweather-Regular.ttf
+          curl -fsSL "https://github.com/google/fonts/raw/main/ofl/merriweather/Merriweather-Bold.ttf" \
+            -o /tmp/Merriweather-Bold.ttf
+          sudo mv /tmp/Merriweather-Regular.ttf /usr/share/fonts/truetype/merriweather/
+          sudo mv /tmp/Merriweather-Bold.ttf /usr/share/fonts/truetype/merriweather/
+          sudo fc-cache -f
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install Python deps
+        run: pip install -r requirements.txt
+
+      - name: Authenticate to GCP (Workload Identity Federation)
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/998997004675/locations/global/workloadIdentityPools/github-actions/providers/github
+          service_account: icp-cert-sender@icp-scheduling.iam.gserviceaccount.com
+
+      - name: Run cert sender
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          DRY_RUN: ${{ inputs.dry_run && '1' || '' }}
+        run: python send_certs.py

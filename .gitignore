@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Local credentials (never commit)
+credentials.json
+service_account*.json
+.icp-cert-drive-token.json
+
+# Local test output
+test_output/
+*.pdf
+*_test.csv
+
+# Mac
+.DS_Store

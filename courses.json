@@ -1,0 +1,14 @@
+{
+  "Situational Awareness for Early Childhood Professionals": {
+    "template": "template_webinar.png",
+    "title_lines": ["Situational Awareness for", "Early Childhood Professionals"],
+    "hours": "1.5",
+    "format": "webinar"
+  },
+  "Legal Preparedness for Early Childhood Leaders": {
+    "template": "template_in_person.png",
+    "title_lines": ["Legal Preparedness for", "Early Childhood Leaders"],
+    "hours": "2",
+    "format": "in-person"
+  }
+}
