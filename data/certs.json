@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-28T22:52:44.540462+00:00",
+  "generated_at": "2026-05-29T00:01:48.083618+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -30,6 +30,69 @@
       "course_slug": "situational-awareness-for-early-childhood-professionals",
       "date": "2026-05-27",
       "drive_folder_url": "https://drive.google.com/drive/folders/1lCKhC2xp2ijrHLw9iiE9eKGFTT0RJVCw"
+    },
+    "2026-05-28|Legal Preparedness for Early Childhood Leaders": {
+      "attendees": [
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1zTSZLfoh-55sPI9ZLP9hX473HxeYX1Cl/view?usp=drivesdk",
+          "name": "Amineh Aboubakri",
+          "resend_id": "66236060-cf64-4373-b1ce-7e291ad00efa",
+          "sent_at": "2026-05-29T00:01:29.789371+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1qxlKRDYyHiK4SVwgT2PXQ02wSW2joUfj/view?usp=drivesdk",
+          "name": "Angie Wilkins",
+          "resend_id": "3b1c5e27-e6b7-4d0a-bc84-3397226f98a3",
+          "sent_at": "2026-05-29T00:01:14.748663+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1d8oUaGWWDvoO9AX-Ecl5ea6nqqGJfEX0/view?usp=drivesdk",
+          "name": "Davida Cole",
+          "resend_id": "03376846-fe60-48f4-80c7-670ebf2a676f",
+          "sent_at": "2026-05-29T00:01:18.607118+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1WAKdvQz9uFrHCbt3-79F7psQAma6jCKi/view?usp=drivesdk",
+          "name": "Denise Green",
+          "resend_id": "9653b316-7dc6-474d-a357-b94faa251205",
+          "sent_at": "2026-05-29T00:01:22.982606+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1IBrWSyQUheu0sl_5TG6hBF9HzqtITMAI/view?usp=drivesdk",
+          "name": "Fredericka Tarpeh",
+          "resend_id": "a1efd605-d744-4d8f-a7ec-ab2aa28b171c",
+          "sent_at": "2026-05-29T00:01:33.564550+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1Q1mUL0rUxrRHHYz52iyly4RZ-r42tcgA/view?usp=drivesdk",
+          "name": "Ghazala Shah",
+          "resend_id": "55d00aee-1b74-47c5-9c6a-3b8e1ad6de85",
+          "sent_at": "2026-05-29T00:01:44.368840+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1VyT5oHZyZhxrovypzG7PizHlPcFAZvRR/view?usp=drivesdk",
+          "name": "Maria Brown",
+          "resend_id": "090415b1-c25c-49aa-8228-ccabd0cad499",
+          "sent_at": "2026-05-29T00:01:26.497716+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1C0wRcJje2NsOlBeqzwg_NytQd3egza93/view?usp=drivesdk",
+          "name": "Mary Braxton",
+          "resend_id": "bfc22407-2a0e-4d03-a7ff-907fe181f9a7",
+          "sent_at": "2026-05-29T00:01:36.856228+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1GXiHO18nQPwOFRHYBKTsoAoqWieyDxQT/view?usp=drivesdk",
+          "name": "Saleha Noori",
+          "resend_id": "1e2c1c4d-3ed0-4cb3-bdcc-51abcb15f03c",
+          "sent_at": "2026-05-29T00:01:11.477805+00:00"
+        }
+      ],
+      "cert_count": 9,
+      "course": "Legal Preparedness for Early Childhood Leaders",
+      "course_slug": "legal-preparedness-for-early-childhood-leaders",
+      "date": "2026-05-28",
+      "drive_folder_url": "https://drive.google.com/drive/folders/1Mwphi-kqsLyAFqLA8p_ARL0kShc57WXv"
     },
     "2026-05-28|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
