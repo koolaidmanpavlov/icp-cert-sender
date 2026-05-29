@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-29T00:01:48.083618+00:00",
+  "generated_at": "2026-05-29T04:40:31.201972+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -40,6 +40,12 @@
           "sent_at": "2026-05-29T00:01:29.789371+00:00"
         },
         {
+          "drive_pdf_url": "https://drive.google.com/file/d/1zTSZLfoh-55sPI9ZLP9hX473HxeYX1Cl/view?usp=drivesdk",
+          "name": "Amineh Aboubakri",
+          "resend_id": "bf53b1a2-0035-4f2f-a972-4ecf73a550f8",
+          "sent_at": "2026-05-29T04:40:20.085286+00:00"
+        },
+        {
           "drive_pdf_url": "https://drive.google.com/file/d/1qxlKRDYyHiK4SVwgT2PXQ02wSW2joUfj/view?usp=drivesdk",
           "name": "Angie Wilkins",
           "resend_id": "3b1c5e27-e6b7-4d0a-bc84-3397226f98a3",
@@ -70,6 +76,30 @@
           "sent_at": "2026-05-29T00:01:44.368840+00:00"
         },
         {
+          "drive_pdf_url": "https://drive.google.com/file/d/1TTd3PBN3X5jXZBhlkLzVwefJ68agvb7d/view?usp=drivesdk",
+          "name": "Grace Quashingah",
+          "resend_id": "83a05b92-35f6-4dd7-ae7a-85bca9e0ba1e",
+          "sent_at": "2026-05-29T04:40:16.822569+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1TTd3PBN3X5jXZBhlkLzVwefJ68agvb7d/view?usp=drivesdk",
+          "name": "Grace Quashingah",
+          "resend_id": "151ce8e1-4db1-4da7-b131-ebca189325c1",
+          "sent_at": "2026-05-29T04:40:27.420863+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/10crvy6HeUm-TihvZGdyyVc1G3E5WG6Ue/view?usp=drivesdk",
+          "name": "Ida Petch",
+          "resend_id": "65b73fc0-78fa-4a7c-a28c-db4e67564cd4",
+          "sent_at": "2026-05-29T04:40:13.001098+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/10crvy6HeUm-TihvZGdyyVc1G3E5WG6Ue/view?usp=drivesdk",
+          "name": "Ida Petch",
+          "resend_id": "df7b4bbd-5a19-471f-8293-60d12ea14987",
+          "sent_at": "2026-05-29T04:40:23.774809+00:00"
+        },
+        {
           "drive_pdf_url": "https://drive.google.com/file/d/1VyT5oHZyZhxrovypzG7PizHlPcFAZvRR/view?usp=drivesdk",
           "name": "Maria Brown",
           "resend_id": "090415b1-c25c-49aa-8228-ccabd0cad499",
@@ -88,7 +118,7 @@
           "sent_at": "2026-05-29T00:01:11.477805+00:00"
         }
       ],
-      "cert_count": 9,
+      "cert_count": 14,
       "course": "Legal Preparedness for Early Childhood Leaders",
       "course_slug": "legal-preparedness-for-early-childhood-leaders",
       "date": "2026-05-28",
