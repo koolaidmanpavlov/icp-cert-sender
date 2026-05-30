@@ -46,6 +46,7 @@ jobs:
       - name: Run cert sender
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          CERT_LOG_API_TOKEN: ${{ secrets.CERT_LOG_API_TOKEN }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '' }}
         run: python send_certs.py
 

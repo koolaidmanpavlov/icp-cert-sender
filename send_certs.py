@@ -35,13 +35,18 @@ Local testing:
 
 import base64
 import csv
+import hashlib
+import hmac as _hmac
 import io
 import json
 import os
 import re
 import sys
+import time
 from datetime import datetime, timedelta, timezone
+from urllib.parse import urlencode
 
+import requests
 import resend
 from PIL import Image, ImageDraw, ImageFont
 from google.auth import default as google_auth_default
@@ -58,6 +63,10 @@ SHEET_ID = os.environ.get("SHEET_ID", "")
 DRIVE_BACKUP_FOLDER_ID = os.environ.get("DRIVE_BACKUP_FOLDER_ID", "")
 CERT_DELAY_MINUTES = int(os.environ.get("CERT_DELAY_MINUTES", "90"))
 DRY_RUN = os.environ.get("DRY_RUN", "") == "1"
+
+# Unified cert audit log (tools.icp.us/api/cert-log)
+CERT_LOG_API_BASE = os.environ.get("CERT_LOG_API_BASE", "https://tools.icp.us")
+CERT_LOG_API_TOKEN = os.environ.get("CERT_LOG_API_TOKEN", "")
 
 # Sheet config
 SHEET_TAB = "Form Responses 1"  # default name; override if Andy renamed it
@@ -94,6 +103,104 @@ FONT_DIR = os.path.join(REPO_ROOT, "fonts")
 NAME_FONT_PATH = os.path.join(FONT_DIR, "Merriweather_Regular.ttf")
 TITLE_FONT_PATH = os.path.join(FONT_DIR, "Merriweather_Bold.ttf")
 DATE_FONT_PATH = os.path.join(FONT_DIR, "Merriweather_Regular.ttf")
+
+
+# ============================================================
+# RESILIENT SEND
+# ============================================================
+# Resend rate-limit / 5xx errors are usually transient. We retry once after a
+# short backoff. The Idempotency-Key header guards against any send the server
+# already accepted but we missed the response for — Resend dedupes for 24h on
+# this key, so a retry returns the original email id instead of sending twice.
+def build_idempotency_key(course_slug, date_slug, email):
+    safe_email = re.sub(r"[^a-z0-9._-]+", "-", (email or "").lower())
+    return f"cert-{course_slug}-{date_slug}-{safe_email}"[:255]
+
+
+# Consult the icp-tools suppression API before sending. Fails open: if the
+# API isn't configured or isn't reachable, we proceed with the send rather
+# than blocking legitimate emails on infra issues.
+SUPPRESSION_API_TOKEN = os.environ.get("SUPPRESSION_API_TOKEN", "")
+SUPPRESSION_API_BASE = os.environ.get("SUPPRESSION_API_BASE", "https://tools.icp.us")
+SUPPRESSION_TOKEN_SECRET = os.environ.get("SUPPRESSION_TOKEN_SECRET", "")
+UNSUBSCRIBE_BASE_URL = os.environ.get("UNSUBSCRIBE_BASE_URL", "https://learn.icp.us")
+
+
+def is_suppressed(email):
+    if not SUPPRESSION_API_TOKEN:
+        return False, None
+    url = f"{SUPPRESSION_API_BASE.rstrip('/')}/api/suppressions/check?email={requests.utils.quote(email)}"
+    try:
+        r = requests.get(url, headers={"x-suppression-token": SUPPRESSION_API_TOKEN}, timeout=5)
+        if r.status_code != 200:
+            return False, None
+        data = r.json()
+        return bool(data.get("suppressed")), data.get("reason")
+    except Exception:
+        return False, None
+
+
+def build_unsubscribe_headers(email):
+    if not SUPPRESSION_TOKEN_SECRET:
+        return {}
+    sig = _hmac.new(SUPPRESSION_TOKEN_SECRET.encode(), email.lower().encode(), hashlib.sha256).digest()
+    token = base64.urlsafe_b64encode(sig).rstrip(b"=").decode()
+    query = urlencode({"u": email.lower(), "t": token})
+    url = f"{UNSUBSCRIBE_BASE_URL.rstrip('/')}/unsubscribe?{query}"
+    return {
+        "List-Unsubscribe": f"<mailto:unsubscribe@icp.us?subject=unsubscribe>, <{url}>",
+        "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+    }
+
+
+def _log_to_cert_api(row_data, timeout=8):
+    """POST one cert record to the unified D1 audit log. Fail-open."""
+    if not CERT_LOG_API_TOKEN:
+        return
+    try:
+        resp = requests.post(
+            f"{CERT_LOG_API_BASE.rstrip('/')}/api/cert-log",
+            json=[row_data],
+            headers={"x-cert-log-token": CERT_LOG_API_TOKEN},
+            timeout=timeout,
+        )
+        data = resp.json()
+        if not data.get("ok"):
+            print(f"  [cert-log] warning: {data}")
+    except Exception as exc:
+        print(f"  [cert-log] warning: could not reach log API — {exc}")
+
+
+_TRANSIENT_PATTERNS = ("503", "504", "502", "429", "timeout", "temporarily")
+
+
+def _is_transient(err):
+    msg = str(err).lower()
+    return any(p in msg for p in _TRANSIENT_PATTERNS)
+
+
+def send_with_retry(params, idempotency_key, max_attempts=2, backoff_seconds=2.0):
+    """Send via Resend with idempotency + one retry on transient errors.
+
+    Idempotency-Key is added to params['headers']. If the SDK or upstream API
+    returns a 5xx/429/timeout, we sleep and retry; permanent errors (4xx other
+    than 429) propagate immediately so we don't loop on bad data.
+    """
+    headers = dict(params.get("headers") or {})
+    headers["Idempotency-Key"] = idempotency_key
+    params = {**params, "headers": headers}
+
+    last_err = None
+    for attempt in range(1, max_attempts + 1):
+        try:
+            return resend.Emails.send(params)
+        except Exception as e:
+            last_err = e
+            if attempt < max_attempts and _is_transient(e):
+                time.sleep(backoff_seconds)
+                continue
+            raise
+    raise last_err  # unreachable, but explicit
 
 
 # ============================================================
@@ -346,6 +453,12 @@ def process_row(row, course_config, sheets, drive):
         full_name = full_name.title()
     first = row["first"].title() if row["first"].isupper() or row["first"].islower() else row["first"]
 
+    # Skip suppressed addresses (bounced / complained / unsubscribed).
+    suppressed, reason = is_suppressed(row["email"])
+    if suppressed:
+        print(f"  suppressed ({reason}) — skipping")
+        return f"skipped-suppressed-{reason}"
+
     sign_in_utc = parse_sheet_timestamp(row["timestamp"])
     course_date = format_course_date(sign_in_utc)
 
@@ -357,9 +470,10 @@ def process_row(row, course_config, sheets, drive):
         print(f"  [DRY] would send {full_name} <{row['email']}> for {row['training']} on {course_date}")
         return "dry-run"
 
-    # Send email
+    # Send email — with idempotency + retry + List-Unsubscribe + suppression-aware.
     resend.api_key = RESEND_API_KEY
     subject = f"Your Certificate from Today's {row['training']} Training"
+    headers = dict(build_unsubscribe_headers(row["email"]))
     params = {
         "from": FROM_EMAIL,
         "to": [row["email"]],
@@ -370,9 +484,26 @@ def process_row(row, course_config, sheets, drive):
             "filename": f"Certificate - {full_name}.pdf",
             "content": base64.b64encode(pdf_bytes).decode(),
         }],
+        "headers": headers,
     }
-    r = resend.Emails.send(params)
+    course_slug = re.sub(r"[^a-z0-9]+", "-", row["training"].lower()).strip("-")
+    date_slug = course_date_to_slug(course_date)
+    idem = build_idempotency_key(course_slug, date_slug, row["email"])
+    r = send_with_retry(params, idem)
     resend_id = r.get("id", "unknown")
+
+    # Log to unified cert audit trail
+    _log_to_cert_api({
+        "full_name": full_name,
+        "email": row["email"],
+        "course_title": row["training"],
+        "course_date": course_date,
+        "pd_hours": str(course_config["hours"]),
+        "course_format": course_config.get("format", "webinar"),
+        "status": "sent",
+        "timestamp_iso": datetime.now(timezone.utc).isoformat(),
+        "resend_id": resend_id,
+    })
 
     # Drive backup
     try:
