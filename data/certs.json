@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-30T16:57:39.418568+00:00",
+  "generated_at": "2026-05-30T17:45:47.862453+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -400,6 +400,12 @@
           "sent_at": "2026-05-30T16:57:29.871509+00:00"
         },
         {
+          "drive_pdf_url": "https://drive.google.com/file/d/19usQHBQTnXqHlOUGtlnamfJcgdJQda-_/view?usp=drivesdk",
+          "name": "Chris Ratliff",
+          "resend_id": "07f926a9-ef8c-4374-a892-d3d5684675f8",
+          "sent_at": "2026-05-30T17:45:43.062047+00:00"
+        },
+        {
           "drive_pdf_url": "https://drive.google.com/file/d/1Z-02rb7M-XIwQ-NbVwLrlOewLvhJuD7w/view?usp=drivesdk",
           "name": "Heather Thomas",
           "resend_id": "d0bf4e0b-869e-4f21-9742-76f6028d750d",
@@ -430,7 +436,7 @@
           "sent_at": "2026-05-30T16:57:34.785145+00:00"
         }
       ],
-      "cert_count": 6,
+      "cert_count": 7,
       "course": "Fire Safety for Early Childhood Programs",
       "course_slug": "fire-safety-for-early-childhood-programs",
       "date": "2026-05-30",
