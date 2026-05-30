@@ -11,15 +11,15 @@
     "hours": "2",
     "format": "in-person"
   },
-  "Fire Safety for Early Childhood Professionals": {
+  "Fire Safety for Early Childhood Programs": {
     "template": "template_in_person.png",
-    "title_lines": ["Fire Safety for", "Early Childhood Professionals"],
+    "title_lines": ["Fire Safety for", "Early Childhood Programs"],
     "hours": "1.5",
     "format": "in-person"
   },
-  "Active Threat Preparedness for Early Childhood Professionals": {
+  "Active Threat Preparedness for Early Childhood Programs": {
     "template": "template_in_person.png",
-    "title_lines": ["Active Threat Preparedness for", "Early Childhood Professionals"],
+    "title_lines": ["Active Threat Preparedness for", "Early Childhood Programs"],
     "hours": "2",
     "format": "in-person"
   }
