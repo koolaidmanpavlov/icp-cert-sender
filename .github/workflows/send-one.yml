@@ -1,0 +1,50 @@
+name: Send one-off certificate
+
+on:
+  workflow_dispatch:
+    inputs:
+      full_name:
+        description: "Attendee full name (e.g., 'Chris Ratliff')"
+        type: string
+        required: true
+      email:
+        description: "Attendee email"
+        type: string
+        required: true
+      course_key:
+        description: "Course key (must match courses.json)"
+        type: string
+        required: true
+      course_date:
+        description: "Date string for cert (e.g., 'May 30, 2026')"
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install Python deps
+        run: pip install resend Pillow
+
+      - name: Render and send cert
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          ATTENDEE_NAME: ${{ inputs.full_name }}
+          ATTENDEE_EMAIL: ${{ inputs.email }}
+          COURSE_KEY: ${{ inputs.course_key }}
+          COURSE_DATE: ${{ inputs.course_date }}
+        run: python send_one.py
