@@ -10,5 +10,17 @@
     "title_lines": ["Legal Preparedness for", "Early Childhood Leaders"],
     "hours": "2",
     "format": "in-person"
+  },
+  "Fire Safety for Early Childhood Professionals": {
+    "template": "template_in_person.png",
+    "title_lines": ["Fire Safety for", "Early Childhood Professionals"],
+    "hours": "1.5",
+    "format": "in-person"
+  },
+  "Active Threat Preparedness for Early Childhood Professionals": {
+    "template": "template_in_person.png",
+    "title_lines": ["Active Threat Preparedness for", "Early Childhood Professionals"],
+    "hours": "2",
+    "format": "in-person"
   }
 }
