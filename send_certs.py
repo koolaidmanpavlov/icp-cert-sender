@@ -595,32 +595,66 @@ def session_date_from_timestamp(ts_str):
 
 def build_certs_json(sheets, drive, courses, rows):
     """
-    Walk the sheet for completed cert rows, group into sessions keyed by
-    'YYYY-MM-DD|<training>', resolve Drive file URLs by listing the dated
-    folder once per session, write data/certs.json.
+    Walk every sign-in row, group into sessions keyed by 'YYYY-MM-DD|<training>',
+    record reconciliation stats (sign-in count, certs sent, errors, pending),
+    resolve Drive file URLs by listing the dated folder once per session, and
+    capture sign-ins whose training name doesn't match any known course (the
+    Salem-VA failure mode — surfaces them at the top level so the daily digest
+    and scheduler reconciliation panel can flag them).
+    Writes data/certs.json.
     """
-    # Group rows by session key
     sessions = {}
+    unknown_course_rows = []
     for row in rows:
-        if not row["cert_sent"]:
-            continue
-        training = row["training"]
-        if training not in courses:
-            continue  # only known courses get a structured entry
         date_str = session_date_from_timestamp(row["timestamp"])
         if not date_str:
             continue
+        training = row["training"]
         full_name = f"{row['first']} {row['last']}".strip()
         if full_name.isupper() or full_name.islower():
             full_name = full_name.title()
-        sent_at, resend_id = parse_cert_sent(row["cert_sent"])
+
+        # Sign-ins whose training name doesn't match courses.json don't get a
+        # cert. This is the Salem-VA pattern. Surface them so they're visible
+        # without having to grep send_log.csv or the sheet.
+        if training not in courses:
+            unknown_course_rows.append({
+                "date": date_str,
+                "training": training,
+                "name": full_name,
+                "email": row.get("email", ""),
+                "timestamp": row["timestamp"],
+                "sheet_row": row.get("sheet_row"),
+            })
+            continue
+
         key = f"{date_str}|{training}"
         sess = sessions.setdefault(key, {
             "date": date_str,
             "course": training,
             "course_slug": re.sub(r"[^a-z0-9]+", "-", training.lower()).strip("-"),
             "attendees": [],
+            "errors": [],
+            "sign_in_count": 0,
+            "cert_pending_count": 0,
         })
+        sess["sign_in_count"] += 1
+
+        if row.get("cert_error"):
+            sess["errors"].append({
+                "name": full_name,
+                "email": row.get("email", ""),
+                "error": row["cert_error"],
+                "timestamp": row["timestamp"],
+                "sheet_row": row.get("sheet_row"),
+            })
+            continue
+
+        if not row["cert_sent"]:
+            sess["cert_pending_count"] += 1
+            continue
+
+        sent_at, resend_id = parse_cert_sent(row["cert_sent"])
         sess["attendees"].append({
             "name": full_name,
             "sanitized": sanitize(full_name),
@@ -653,17 +687,21 @@ def build_certs_json(sheets, drive, courses, rows):
         for a in sess["attendees"]:
             a.pop("sanitized", None)
         sess["cert_count"] = len(sess["attendees"])
+        sess["cert_error_count"] = len(sess["errors"])
         # Stable sort by attendee name
         sess["attendees"].sort(key=lambda a: a["name"].lower())
+        sess["errors"].sort(key=lambda e: e["name"].lower())
 
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "sessions": sessions,
+        "unknown_course_rows": unknown_course_rows,
     }
     os.makedirs(os.path.dirname(CERTS_JSON_PATH), exist_ok=True)
     with open(CERTS_JSON_PATH, "w") as f:
         json.dump(payload, f, indent=2, sort_keys=True)
-    print(f"Wrote {CERTS_JSON_PATH} with {len(sessions)} sessions")
+    print(f"Wrote {CERTS_JSON_PATH} with {len(sessions)} sessions, "
+          f"{len(unknown_course_rows)} unknown-course rows")
 
 
 def main():
