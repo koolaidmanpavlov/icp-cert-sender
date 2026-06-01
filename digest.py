@@ -41,6 +41,11 @@ DIGEST_FROM_EMAIL = "Institute for Childhood Preparedness <info@learn.icp.us>"
 DIGEST_TO_EMAIL = os.environ.get("DIGEST_TO_EMAIL", "andy@icp.us")
 RESEND_API_KEY = os.environ.get("RESEND_API_KEY", "")
 
+# Rows before this date predate the automated cert system — those certs were
+# sent manually. Exclude them from the persistent-issue sections so the digest
+# only surfaces actionable problems.
+DIGEST_IGNORE_BEFORE = "2026-05-25"
+
 
 def yesterday_eastern_date():
     """Return yesterday's date in US/Eastern as 'YYYY-MM-DD'. The sheet
@@ -63,8 +68,10 @@ def collect(rows, courses):
         full_name = f"{first} {last}".strip() or "(no name)"
         email = row.get("email", "")
 
-        # Persistent issues (any date, anything still unresolved)
-        if training not in courses:
+        # Persistent issues — only rows from the automated-system era
+        if date_str and date_str < DIGEST_IGNORE_BEFORE:
+            pass
+        elif training not in courses:
             persistent_unknowns.append({
                 "date": date_str or "?",
                 "training": training or "(blank)",

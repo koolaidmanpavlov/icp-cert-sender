@@ -614,9 +614,10 @@ def build_certs_json(sheets, drive, courses, rows):
         if full_name.isupper() or full_name.islower():
             full_name = full_name.title()
 
-        # Sign-ins whose training name doesn't match courses.json don't get a
-        # cert. This is the Salem-VA pattern. Surface them so they're visible
-        # without having to grep send_log.csv or the sheet.
+        # Pre-system rows were handled manually; exclude from reconciliation.
+        if date_str < "2026-05-25":
+            continue
+
         if training not in courses:
             unknown_course_rows.append({
                 "date": date_str,
