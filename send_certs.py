@@ -718,7 +718,7 @@ def main():
 
     now_utc = datetime.now(timezone.utc)
     min_age = timedelta(minutes=CERT_DELAY_MINUTES)
-    max_age = timedelta(hours=24)
+    max_age = timedelta(days=14)
 
     processed = skipped_already_sent = skipped_too_new = skipped_other = errors = 0
 
