@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T19:35:32.683559+00:00",
+  "generated_at": "2026-06-02T22:10:38.490192+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -543,7 +543,69 @@
         }
       ],
       "sign_in_count": 7
+    },
+    "2026-06-02|Active Threat Preparedness for Early Childhood Programs": {
+      "attendees": [
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/13ickosKvJTXr1P1K8BVxFy-X2WEkxU0q/view?usp=drivesdk",
+          "name": "cheryl Smith",
+          "resend_id": "9e09df7f-5ee4-4f16-bf3d-4bab7a0ea7b0",
+          "sent_at": "2026-06-02T22:10:32.715383+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1fPPbaPZkcyGVRTyfVAFRi0ZFubmGCh1T/view?usp=drivesdk",
+          "name": "Kaliyah McNeal",
+          "resend_id": "c6f89bcb-c6e9-4d55-9d42-85c48b419446",
+          "sent_at": "2026-06-02T22:10:27.367289+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1Q7r7KD_D4sLJXdCPnEBzljXk6nW4mYTp/view?usp=drivesdk",
+          "name": "Kimore Gover",
+          "resend_id": "6bdaf3da-820c-455c-bd1d-e2fb79d3e3d7",
+          "sent_at": "2026-06-02T22:10:24.702578+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1Z9c_hMFNFwDKEhauv4u_BhSOB8_z3-sK/view?usp=drivesdk",
+          "name": "Phyllis Watkins",
+          "resend_id": "dba7e7b4-3606-46df-a212-53473e42beac",
+          "sent_at": "2026-06-02T22:10:30.215393+00:00"
+        }
+      ],
+      "cert_count": 4,
+      "cert_error_count": 0,
+      "cert_pending_count": 0,
+      "course": "Active Threat Preparedness for Early Childhood Programs",
+      "course_slug": "active-threat-preparedness-for-early-childhood-programs",
+      "date": "2026-06-02",
+      "drive_folder_url": "https://drive.google.com/drive/folders/1lMMpUxY6bvDQirtBDn-W2qfAQX6mau6L",
+      "errors": [],
+      "sign_in_count": 4
     }
   },
-  "unknown_course_rows": []
+  "unknown_course_rows": [
+    {
+      "date": "2026-06-02",
+      "email": "Tyanne.love@yahoo.com",
+      "name": "Tyanne Love",
+      "sheet_row": 1339,
+      "timestamp": "6/2/2026 16:05:11",
+      "training": "Other"
+    },
+    {
+      "date": "2026-06-02",
+      "email": "dairyonna313@gmail.com",
+      "name": "Dairuonna Johnson",
+      "sheet_row": 1340,
+      "timestamp": "6/2/2026 16:05:59",
+      "training": "Other"
+    },
+    {
+      "date": "2026-06-02",
+      "email": "falisha@ylacorp.com",
+      "name": "Falisha Austin",
+      "sheet_row": 1341,
+      "timestamp": "6/2/2026 16:06:25",
+      "training": "Other"
+    }
+  ]
 }
