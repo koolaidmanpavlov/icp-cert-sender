@@ -2,8 +2,8 @@ name: Send pending certificates
 
 on:
   schedule:
-    # Every 15 minutes
-    - cron: "*/15 * * * *"
+    # Fallback safety net — primary trigger is the icp-scheduler CF Cron (session-aware)
+    - cron: "0 */6 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
