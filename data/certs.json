@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T22:10:38.490192+00:00",
+  "generated_at": "2026-06-03T00:01:04.333770+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -547,6 +547,18 @@
     "2026-06-02|Active Threat Preparedness for Early Childhood Programs": {
       "attendees": [
         {
+          "drive_pdf_url": "https://drive.google.com/file/d/1LywkZTe2UvQkkcgcrOJfKClLF5qlqOYW/view?usp=drivesdk",
+          "name": "Beverly Odoms",
+          "resend_id": "845d9d2b-336e-44bd-9fab-99279ee1a020",
+          "sent_at": "2026-06-03T00:00:52.192792+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1x2zpybczEFEl1wptQF-Xs3lOoOB0I-YN/view?usp=drivesdk",
+          "name": "Camille Odoms",
+          "resend_id": "95658d29-e299-4f73-b279-16b30036584e",
+          "sent_at": "2026-06-03T00:00:58.143063+00:00"
+        },
+        {
           "drive_pdf_url": "https://drive.google.com/file/d/13ickosKvJTXr1P1K8BVxFy-X2WEkxU0q/view?usp=drivesdk",
           "name": "cheryl Smith",
           "resend_id": "9e09df7f-5ee4-4f16-bf3d-4bab7a0ea7b0",
@@ -557,6 +569,12 @@
           "name": "Kaliyah McNeal",
           "resend_id": "c6f89bcb-c6e9-4d55-9d42-85c48b419446",
           "sent_at": "2026-06-02T22:10:27.367289+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1aOrLPI5mKPikWS4GKsW4DQwqI8_x-L58/view?usp=drivesdk",
+          "name": "Kiara Allen",
+          "resend_id": "9646d784-988d-466f-a558-a3e7f4c240c6",
+          "sent_at": "2026-06-03T00:00:55.089631+00:00"
         },
         {
           "drive_pdf_url": "https://drive.google.com/file/d/1Q7r7KD_D4sLJXdCPnEBzljXk6nW4mYTp/view?usp=drivesdk",
@@ -571,7 +589,7 @@
           "sent_at": "2026-06-02T22:10:30.215393+00:00"
         }
       ],
-      "cert_count": 4,
+      "cert_count": 7,
       "cert_error_count": 0,
       "cert_pending_count": 0,
       "course": "Active Threat Preparedness for Early Childhood Programs",
@@ -579,7 +597,7 @@
       "date": "2026-06-02",
       "drive_folder_url": "https://drive.google.com/drive/folders/1lMMpUxY6bvDQirtBDn-W2qfAQX6mau6L",
       "errors": [],
-      "sign_in_count": 4
+      "sign_in_count": 7
     }
   },
   "unknown_course_rows": [
@@ -605,6 +623,14 @@
       "name": "Falisha Austin",
       "sheet_row": 1341,
       "timestamp": "6/2/2026 16:06:25",
+      "training": "Other"
+    },
+    {
+      "date": "2026-06-02",
+      "email": "Alphatwoomegalc@gmail.com",
+      "name": "Camille Odoms",
+      "sheet_row": 1344,
+      "timestamp": "6/2/2026 16:14:57",
       "training": "Other"
     }
   ]
