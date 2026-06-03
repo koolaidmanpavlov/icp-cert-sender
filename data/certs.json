@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-03T00:01:04.333770+00:00",
+  "generated_at": "2026-06-03T02:16:33.725326+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -555,6 +555,12 @@
         {
           "drive_pdf_url": "https://drive.google.com/file/d/1x2zpybczEFEl1wptQF-Xs3lOoOB0I-YN/view?usp=drivesdk",
           "name": "Camille Odoms",
+          "resend_id": "69e803ad-b276-45b7-9ede-d3d87887f142",
+          "sent_at": "2026-06-03T02:16:27.118696+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1x2zpybczEFEl1wptQF-Xs3lOoOB0I-YN/view?usp=drivesdk",
+          "name": "Camille Odoms",
           "resend_id": "95658d29-e299-4f73-b279-16b30036584e",
           "sent_at": "2026-06-03T00:00:58.143063+00:00"
         },
@@ -563,6 +569,18 @@
           "name": "cheryl Smith",
           "resend_id": "9e09df7f-5ee4-4f16-bf3d-4bab7a0ea7b0",
           "sent_at": "2026-06-02T22:10:32.715383+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1JFi-D5vG16G8EWhath2bw0-JxKWry-IG/view?usp=drivesdk",
+          "name": "Dairuonna Johnson",
+          "resend_id": "92f02a47-3426-46a8-b3c8-9f783bab32b6",
+          "sent_at": "2026-06-03T02:16:20.547004+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/11RpLj0gTtP76bhNUYAJvVeqdjc4q1tfN/view?usp=drivesdk",
+          "name": "Falisha Austin",
+          "resend_id": "3b9164ed-0b2f-4eef-ba10-ef29da73d85b",
+          "sent_at": "2026-06-03T02:16:24.028208+00:00"
         },
         {
           "drive_pdf_url": "https://drive.google.com/file/d/1fPPbaPZkcyGVRTyfVAFRi0ZFubmGCh1T/view?usp=drivesdk",
@@ -587,9 +605,15 @@
           "name": "Phyllis Watkins",
           "resend_id": "dba7e7b4-3606-46df-a212-53473e42beac",
           "sent_at": "2026-06-02T22:10:30.215393+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1qd1WflawtqPaxZ3ZouB2x9La_y7zWxMo/view?usp=drivesdk",
+          "name": "Tyanne Love",
+          "resend_id": "e13b1fc6-52c6-459a-b039-cbb56ee394f2",
+          "sent_at": "2026-06-03T02:16:17.480148+00:00"
         }
       ],
-      "cert_count": 7,
+      "cert_count": 11,
       "cert_error_count": 0,
       "cert_pending_count": 0,
       "course": "Active Threat Preparedness for Early Childhood Programs",
@@ -597,41 +621,8 @@
       "date": "2026-06-02",
       "drive_folder_url": "https://drive.google.com/drive/folders/1lMMpUxY6bvDQirtBDn-W2qfAQX6mau6L",
       "errors": [],
-      "sign_in_count": 7
+      "sign_in_count": 11
     }
   },
-  "unknown_course_rows": [
-    {
-      "date": "2026-06-02",
-      "email": "Tyanne.love@yahoo.com",
-      "name": "Tyanne Love",
-      "sheet_row": 1339,
-      "timestamp": "6/2/2026 16:05:11",
-      "training": "Other"
-    },
-    {
-      "date": "2026-06-02",
-      "email": "dairyonna313@gmail.com",
-      "name": "Dairuonna Johnson",
-      "sheet_row": 1340,
-      "timestamp": "6/2/2026 16:05:59",
-      "training": "Other"
-    },
-    {
-      "date": "2026-06-02",
-      "email": "falisha@ylacorp.com",
-      "name": "Falisha Austin",
-      "sheet_row": 1341,
-      "timestamp": "6/2/2026 16:06:25",
-      "training": "Other"
-    },
-    {
-      "date": "2026-06-02",
-      "email": "Alphatwoomegalc@gmail.com",
-      "name": "Camille Odoms",
-      "sheet_row": 1344,
-      "timestamp": "6/2/2026 16:14:57",
-      "training": "Other"
-    }
-  ]
+  "unknown_course_rows": []
 }
