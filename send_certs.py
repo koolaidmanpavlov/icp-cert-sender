@@ -41,6 +41,7 @@ import io
 import json
 import os
 import re
+import socket
 import sys
 import time
 from datetime import datetime, timedelta, timezone
@@ -331,12 +332,44 @@ def gcp_clients():
     return sheets, drive
 
 
+def google_execute(request, label, retries=3, backoff_seconds=2.0):
+    """Execute a Google API request with light retry for transient runner hiccups."""
+    last_err = None
+    for attempt in range(1, retries + 1):
+        try:
+            return request.execute(num_retries=2)
+        except Exception as exc:
+            last_err = exc
+            transient = isinstance(exc, (TimeoutError, socket.timeout, OSError))
+            msg = str(exc).lower()
+            transient = transient or any(token in msg for token in (
+                "timeout",
+                "timed out",
+                "503",
+                "502",
+                "500",
+                "rate limit",
+                "connection reset",
+                "temporarily unavailable",
+            ))
+            if attempt < retries and transient:
+                sleep_for = backoff_seconds * attempt
+                print(f"  [{label}] transient Google API error, retrying in {sleep_for:.0f}s: {exc}")
+                time.sleep(sleep_for)
+                continue
+            raise last_err
+    raise last_err
+
+
 def read_sheet_rows(sheets):
     """Return all data rows from the sign-in sheet with their 1-indexed sheet row number."""
-    result = sheets.spreadsheets().values().get(
-        spreadsheetId=SHEET_ID,
-        range=f"'{SHEET_TAB}'!A:P",
-    ).execute()
+    result = google_execute(
+        sheets.spreadsheets().values().get(
+            spreadsheetId=SHEET_ID,
+            range=f"'{SHEET_TAB}'!A:P",
+        ),
+        "read-sheet",
+    )
     values = result.get("values", [])
     if not values:
         return []
@@ -359,21 +392,27 @@ def read_sheet_rows(sheets):
 
 
 def write_cert_sent(sheets, sheet_row, value):
-    sheets.spreadsheets().values().update(
-        spreadsheetId=SHEET_ID,
-        range=f"'{SHEET_TAB}'!{CERT_SENT_COL}{sheet_row}",
-        valueInputOption="RAW",
-        body={"values": [[value]]},
-    ).execute()
+    google_execute(
+        sheets.spreadsheets().values().update(
+            spreadsheetId=SHEET_ID,
+            range=f"'{SHEET_TAB}'!{CERT_SENT_COL}{sheet_row}",
+            valueInputOption="RAW",
+            body={"values": [[value]]},
+        ),
+        f"write-cert-sent-row-{sheet_row}",
+    )
 
 
 def write_cert_error(sheets, sheet_row, value):
-    sheets.spreadsheets().values().update(
-        spreadsheetId=SHEET_ID,
-        range=f"'{SHEET_TAB}'!{CERT_ERROR_COL}{sheet_row}",
-        valueInputOption="RAW",
-        body={"values": [[value]]},
-    ).execute()
+    google_execute(
+        sheets.spreadsheets().values().update(
+            spreadsheetId=SHEET_ID,
+            range=f"'{SHEET_TAB}'!{CERT_ERROR_COL}{sheet_row}",
+            valueInputOption="RAW",
+            body={"values": [[value]]},
+        ),
+        f"write-cert-error-row-{sheet_row}",
+    )
 
 
 # Shared Drive support: every Drive API call needs supportsAllDrives=True;
@@ -385,19 +424,28 @@ LIST_KWARGS = {"supportsAllDrives": True, "includeItemsFromAllDrives": True}
 def upload_pdf_to_drive(drive, pdf_bytes, filename, parent_folder_id):
     media = MediaIoBaseUpload(io.BytesIO(pdf_bytes), mimetype="application/pdf", resumable=False)
     body = {"name": filename, "parents": [parent_folder_id]}
-    f = drive.files().create(body=body, media_body=media, fields="id", **DRIVE_KWARGS).execute()
+    f = google_execute(
+        drive.files().create(body=body, media_body=media, fields="id", **DRIVE_KWARGS),
+        f"upload-drive-file-{filename}",
+    )
     return f["id"]
 
 
 def find_or_create_drive_folder(drive, name, parent_id):
     q = (f"name='{name}' and mimeType='application/vnd.google-apps.folder' "
          f"and '{parent_id}' in parents and trashed=false")
-    res = drive.files().list(q=q, fields="files(id)", **LIST_KWARGS).execute()
+    res = google_execute(
+        drive.files().list(q=q, fields="files(id)", **LIST_KWARGS),
+        f"find-drive-folder-{name}",
+    )
     items = res.get("files", [])
     if items:
         return items[0]["id"]
     meta = {"name": name, "mimeType": "application/vnd.google-apps.folder", "parents": [parent_id]}
-    f = drive.files().create(body=meta, fields="id", **DRIVE_KWARGS).execute()
+    f = google_execute(
+        drive.files().create(body=meta, fields="id", **DRIVE_KWARGS),
+        f"create-drive-folder-{name}",
+    )
     return f["id"]
 
 
@@ -561,7 +609,8 @@ def list_drive_folder_files(drive, folder_id):
             pageSize=1000,
             pageToken=page_token,
             **LIST_KWARGS,
-        ).execute()
+        )
+        resp = google_execute(resp, f"list-drive-folder-{folder_id}")
         for f in resp.get("files", []):
             out.append((f["name"], f["id"], f.get("webViewLink")))
         page_token = resp.get("nextPageToken")
@@ -574,9 +623,12 @@ def find_drive_subfolder(drive, parent_id, name):
     """Return (folder_id, web_view_link) for the named subfolder, or (None, None)."""
     q = (f"name='{name}' and mimeType='application/vnd.google-apps.folder' "
          f"and '{parent_id}' in parents and trashed=false")
-    res = drive.files().list(
-        q=q, fields="files(id, webViewLink)", **LIST_KWARGS,
-    ).execute()
+    res = google_execute(
+        drive.files().list(
+            q=q, fields="files(id, webViewLink)", **LIST_KWARGS,
+        ),
+        f"find-drive-subfolder-{name}",
+    )
     items = res.get("files", [])
     if not items:
         return None, None
@@ -712,8 +764,11 @@ def main():
     with open(COURSES_JSON) as f:
         courses = json.load(f)
 
-    sheets, drive = gcp_clients()
-    rows = read_sheet_rows(sheets)
+    try:
+        sheets, drive = gcp_clients()
+        rows = read_sheet_rows(sheets)
+    except Exception as exc:
+        sys.exit(f"ERROR: could not initialize Google clients or read the sign-in sheet: {exc}")
     print(f"Loaded {len(rows)} rows from sheet")
 
     now_utc = datetime.now(timezone.utc)
