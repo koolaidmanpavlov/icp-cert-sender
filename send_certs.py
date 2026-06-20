@@ -207,7 +207,7 @@ def send_with_retry(params, idempotency_key, max_attempts=2, backoff_seconds=2.0
 # ============================================================
 # EMAIL BODY (matches the canonical ICP post-course template)
 # ============================================================
-def build_email_html(first_name, course_title, pd_hours):
+def build_email_html(first_name, course_title, pd_hours, email=""):
     return f"""
 <!DOCTYPE html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -235,6 +235,8 @@ def build_email_html(first_name, course_title, pd_hours):
 <p>Need a better way to send safety reminders, weather alerts, and updates to your families? Our mobile texting platform makes it easy to reach every parent instantly. Learn more at <a href="https://childhoodpreparedness.org/texting">childhoodpreparedness.org/texting</a>.</p>
 <h3>🎧 Early Childhood Chats Podcast</h3>
 <p>Check out our <a href="https://earlychildhoodchats.com">Early Childhood Chats</a> podcast for expert discussions, practical tips, and the latest in early childhood education.</p>
+<h3>📬 Stay in the Loop — Be Prepared Newsletter</h3>
+<p>Our free newsletter, <strong>Be Prepared</strong>, goes out to early childhood professionals across the country with practical safety guidance, policy updates, and training resources. If you'd like to receive it, you can <a href="https://icp.us/?email={email}#resources">sign up here</a> — your email will already be filled in.</p>
 <p>Thank you again for being part of today's session. If you have questions about anything we covered, don't hesitate to reach out.</p>
 <p>Stay safe out there,</p>
 <div class="signature">
@@ -527,7 +529,7 @@ def process_row(row, course_config, sheets, drive):
         "to": [row["email"]],
         "reply_to": REPLY_TO,
         "subject": subject,
-        "html": build_email_html(first, row["training"], course_config["hours"]),
+        "html": build_email_html(first, row["training"], course_config["hours"], row["email"]),
         "attachments": [{
             "filename": f"Certificate - {full_name}.pdf",
             "content": base64.b64encode(pdf_bytes).decode(),
