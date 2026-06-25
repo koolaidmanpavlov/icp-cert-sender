@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T02:31:08.366231+00:00",
+  "generated_at": "2026-06-25T03:01:17.502929+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -626,13 +626,37 @@
     "2026-06-24|Fire Safety for Early Childhood Programs": {
       "attendees": [
         {
+          "drive_pdf_url": "https://drive.google.com/file/d/1O_y9SmvJLZLErQAhAv1dZsl3TgE1_alT/view?usp=drivesdk",
+          "name": "B .Elizabeth Zamora",
+          "resend_id": "a0df53cb-b05b-41be-8ff4-26991d7627b7",
+          "sent_at": "2026-06-25T03:01:02.184844+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1GYlpJa-ugLu-ZlqEZ9w_j3VBjkuFhg28/view?usp=drivesdk",
+          "name": "Juana Gabriela Hong",
+          "resend_id": "1cd4cf50-6694-4fc7-980a-33f920df1dab",
+          "sent_at": "2026-06-25T03:01:04.918590+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1yT_S5CuF_was1h4PTdmWX3HRdkvfE3Jh/view?usp=drivesdk",
+          "name": "Julia Diaz",
+          "resend_id": "3fc9732d-c041-4d04-8b94-53219efa9e6f",
+          "sent_at": "2026-06-25T03:01:10.537654+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/17ZK0HvDeDtBeoA4gv10C4RODHcRew_v0/view?usp=drivesdk",
+          "name": "Kathya Barahona",
+          "resend_id": "567886b1-f12f-49a4-83c2-8b4c20bebac1",
+          "sent_at": "2026-06-25T03:01:07.757230+00:00"
+        },
+        {
           "drive_pdf_url": "https://drive.google.com/file/d/1tULEyeTfnzTdWjzlYhsYm8P7-m_eRYyb/view?usp=drivesdk",
           "name": "Rosario Villanueva",
           "resend_id": "4db40dd8-ac08-4fc6-9e64-b344561d3d71",
           "sent_at": "2026-06-25T02:05:44.871966+00:00"
         }
       ],
-      "cert_count": 1,
+      "cert_count": 5,
       "cert_error_count": 1,
       "cert_pending_count": 0,
       "course": "Fire Safety for Early Childhood Programs",
@@ -648,7 +672,7 @@
           "timestamp": "6/24/2026 20:02:17"
         }
       ],
-      "sign_in_count": 2
+      "sign_in_count": 6
     }
   },
   "unknown_course_rows": []
