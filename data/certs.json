@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T14:00:07.586309+00:00",
+  "generated_at": "2026-06-25T18:32:06.223091+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -665,7 +665,7 @@
       "drive_folder_url": "https://drive.google.com/drive/folders/1-YmBnCUUtf510o7svTal08lGjJ4eU0zQ",
       "errors": [
         {
-          "email": "susana1127@gmail.com",
+          "email": "susana1127luna@gmail.com",
           "error": "email mismatch",
           "name": "Susana Luna",
           "sheet_row": 1349,
@@ -673,7 +673,169 @@
         }
       ],
       "sign_in_count": 6
+    },
+    "2026-06-25|De-Escalation Techniques for Early Childhood Professionals": {
+      "attendees": [
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1-yo8ruIy_-TDhyr_VD1nkI4U7aSsWtL4/view?usp=drivesdk",
+          "name": "Alleysen Dailey-Lee",
+          "resend_id": "940e9f77-3488-4777-b7e6-38d7777800c7",
+          "sent_at": "2026-06-25T18:31:01.181786+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1kgubzUeehAGiLLwAg_zz0kpsTeHLjvbu/view?usp=drivesdk",
+          "name": "Audraetta Drake",
+          "resend_id": "2999c549-c72f-4b57-b348-b9c7bd5127f2",
+          "sent_at": "2026-06-25T18:31:56.585293+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1nwjlhxX7aSjiFbdgB890q2CTxVm00zJH/view?usp=drivesdk",
+          "name": "Ayde Dominguez",
+          "resend_id": "537030ad-9745-4a24-9581-96e5149cf157",
+          "sent_at": "2026-06-25T18:31:51.258672+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1GZlDMZDJ1AfuvzwpKkCz4LmdART4KDIF/view?usp=drivesdk",
+          "name": "Brenda Mayorga",
+          "resend_id": "b39fc9c3-5bdc-42da-a3ce-0f034fe539e8",
+          "sent_at": "2026-06-25T18:31:43.523589+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1F1Dg7lMTUUf1fomMU_b2wbLo83MVW2Zi/view?usp=drivesdk",
+          "name": "Deysi Hernandez",
+          "resend_id": "bc69ad90-454b-46b6-a5b7-57303ef7343c",
+          "sent_at": "2026-06-25T18:31:09.837696+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1e_05wjOZYDwhyKnEDNOs6tEupW_V1OHa/view?usp=drivesdk",
+          "name": "Edith Shepard",
+          "resend_id": "4e32ec3d-61ce-4a49-acda-1679b3eda36f",
+          "sent_at": "2026-06-25T18:31:54.073402+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/11mTiBoTACWb0pmhQsqZJjfedRFgi09S1/view?usp=drivesdk",
+          "name": "Gabriela Olguin",
+          "resend_id": "60ba28a8-39ca-4e86-90c1-d89f25c4085a",
+          "sent_at": "2026-06-25T18:31:15.646484+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/15bL35_R4s-y67Flo9j1GXPSMEJtjkKDR/view?usp=drivesdk",
+          "name": "Gabrielle Hawthorne",
+          "resend_id": "c2477c3c-75aa-4c20-a6ec-89db088e6615",
+          "sent_at": "2026-06-25T18:31:29.432470+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1QloK5D2ej5i8D0nYngo9GCq4KzP-JGi1/view?usp=drivesdk",
+          "name": "JaShone Titus",
+          "resend_id": "ff31c857-f3e2-4576-92f1-542e17042dd0",
+          "sent_at": "2026-06-25T18:31:40.409319+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1KGZgcGtINe5wFne3hdlGRIoP5TF2--Tn/view?usp=drivesdk",
+          "name": "Juvi Ayala",
+          "resend_id": "8fecd8c8-3f02-4943-b163-3b4314a89e42",
+          "sent_at": "2026-06-25T18:31:06.881081+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1Pig9hn7EaEFvWz3_ThCvph2j7tWOjsMW/view?usp=drivesdk",
+          "name": "Kassani Johnson",
+          "resend_id": "04ba3dc2-ed0f-421d-bda1-8d584dd35e00",
+          "sent_at": "2026-06-25T18:31:21.037781+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1CCp6PBev2L5XUZDM1SapZW_lLnaIZ2oZ/view?usp=drivesdk",
+          "name": "Liliane Kifumbi",
+          "resend_id": "0f0cdd43-6fee-4610-a3df-038f4834e38d",
+          "sent_at": "2026-06-25T18:31:23.874099+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/19DDRHoG53zCVeQLzyPeHQE66Ec573z7M/view?usp=drivesdk",
+          "name": "Maria Sanchez",
+          "resend_id": "34b35a90-6809-4ad2-b562-ff4a72ba16e4",
+          "sent_at": "2026-06-25T18:31:37.540822+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1UFJaRJndEnksysT2efNpXZ_2T9mNkV2t/view?usp=drivesdk",
+          "name": "Myrna Delgadillo",
+          "resend_id": "04b774d8-ac10-486a-bb5a-feb0a22c0acd",
+          "sent_at": "2026-06-25T18:31:32.120080+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/119qABAXdfnOvym6Zuzhrx_qSuCn4TbV1/view?usp=drivesdk",
+          "name": "Nelida Barquera",
+          "resend_id": "f8bf6ac6-ef8a-4f16-bbae-47aef80a6dc4",
+          "sent_at": "2026-06-25T18:31:18.364635+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1iI2BFdRt3JKyIsSoUi13HFm_3iHgxphc/view?usp=drivesdk",
+          "name": "Norma Martinez",
+          "resend_id": "0c006617-caa2-408f-8b96-e09390c73229",
+          "sent_at": "2026-06-25T18:31:26.456379+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1F-nT9M-Z1S93Hl4vBTQ4SY2l5d8r3Hzm/view?usp=drivesdk",
+          "name": "Paislie Nagel",
+          "resend_id": "2c7ccd10-77af-432e-bce7-6729f0985817",
+          "sent_at": "2026-06-25T18:31:04.112654+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/11zdzrfpWdDefdAy05z330oiW-_4GCMG6/view?usp=drivesdk",
+          "name": "Renay McAfee",
+          "resend_id": "4c2f4a3e-77fc-407c-870f-e897528dc282",
+          "sent_at": "2026-06-25T18:31:12.817469+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1dGYEJrvonxJKN2lsjgmYQiHUciAAQTOi/view?usp=drivesdk",
+          "name": "Sequetta Collins",
+          "resend_id": "457c7c1a-190a-4d94-8a23-930bf60c27fe",
+          "sent_at": "2026-06-25T18:31:48.564799+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1OlenonMkXUpwMuHibUJEi1Xz8As1DXgK/view?usp=drivesdk",
+          "name": "Shacondria Perry",
+          "resend_id": "49938252-988c-4a1c-82d0-0530b1e00699",
+          "sent_at": "2026-06-25T18:31:59.315504+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1xesg9YaGb2AHeI9ZcySZFbkp7HS5751t/view?usp=drivesdk",
+          "name": "Tania Mazariegos",
+          "resend_id": "81543e49-427d-4e1e-868d-d2346df30296",
+          "sent_at": "2026-06-25T18:31:34.742299+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/13r6J8Je-FR2S47LwQ-JwACUIlfC9_6Tx/view?usp=drivesdk",
+          "name": "Tina Green",
+          "resend_id": "2d5cccc9-cc65-4a52-bf97-bb8f762426d5",
+          "sent_at": "2026-06-25T18:31:46.070370+00:00"
+        }
+      ],
+      "cert_count": 22,
+      "cert_error_count": 1,
+      "cert_pending_count": 0,
+      "course": "De-Escalation Techniques for Early Childhood Professionals",
+      "course_slug": "de-escalation-techniques-for-early-childhood-professionals",
+      "date": "2026-06-25",
+      "drive_folder_url": "https://drive.google.com/drive/folders/1e-0Q_nyxTYfCC0x3S2luDx_f4nNWHqhg",
+      "errors": [
+        {
+          "email": "quinterolaura400@gmail.com",
+          "error": "email mismatch",
+          "name": "Laura Quintero Santiago",
+          "sheet_row": 1370,
+          "timestamp": "6/25/2026 11:14:40"
+        }
+      ],
+      "sign_in_count": 23
     }
   },
-  "unknown_course_rows": []
+  "unknown_course_rows": [
+    {
+      "date": "2026-06-25",
+      "email": "mondragonsantos13@gmail.com",
+      "name": "Maria Santos",
+      "sheet_row": 1360,
+      "timestamp": "6/25/2026 11:03:50",
+      "training": "Other"
+    }
+  ]
 }
