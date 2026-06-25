@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-24T19:25:04.137593+00:00",
+  "generated_at": "2026-06-25T02:05:52.299325+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -622,6 +622,33 @@
       "drive_folder_url": "https://drive.google.com/drive/folders/1lMMpUxY6bvDQirtBDn-W2qfAQX6mau6L",
       "errors": [],
       "sign_in_count": 11
+    },
+    "2026-06-24|Fire Safety for Early Childhood Programs": {
+      "attendees": [
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1tULEyeTfnzTdWjzlYhsYm8P7-m_eRYyb/view?usp=drivesdk",
+          "name": "Rosario Villanueva",
+          "resend_id": "4db40dd8-ac08-4fc6-9e64-b344561d3d71",
+          "sent_at": "2026-06-25T02:05:44.871966+00:00"
+        }
+      ],
+      "cert_count": 1,
+      "cert_error_count": 1,
+      "cert_pending_count": 0,
+      "course": "Fire Safety for Early Childhood Programs",
+      "course_slug": "fire-safety-for-early-childhood-programs",
+      "date": "2026-06-24",
+      "drive_folder_url": "https://drive.google.com/drive/folders/1-YmBnCUUtf510o7svTal08lGjJ4eU0zQ",
+      "errors": [
+        {
+          "email": "susana1127@gmail.com",
+          "error": "email mismatch",
+          "name": "Susana Luna",
+          "sheet_row": 1349,
+          "timestamp": "6/24/2026 20:02:17"
+        }
+      ],
+      "sign_in_count": 2
     }
   },
   "unknown_course_rows": []
