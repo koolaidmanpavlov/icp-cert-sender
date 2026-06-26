@@ -220,12 +220,20 @@ def build_email_html(first_name, course_title, pd_hours, email=""):
   .signature {{ margin-top: 28px; line-height: 1.5; }}
   .signature .name {{ font-weight: bold; }}
   .footer {{ margin-top: 32px; padding-top: 20px; border-top: 1px solid #E5E7EB; color: #6B7280; font-size: 13px; }}
+  .newsletter-cta {{ margin: 28px 0; padding: 20px 24px; background: #F0F7FF; border-left: 4px solid #0F4C75; border-radius: 4px; }}
+  .newsletter-cta p {{ margin: 0 0 14px 0; }}
+  .newsletter-cta a.btn {{ display: inline-block; background: #0F4C75; color: #ffffff !important; text-decoration: none; padding: 10px 22px; border-radius: 4px; font-family: Georgia, serif; font-size: 15px; font-weight: bold; }}
 </style></head><body>
 <div class="container">
 <p>Hi {first_name},</p>
 <p>Thanks again for joining us for <strong>{course_title}</strong>! We really appreciated your time and participation. Your energy and engagement made it a meaningful session.</p>
 <p>Your certificate of attendance is attached. This session counts as <strong>{pd_hours} hours of professional development</strong>.</p>
 <p>📝 We'd love your feedback &mdash; it only takes a minute at <a href="https://bit.ly/icpeval">bit.ly/icpeval</a>.</p>
+<div class="newsletter-cta">
+<p><strong>Stay connected — join the Be Prepared newsletter</strong><br>
+Every month, early childhood professionals across the country get practical safety guidance, policy updates, and training resources delivered to their inbox. It's free, and it's written for people doing exactly what you do.</p>
+<a href="https://icp.us/?email={email}#resources" class="btn">Subscribe — it's free</a>
+</div>
 <h3>🚨 Interested in more training for your team?</h3>
 <p>We offer virtual and in-person sessions on preparedness, safety, and de-escalation. Feel free to forward this to your supervisor or reply here and I can help. Learn more at <a href="https://childhoodpreparedness.org">childhoodpreparedness.org</a>.</p>
 <h2>Tools to Help Keep Your Program Safe</h2>
@@ -235,8 +243,6 @@ def build_email_html(first_name, course_title, pd_hours, email=""):
 <p>Need a better way to send safety reminders, weather alerts, and updates to your families? Our mobile texting platform makes it easy to reach every parent instantly. Learn more at <a href="https://childhoodpreparedness.org/texting">childhoodpreparedness.org/texting</a>.</p>
 <h3>🎧 Early Childhood Chats Podcast</h3>
 <p>Check out our <a href="https://earlychildhoodchats.com">Early Childhood Chats</a> podcast for expert discussions, practical tips, and the latest in early childhood education.</p>
-<h3>📬 Stay in the Loop — Be Prepared Newsletter</h3>
-<p>Our free newsletter, <strong>Be Prepared</strong>, goes out to early childhood professionals across the country with practical safety guidance, policy updates, and training resources. If you'd like to receive it, you can <a href="https://icp.us/?email={email}#resources">sign up here</a> — your email will already be filled in.</p>
 <p>Thank you again for being part of today's session. If you have questions about anything we covered, don't hesitate to reach out.</p>
 <p>Stay safe out there,</p>
 <div class="signature">
