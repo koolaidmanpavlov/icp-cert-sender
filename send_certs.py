@@ -232,25 +232,25 @@ def build_email_html(first_name, course_title, pd_hours, email=""):
 <div class="newsletter-cta">
 <p><strong>Stay connected — join the Be Prepared newsletter</strong><br>
 Every month, early childhood professionals across the country get practical safety guidance, policy updates, and training resources delivered to their inbox. It's free, and it's written for people doing exactly what you do.</p>
-<a href="https://icp.us/?email={email}#resources" class="btn">Subscribe — it's free</a>
+<a href="https://icp.us/?email={email}#resources" class="btn">Click here to subscribe</a>
 </div>
 <h3>🚨 Interested in more training for your team?</h3>
-<p>We offer virtual and in-person sessions on preparedness, safety, and de-escalation. Feel free to forward this to your supervisor or reply here and I can help. Learn more at <a href="https://childhoodpreparedness.org">childhoodpreparedness.org</a>.</p>
+<p>We offer virtual and in-person sessions on preparedness, safety, and de-escalation. Feel free to forward this to your supervisor or reply here and I can help. Learn more at <a href="https://icp.us">icp.us</a>.</p>
 <h2>Tools to Help Keep Your Program Safe</h2>
 <h3>📡 Two-Way Radios for Child Care Programs</h3>
 <p>Real-time communication is critical during emergencies, transportation, and everyday operations. Our push-to-talk walkie talkies are designed specifically for early childhood programs and trusted by over 6,000 programs nationwide, including U.S. military installations. Learn more at <a href="https://walkietalkies.us">walkietalkies.us</a>.</p>
 <h3>📱 Mobile Texting for Parent Communication</h3>
-<p>Need a better way to send safety reminders, weather alerts, and updates to your families? Our mobile texting platform makes it easy to reach every parent instantly. Learn more at <a href="https://childhoodpreparedness.org/texting">childhoodpreparedness.org/texting</a>.</p>
+<p>Need a better way to send safety reminders, weather alerts, and updates to your families? Our mobile texting platform makes it easy to reach every parent instantly. Learn more at <a href="https://icp.us/texting">icp.us/texting</a>.</p>
 <h3>🎧 Early Childhood Chats Podcast</h3>
 <p>Check out our <a href="https://earlychildhoodchats.com">Early Childhood Chats</a> podcast for expert discussions, practical tips, and the latest in early childhood education.</p>
 <p>Thank you again for being part of today's session. If you have questions about anything we covered, don't hesitate to reach out.</p>
 <p>Stay safe out there,</p>
 <div class="signature">
 <span class="name">Andy Roszak, JD, MPA</span><br>
-Founder &amp; Executive Director<br>
+Founder &amp; CEO<br>
 Institute for Childhood Preparedness<br>
 <a href="mailto:andy@icp.us">andy@icp.us</a> &nbsp;|&nbsp; 202-247-6903<br>
-<a href="https://childhoodpreparedness.org">childhoodpreparedness.org</a>
+<a href="https://icp.us">icp.us</a>
 </div>
 <div class="footer">You're receiving this because you signed in for {course_title}.</div>
 </div></body></html>
