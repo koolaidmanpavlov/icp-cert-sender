@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T10:18:47.247194+00:00",
+  "generated_at": "2026-06-29T15:26:51.903427+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -811,7 +811,7 @@
       ],
       "cert_count": 22,
       "cert_error_count": 1,
-      "cert_pending_count": 0,
+      "cert_pending_count": 1,
       "course": "De-Escalation Techniques for Early Childhood Professionals",
       "course_slug": "de-escalation-techniques-for-early-childhood-professionals",
       "date": "2026-06-25",
@@ -825,17 +825,8 @@
           "timestamp": "6/25/2026 11:14:40"
         }
       ],
-      "sign_in_count": 23
+      "sign_in_count": 24
     }
   },
-  "unknown_course_rows": [
-    {
-      "date": "2026-06-25",
-      "email": "mondragonsantos13@gmail.com",
-      "name": "Maria Santos",
-      "sheet_row": 1360,
-      "timestamp": "6/25/2026 11:03:50",
-      "training": "Other"
-    }
-  ]
+  "unknown_course_rows": []
 }
