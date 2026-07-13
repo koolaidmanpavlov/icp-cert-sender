@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T13:59:57.753564+00:00",
+  "generated_at": "2026-07-13T19:09:12.373438+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -826,6 +826,25 @@
         }
       ],
       "sign_in_count": 24
+    },
+    "2026-07-13|De-Escalation Techniques for Early Childhood Professionals": {
+      "attendees": [
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1QBjMOwOef-VNFmIYTjRpR-yr95hg7-NR/view?usp=drivesdk",
+          "name": "Leslie Cavazos",
+          "resend_id": "6e2467b6-fbe7-4042-ad6c-fc0affd5f483",
+          "sent_at": "2026-07-13T19:09:02.909649+00:00"
+        }
+      ],
+      "cert_count": 1,
+      "cert_error_count": 0,
+      "cert_pending_count": 0,
+      "course": "De-Escalation Techniques for Early Childhood Professionals",
+      "course_slug": "de-escalation-techniques-for-early-childhood-professionals",
+      "date": "2026-07-13",
+      "drive_folder_url": "https://drive.google.com/drive/folders/1_fudiOIB9_NXoQ5E0Nm1Adfh12WABEN7",
+      "errors": [],
+      "sign_in_count": 1
     }
   },
   "unknown_course_rows": [
