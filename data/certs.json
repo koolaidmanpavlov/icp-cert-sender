@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T18:43:21.964637+00:00",
+  "generated_at": "2026-07-19T01:25:32.363130+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -827,6 +827,18 @@
       ],
       "sign_in_count": 24
     },
+    "2026-07-08|De-Escalation Techniques for Early Childhood Professionals": {
+      "attendees": [],
+      "cert_count": 0,
+      "cert_error_count": 0,
+      "cert_pending_count": 1,
+      "course": "De-Escalation Techniques for Early Childhood Professionals",
+      "course_slug": "de-escalation-techniques-for-early-childhood-professionals",
+      "date": "2026-07-08",
+      "drive_folder_url": null,
+      "errors": [],
+      "sign_in_count": 1
+    },
     "2026-07-13|De-Escalation Techniques for Early Childhood Professionals": {
       "attendees": [
         {
@@ -847,14 +859,5 @@
       "sign_in_count": 1
     }
   },
-  "unknown_course_rows": [
-    {
-      "date": "2026-07-08",
-      "email": "dainyacain688@gmail.com",
-      "name": "Dainya Cain",
-      "sheet_row": 1378,
-      "timestamp": "7/8/2026 8:23:36",
-      "training": "Other"
-    }
-  ]
+  "unknown_course_rows": []
 }
