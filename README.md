@@ -11,7 +11,7 @@ GitHub Actions cron job that sends ICP training certificates automatically based
    - Finds rows where: sign-in is 90+ min old, training matches a course in `courses.json`, and `cert_sent` is empty
    - Generates a cert PDF (Pillow overlays attendee name + course title + date/hours on a blank PNG template)
    - Sends via Resend with the standard ICP post-course email body and cert attached
-   - Uploads the PDF to a designated Google Drive folder (ISET audit backup)
+   - Uploads the PDF to a designated Google Drive folder (IACET audit backup)
    - Writes `<ISO timestamp> resend:<id>` back to the `cert_sent` column so the row is never reprocessed
 4. Failed sends write the error to the `cert_send_error` column for debugging.
 
@@ -49,6 +49,25 @@ WIF config:
    - `format`: `"webinar"` or `"in-person"` (informational)
 2. Commit and push. Next cron run picks it up.
 
+## Combined multi-course sessions (e.g. two abbreviated back-to-back trainings)
+
+The scheduler's sign-in form pre-fills the training field by joining every
+segment's course name with `" + "` when a session bundles more than one
+course (see `courseLabel()` in `icpbees/src/signin-pages.js`). The cert
+sender splits on that separator (`known_course_names()` in `send_certs.py`)
+and treats the row as known as long as every part matches a `courses.json`
+key — no need to pre-register the specific combination. One sign-in produces
+one email with one PDF attachment per course, each with its own PD hours.
+
+`courses.json`'s `hours` value is a *default* for that course's normal
+full-length delivery. If the scheduler session (via `SCHEDULER_SESSIONS_URL`,
+default `https://tools.icp.us/api/sessions/list`) has a segment for that
+course on the sign-in date with its own start/end time, the cert sender uses
+the actual scheduled duration instead — this is what makes an abbreviated
+45-minute session bill correct PD hours rather than the course's usual 2.
+Set a segment's own time on the scheduler session-detail page (only needed
+when a segment's time differs from the session's overall start/end).
+
 ## Sign-in sheet schema
 
 Columns A–N are the original form columns. We added:
@@ -62,7 +81,7 @@ Cron runs every 15 min, but cron timing on GitHub Actions can drift by 5–20 mi
 - GitHub repo → **Actions** tab → **Send pending certificates** workflow → **Run workflow** button (top-right)
 - Optional: toggle "Dry run" to log what *would* happen without actually sending
 
-## ISET audit trail
+## IACET audit trail
 
 For any given attendee, three independent sources:
 

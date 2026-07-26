@@ -33,6 +33,7 @@ from send_certs import (
     COURSES_JSON,
     SHEET_ID,
     gcp_clients,
+    known_course_names,
     read_sheet_rows,
     session_date_from_timestamp,
 )
@@ -63,6 +64,10 @@ def collect(rows, courses):
     for row in rows:
         date_str = session_date_from_timestamp(row["timestamp"])
         training = row["training"]
+        # Combined multi-course sign-ins (e.g. "A + B") are known as long as
+        # every part matches a course — see known_course_names() in
+        # send_certs.py, which the cert sender uses for the same gate.
+        is_known = bool(known_course_names(training, courses))
         first = row.get("first", "")
         last = row.get("last", "")
         full_name = f"{first} {last}".strip() or "(no name)"
@@ -71,7 +76,7 @@ def collect(rows, courses):
         # Persistent issues — only rows from the automated-system era
         if date_str and date_str < DIGEST_IGNORE_BEFORE:
             pass
-        elif training not in courses:
+        elif not is_known:
             persistent_unknowns.append({
                 "date": date_str or "?",
                 "training": training or "(blank)",
@@ -98,10 +103,10 @@ def collect(rows, courses):
                 "certs": 0,
                 "pending": 0,
                 "errors": 0,
-                "unknown_course": training not in courses,
+                "unknown_course": not is_known,
             })
             sess["sign_ins"] += 1
-            if training not in courses:
+            if not is_known:
                 pass  # already counted; cert sender skips these
             elif row.get("cert_error") and not row.get("cert_sent"):
                 sess["errors"] += 1

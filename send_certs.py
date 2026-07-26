@@ -62,6 +62,88 @@ TEMPLATE_DIR = os.path.join(REPO_ROOT, "cert_templates")
 RESEND_API_KEY = os.environ.get("RESEND_API_KEY", "")
 SHEET_ID = os.environ.get("SHEET_ID", "")
 DRIVE_BACKUP_FOLDER_ID = os.environ.get("DRIVE_BACKUP_FOLDER_ID", "")
+
+# ============================================================
+# MULTI-COURSE SESSIONS
+#
+# The scheduler's sign-in courseLabel() joins every segment's course name
+# with " + " when a session bundles more than one course (e.g. two
+# abbreviated back-to-back trainings signed in under one form submission).
+# Splitting here — rather than requiring a matching combined key in
+# courses.json — means any pairing of existing courses works without
+# pre-registering every combination.
+# ============================================================
+TRAINING_SEPARATOR = " + "
+
+
+def split_training_names(training):
+    if not training:
+        return []
+    return [t.strip() for t in training.split(TRAINING_SEPARATOR) if t.strip()]
+
+
+def known_course_names(training, courses):
+    """Returns the list of individual course names if `training` is either a
+    single known course or a ' + '-joined combo where every part is known;
+    otherwise None (unknown-course row, same as before)."""
+    names = split_training_names(training)
+    if names and all(n in courses for n in names):
+        return names
+    return None
+
+
+# ============================================================
+# PD HOURS FROM THE SCHEDULER
+#
+# courses.json's "hours" is a static default for a course's normal
+# full-length delivery. When a course is taught as a shortened or combined
+# session, the real duration lives in the scheduler (tools.icp.us) as
+# per-segment start/end times. We look those up and prefer them; if nothing
+# matches (the common case — most sessions aren't abbreviated), we fall back
+# to the static courses.json value, so single-course, normal-length sign-ins
+# behave exactly as before.
+# ============================================================
+SCHEDULER_SESSIONS_URL = os.environ.get("SCHEDULER_SESSIONS_URL", "https://tools.icp.us/api/sessions/list")
+_scheduler_sessions_cache = None
+
+
+def fetch_scheduler_sessions():
+    global _scheduler_sessions_cache
+    if _scheduler_sessions_cache is not None:
+        return _scheduler_sessions_cache
+    try:
+        r = requests.get(SCHEDULER_SESSIONS_URL, timeout=8)
+        r.raise_for_status()
+        _scheduler_sessions_cache = r.json().get("sessions", [])
+    except Exception as exc:
+        print(f"  [scheduler] warning: could not fetch session list — {exc}")
+        _scheduler_sessions_cache = []
+    return _scheduler_sessions_cache
+
+
+def _minutes_since_midnight(hhmm):
+    try:
+        h, m = hhmm.split(":")
+        return int(h) * 60 + int(m)
+    except Exception:
+        return None
+
+
+def resolve_course_hours(course_name, date_str, default_hours):
+    for sess in fetch_scheduler_sessions():
+        if sess.get("date") != date_str:
+            continue
+        for seg in sess.get("segments", []):
+            if seg.get("course_name") != course_name:
+                continue
+            start = seg.get("start_time") or sess.get("start_time")
+            end = seg.get("end_time") or sess.get("end_time")
+            start_m, end_m = _minutes_since_midnight(start), _minutes_since_midnight(end)
+            if start_m is None or end_m is None or end_m <= start_m:
+                continue
+            hours = round((end_m - start_m) / 60 * 4) / 4  # nearest quarter hour
+            return str(int(hours)) if hours == int(hours) else str(hours)
+    return default_hours
 CERT_DELAY_MINUTES = int(os.environ.get("CERT_DELAY_MINUTES", "90"))
 DRY_RUN = os.environ.get("DRY_RUN", "") == "1"
 
@@ -207,7 +289,24 @@ def send_with_retry(params, idempotency_key, max_attempts=2, backoff_seconds=2.0
 # ============================================================
 # EMAIL BODY (matches the canonical ICP post-course template)
 # ============================================================
-def build_email_html(first_name, course_title, pd_hours, email=""):
+def build_email_html(first_name, courses_for_email, email=""):
+    """courses_for_email: list of (course_title, pd_hours) tuples in sign-in
+    order. The single-course case (the overwhelming majority of sign-ins)
+    renders identically to the original single-course template; a combined
+    sign-in (two back-to-back trainings under one form submission) gets a
+    joint intro plus a per-course PD-hours breakdown so each course's hours
+    stay distinct on the record."""
+    if len(courses_for_email) == 1:
+        course_title, pd_hours = courses_for_email[0]
+        intro_html = f"<p>Thanks again for joining us for <strong>{course_title}</strong>! We really appreciated your time and participation. Your energy and engagement made it a meaningful session.</p>"
+        cert_html = f'<p>Your certificate of attendance is attached. This session counts as <strong>{pd_hours} hours of professional development</strong>.</p>'
+        footer_courses = course_title
+    else:
+        names = " and ".join(c for c, _ in courses_for_email)
+        intro_html = f"<p>Thanks again for joining us for <strong>{names}</strong>! We really appreciated your time and participation. Your energy and engagement made it a meaningful session.</p>"
+        hours_items = "".join(f"<li><strong>{c}</strong> &mdash; {h} hours of professional development</li>" for c, h in courses_for_email)
+        cert_html = f'<p>Your certificates of attendance are attached, one per training:</p><ul>{hours_items}</ul>'
+        footer_courses = names
     return f"""
 <!DOCTYPE html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -226,8 +325,8 @@ def build_email_html(first_name, course_title, pd_hours, email=""):
 </style></head><body>
 <div class="container">
 <p>Hi {first_name},</p>
-<p>Thanks again for joining us for <strong>{course_title}</strong>! We really appreciated your time and participation. Your energy and engagement made it a meaningful session.</p>
-<p>Your certificate of attendance is attached. This session counts as <strong>{pd_hours} hours of professional development</strong>.</p>
+{intro_html}
+{cert_html}
 <p>📝 We'd love your feedback &mdash; it only takes a minute at <a href="https://bit.ly/icpeval">bit.ly/icpeval</a>.</p>
 <div class="newsletter-cta">
 <p><strong>Stay connected — join the Be Prepared newsletter</strong><br>
@@ -252,7 +351,7 @@ Institute for Childhood Preparedness<br>
 <a href="mailto:andy@icp.us">andy@icp.us</a> &nbsp;|&nbsp; 202-247-6903<br>
 <a href="https://icp.us">icp.us</a>
 </div>
-<div class="footer">You're receiving this because you signed in for {course_title}.</div>
+<div class="footer">You're receiving this because you signed in for {footer_courses}.</div>
 </div></body></html>
 """
 
@@ -503,7 +602,12 @@ def format_course_date(utc_dt):
 # ============================================================
 # MAIN
 # ============================================================
-def process_row(row, course_config, sheets, drive):
+def process_row(row, course_names, courses, sheets, drive):
+    """course_names: 1+ individual course names (split from row['training'];
+    2+ when the row is a combined sign-in for a multi-course session). Every
+    course gets its own PDF (with its own, possibly scheduler-derived, PD
+    hours) but they all go out under a single email + single sheet write-back
+    — the attendee only signed in once."""
     full_name = f"{row['first']} {row['last']}".strip()
     if full_name.isupper() or full_name.islower():
         full_name = full_name.title()
@@ -517,59 +621,76 @@ def process_row(row, course_config, sheets, drive):
 
     sign_in_utc = parse_sheet_timestamp(row["timestamp"])
     course_date = format_course_date(sign_in_utc)
+    sign_in_date_str = session_date_from_timestamp(row["timestamp"])
 
-    pdf_bytes = render_cert(full_name, course_config, course_date)
+    # One PDF + resolved hours per course.
+    certs = []
+    for course_name in course_names:
+        course_config = courses[course_name]
+        hours = resolve_course_hours(course_name, sign_in_date_str, course_config["hours"])
+        pdf_bytes = render_cert(full_name, {**course_config, "hours": hours}, course_date)
+        certs.append({"course_name": course_name, "config": course_config, "hours": hours, "pdf_bytes": pdf_bytes})
+
     safe = sanitize(full_name)
-    pdf_filename = f"{safe}.pdf"
 
     if DRY_RUN:
-        print(f"  [DRY] would send {full_name} <{row['email']}> for {row['training']} on {course_date}")
+        for c in certs:
+            print(f"  [DRY] would send {full_name} <{row['email']}> for {c['course_name']} ({c['hours']} hrs) on {course_date}")
         return "dry-run"
 
     # Send email — with idempotency + retry + List-Unsubscribe + suppression-aware.
     resend.api_key = RESEND_API_KEY
-    subject = f"Your Certificate from Today's {row['training']} Training"
+    if len(certs) == 1:
+        subject = f"Your Certificate from Today's {certs[0]['course_name']} Training"
+    else:
+        subject = "Your Certificates from Today's Training: " + " & ".join(c["course_name"] for c in certs)
     headers = dict(build_unsubscribe_headers(row["email"]))
+    attachments = [
+        {
+            "filename": f"Certificate - {full_name} - {c['course_name']}.pdf" if len(certs) > 1 else f"Certificate - {full_name}.pdf",
+            "content": base64.b64encode(c["pdf_bytes"]).decode(),
+        }
+        for c in certs
+    ]
     params = {
         "from": FROM_EMAIL,
         "to": [row["email"]],
         "reply_to": REPLY_TO,
         "subject": subject,
-        "html": build_email_html(first, row["training"], course_config["hours"], row["email"]),
-        "attachments": [{
-            "filename": f"Certificate - {full_name}.pdf",
-            "content": base64.b64encode(pdf_bytes).decode(),
-        }],
+        "html": build_email_html(first, [(c["course_name"], c["hours"]) for c in certs], row["email"]),
+        "attachments": attachments,
         "headers": headers,
     }
-    course_slug = re.sub(r"[^a-z0-9]+", "-", row["training"].lower()).strip("-")
+    combined_slug = "-".join(re.sub(r"[^a-z0-9]+", "-", c["course_name"].lower()).strip("-") for c in certs)
     date_slug = course_date_to_slug(course_date)
-    idem = build_idempotency_key(course_slug, date_slug, row["email"])
+    idem = build_idempotency_key(combined_slug, date_slug, row["email"])
     r = send_with_retry(params, idem)
     resend_id = r.get("id", "unknown")
 
-    # Log to unified cert audit trail
-    _log_to_cert_api({
-        "full_name": full_name,
-        "email": row["email"],
-        "course_title": row["training"],
-        "course_date": course_date,
-        "pd_hours": str(course_config["hours"]),
-        "course_format": course_config.get("format", "webinar"),
-        "status": "sent",
-        "timestamp_iso": datetime.now(timezone.utc).isoformat(),
-        "resend_id": resend_id,
-    })
+    # Log to unified cert audit trail — one row per course so per-course
+    # reporting and the eval-dashboard join stay accurate for combined sessions.
+    for c in certs:
+        _log_to_cert_api({
+            "full_name": full_name,
+            "email": row["email"],
+            "course_title": c["course_name"],
+            "course_date": course_date,
+            "pd_hours": str(c["hours"]),
+            "course_format": c["config"].get("format", "webinar"),
+            "status": "sent",
+            "timestamp_iso": datetime.now(timezone.utc).isoformat(),
+            "resend_id": resend_id,
+        })
 
-    # Drive backup
-    try:
-        course_slug = re.sub(r"[^a-z0-9]+", "-", row["training"].lower()).strip("-")
-        course_folder_id = find_or_create_drive_folder(drive, course_slug, DRIVE_BACKUP_FOLDER_ID)
-        date_slug = course_date_to_slug(course_date)
-        date_folder_id = find_or_create_drive_folder(drive, date_slug, course_folder_id)
-        upload_pdf_to_drive(drive, pdf_bytes, pdf_filename, date_folder_id)
-    except Exception as e:
-        print(f"  drive backup failed (send succeeded): {e}")
+    # Drive backup — one PDF per course, each in its own course-slug folder.
+    for c in certs:
+        try:
+            course_slug = re.sub(r"[^a-z0-9]+", "-", c["course_name"].lower()).strip("-")
+            course_folder_id = find_or_create_drive_folder(drive, course_slug, DRIVE_BACKUP_FOLDER_ID)
+            date_folder_id = find_or_create_drive_folder(drive, date_slug, course_folder_id)
+            upload_pdf_to_drive(drive, c["pdf_bytes"], f"{safe}.pdf", date_folder_id)
+        except Exception as e:
+            print(f"  drive backup failed for {c['course_name']} (send succeeded): {e}")
 
     return resend_id
 
@@ -678,7 +799,8 @@ def build_certs_json(sheets, drive, courses, rows):
         if date_str < "2026-05-25":
             continue
 
-        if training not in courses:
+        course_names = known_course_names(training, courses)
+        if not course_names:
             unknown_course_rows.append({
                 "date": date_str,
                 "training": training,
@@ -689,39 +811,44 @@ def build_certs_json(sheets, drive, courses, rows):
             })
             continue
 
-        key = f"{date_str}|{training}"
-        sess = sessions.setdefault(key, {
-            "date": date_str,
-            "course": training,
-            "course_slug": re.sub(r"[^a-z0-9]+", "-", training.lower()).strip("-"),
-            "attendees": [],
-            "errors": [],
-            "sign_in_count": 0,
-            "cert_pending_count": 0,
-        })
-        sess["sign_in_count"] += 1
-
-        if row.get("cert_error"):
-            sess["errors"].append({
-                "name": full_name,
-                "email": row.get("email", ""),
-                "error": row["cert_error"],
-                "timestamp": row["timestamp"],
-                "sheet_row": row.get("sheet_row"),
+        # Combined rows (multi-course session, one sign-in) get one
+        # reconciliation entry per course, matching the per-course rows
+        # written to cert_log — so a course's session list is complete
+        # whether it was signed in for alone or alongside another course.
+        for course_name in course_names:
+            key = f"{date_str}|{course_name}"
+            sess = sessions.setdefault(key, {
+                "date": date_str,
+                "course": course_name,
+                "course_slug": re.sub(r"[^a-z0-9]+", "-", course_name.lower()).strip("-"),
+                "attendees": [],
+                "errors": [],
+                "sign_in_count": 0,
+                "cert_pending_count": 0,
             })
-            continue
+            sess["sign_in_count"] += 1
 
-        if not row["cert_sent"]:
-            sess["cert_pending_count"] += 1
-            continue
+            if row.get("cert_error"):
+                sess["errors"].append({
+                    "name": full_name,
+                    "email": row.get("email", ""),
+                    "error": row["cert_error"],
+                    "timestamp": row["timestamp"],
+                    "sheet_row": row.get("sheet_row"),
+                })
+                continue
 
-        sent_at, resend_id = parse_cert_sent(row["cert_sent"])
-        sess["attendees"].append({
-            "name": full_name,
-            "sanitized": sanitize(full_name),
-            "sent_at": sent_at,
-            "resend_id": resend_id,
-        })
+            if not row["cert_sent"]:
+                sess["cert_pending_count"] += 1
+                continue
+
+            sent_at, resend_id = parse_cert_sent(row["cert_sent"])
+            sess["attendees"].append({
+                "name": full_name,
+                "sanitized": sanitize(full_name),
+                "sent_at": sent_at,
+                "resend_id": resend_id,
+            })
 
     # Resolve Drive folder + file URLs per session
     # Cache course-slug folder lookups so we don't repeat them per session.
@@ -789,7 +916,8 @@ def main():
         if row["cert_sent"]:
             skipped_already_sent += 1
             continue
-        if row["training"] not in courses:
+        course_names = known_course_names(row["training"], courses)
+        if not course_names:
             skipped_other += 1
             continue
 
@@ -816,7 +944,7 @@ def main():
 
         print(f"  row {row['sheet_row']}: processing {row['first']} {row['last']} ({row['training']})")
         try:
-            resend_id = process_row(row, courses[row["training"]], sheets, drive)
+            resend_id = process_row(row, course_names, courses, sheets, drive)
             if not DRY_RUN:
                 stamp = datetime.now(timezone.utc).isoformat()
                 write_cert_sent(sheets, row["sheet_row"], f"{stamp} resend:{resend_id}")
