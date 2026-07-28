@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T13:27:06.608056+00:00",
+  "generated_at": "2026-07-28T15:36:41.915065+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -857,6 +857,766 @@
       "drive_folder_url": "https://drive.google.com/drive/folders/1_fudiOIB9_NXoQ5E0Nm1Adfh12WABEN7",
       "errors": [],
       "sign_in_count": 1
+    },
+    "2026-07-28|De-Escalation Techniques for Early Childhood Professionals": {
+      "attendees": [
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1mZx7GdCRPAwtrUBLnZW5_qD1bH02-j6e/view?usp=drivesdk",
+          "name": "Adriana McMaster",
+          "resend_id": "92b9d808-2d54-48aa-95e1-0c95e4ac5ca5",
+          "sent_at": "2026-07-28T15:32:07.950015+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1hYcS1lXgbRWiKv2JWs56TKnMLif2cQT6/view?usp=drivesdk",
+          "name": "Alyssa Hunt",
+          "resend_id": "28875c88-b01f-4f9e-8cb9-81e4a2dafe99",
+          "sent_at": "2026-07-28T15:32:04.995956+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1-HJ5W6DT-IVAMWZIJKyplm5I042j6vSw/view?usp=drivesdk",
+          "name": "Ana Gonzalez",
+          "resend_id": "4f502604-2bc6-4808-8f1b-fb6d82874aec",
+          "sent_at": "2026-07-28T15:33:31.061432+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1vfY4szImZxkv1cFi7K4Cuqj-h3dxsODN/view?usp=drivesdk",
+          "name": "Anais Camacho Guti\u00e9rrez",
+          "resend_id": "da39d4a5-c465-43ee-b635-8175679adbc1",
+          "sent_at": "2026-07-28T15:32:51.735894+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/15Fyun9h7K-slpCvT5kp6e46EAdncZrVc/view?usp=drivesdk",
+          "name": "Anastasia Stampoulis",
+          "resend_id": "dc7d09bc-0753-4fed-8841-4dbda19e1863",
+          "sent_at": "2026-07-28T15:33:24.540715+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/197tpx92NBwpkPsVRt6r8hboQBJO_sbca/view?usp=drivesdk",
+          "name": "Angelique Bodien",
+          "resend_id": "b2124df3-f26f-425d-8179-fde517f59ef5",
+          "sent_at": "2026-07-28T15:31:33.368132+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1qBkWmoQykiv501QsNyZG7STsmn_lShEu/view?usp=drivesdk",
+          "name": "Antionette Brown",
+          "resend_id": "4f4785f4-3427-42aa-af71-a7d449753567",
+          "sent_at": "2026-07-28T15:32:20.946504+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1-5Lf46aO-S-DRi5J4NGsMLFtPGDgPQPj/view?usp=drivesdk",
+          "name": "Bernadette Flake",
+          "resend_id": "375c8fdd-a631-4383-9dad-1447042b403d",
+          "sent_at": "2026-07-28T15:32:15.240554+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1V5WNBFhSf64MjEcW5R1sVfwyUYLsaK4f/view?usp=drivesdk",
+          "name": "Brandy Schilling",
+          "resend_id": "b20bda5e-f030-4e1e-a721-400a7eacc3a3",
+          "sent_at": "2026-07-28T15:33:13.543458+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1BVuy1miFKP7hTxjNHLitE4z5PbVPpzmM/view?usp=drivesdk",
+          "name": "Briana Jenkins",
+          "resend_id": "e3a75052-a8f5-4ac4-a44b-f9f1285daaf3",
+          "sent_at": "2026-07-28T15:32:10.663524+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/10lcG2HBoUoDfzy0U0tKYTC6GffSdQxzZ/view?usp=drivesdk",
+          "name": "Carlene Morgan",
+          "resend_id": "883a9b24-5ce5-480e-adbe-098e14761b0d",
+          "sent_at": "2026-07-28T15:31:30.455591+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1yBAIqhdNkTfU1z7cgehBSWZLbmvMK9rH/view?usp=drivesdk",
+          "name": "Carmen Rosa",
+          "resend_id": "5fd47ad0-5a60-4112-87e0-35d97a1ad2b7",
+          "sent_at": "2026-07-28T15:33:16.441374+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1OG4T1I67x9a-udx9BxJEF46EYp6jOhv0/view?usp=drivesdk",
+          "name": "Chika Batten",
+          "resend_id": "678ae050-7b47-4da2-a9fc-ac0efe666e68",
+          "sent_at": "2026-07-28T15:31:23.656924+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1vVLyveqytpzAZ_EyCXVjS0tfpMCHpJ4Z/view?usp=drivesdk",
+          "name": "Deja Hayes",
+          "resend_id": "06f288a9-b3f6-477c-a657-47e52e1380cc",
+          "sent_at": "2026-07-28T15:32:29.455810+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1KjjplL5s55QtRswQ886rrTq9g2UCtQS4/view?usp=drivesdk",
+          "name": "Denise Drackley",
+          "resend_id": "a92989a3-373e-4826-8d7e-8969ab5b1acc",
+          "sent_at": "2026-07-28T15:32:56.980684+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1hloAygRS0qW3yTuFNy2NSkSZtM_3OSrb/view?usp=drivesdk",
+          "name": "Dorasaly Aguirre",
+          "resend_id": "f1b3b0fb-aee0-4e66-bede-66abcd904951",
+          "sent_at": "2026-07-28T15:31:42.140147+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1PKzDS3HAiAgPCrpiG_0D6qRwzBCeix2U/view?usp=drivesdk",
+          "name": "Elenna Clark",
+          "resend_id": "7e0a60d0-fe58-467e-9084-5794e27ae063",
+          "sent_at": "2026-07-28T15:33:04.977043+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/15KSjQbPpv_ct-9UtyS9yKkAOM08qtG4K/view?usp=drivesdk",
+          "name": "Elizabeth Meyers",
+          "resend_id": "c23c6693-8dda-4b63-9dc1-386b50d69102",
+          "sent_at": "2026-07-28T15:33:28.187416+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1oQx0ZyXPJPOz6zPDceRX4AfCftcr3H3J/view?usp=drivesdk",
+          "name": "Erik Kennedy",
+          "resend_id": "99d1cec7-58a5-4f69-9ccd-1ddcfbca4e6b",
+          "sent_at": "2026-07-28T15:35:34.127576+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1DkyZLeDV-ORAqI61SahcMu4JKS_4hqHX/view?usp=drivesdk",
+          "name": "Faylinn Fox",
+          "resend_id": "fe7f3c49-0860-4e29-8228-c399d76bebd0",
+          "sent_at": "2026-07-28T15:32:43.505254+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1uHedq_R_JvFJTtyJyoNNsDoNTeQm9oBU/view?usp=drivesdk",
+          "name": "Gaynell Johnson",
+          "resend_id": "becea5a7-8252-4ee0-92d4-82223713e4c9",
+          "sent_at": "2026-07-28T15:33:39.523778+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1wf2gBU2KYYZijNWC1EZnCT10BMEo2z6u/view?usp=drivesdk",
+          "name": "Genesis Castro",
+          "resend_id": "edc161ed-d2ec-4b1c-92f3-5605aa5ecb7a",
+          "sent_at": "2026-07-28T15:32:49.190033+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1IFmRZsBKe1wvwpnPNqWNMlTbUPQ3ZF2A/view?usp=drivesdk",
+          "name": "Glorilena Rivas",
+          "resend_id": "5e2ad69c-89c5-4441-bb52-3c748ec8714f",
+          "sent_at": "2026-07-28T15:31:38.707841+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/18610ZakAc3m8Ao7kS6ynbUYwM4rrO9G7/view?usp=drivesdk",
+          "name": "Hector Rivas",
+          "resend_id": "e13e3005-f27c-4b06-9e1b-30444858b5bc",
+          "sent_at": "2026-07-28T15:31:56.743285+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1NXD940F6esMdce0XXN66mrm5eG1EzCG1/view?usp=drivesdk",
+          "name": "Jacqueline Clark",
+          "resend_id": "ab82d66d-8860-4229-a53c-63953992b0e9",
+          "sent_at": "2026-07-28T15:32:34.817870+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/14k45b0xZPSXbAMlTHObOPtqcbF_Zfx1m/view?usp=drivesdk",
+          "name": "Jamie DEVINE",
+          "resend_id": "c2921e46-046e-4217-9646-9975ce35c35e",
+          "sent_at": "2026-07-28T15:31:27.021342+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1QZobG_ngwyL-3uOkrij7SljTS2twj62T/view?usp=drivesdk",
+          "name": "Jamie Young",
+          "resend_id": "7dc14fe6-9f69-4e8b-a1bf-c6704e2583a7",
+          "sent_at": "2026-07-28T15:33:19.161987+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1xbsZk6CVehpynUCOwc4sVGQ9cWGhmCQ4/view?usp=drivesdk",
+          "name": "Jamillah Footman",
+          "resend_id": "5cba0048-bf6b-4493-8acc-6a5b0e5c9491",
+          "sent_at": "2026-07-28T15:33:01.750898+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1aKYjNwscO3Sp0ATYikRcW85Otmtw4Jy-/view?usp=drivesdk",
+          "name": "Jenni Riccio",
+          "resend_id": "a92477a9-ea85-437b-bd7b-fa1742ef7028",
+          "sent_at": "2026-07-28T15:31:36.072505+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1BeiAB80CaUHSZjMNUCbX2j85EmKICGH8/view?usp=drivesdk",
+          "name": "Jessica Eatman",
+          "resend_id": "a995cfdc-ffb5-46d6-b633-c49eb460d80c",
+          "sent_at": "2026-07-28T15:33:08.059671+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1dd5GqjpxicBYxGfApr9yn0VwTGTi0flj/view?usp=drivesdk",
+          "name": "Kayla Rivera",
+          "resend_id": "759c4123-6368-46bd-ba2f-396e9b2b39f9",
+          "sent_at": "2026-07-28T15:32:32.117206+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1AVDIrF3kEN8VB4NE4-FADrlEU1HQR9jA/view?usp=drivesdk",
+          "name": "Maria Galvan",
+          "resend_id": "75163c5b-0d13-433b-a1ba-5b06f2493e03",
+          "sent_at": "2026-07-28T15:33:42.702098+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1z1APH0Mw1fMkVg8jkOkVWeBqnHWyBIMd/view?usp=drivesdk",
+          "name": "Maria Rodriguez",
+          "resend_id": "94577220-0050-409b-8958-65281199510f",
+          "sent_at": "2026-07-28T15:33:34.531593+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1vF9aP6H4vPR8pWwBdYm3UTKcxPlVx7wL/view?usp=drivesdk",
+          "name": "Marlene Bandala",
+          "resend_id": "3383f7f9-15f3-457b-b06c-82cc4b53839f",
+          "sent_at": "2026-07-28T15:31:53.516331+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1Kns9YNUQ8aDi8PQ-XTVGzks63i6VJVIs/view?usp=drivesdk",
+          "name": "Melanie Harrison",
+          "resend_id": "921fd8d0-00ec-4c93-a60b-b47c1866530c",
+          "sent_at": "2026-07-28T15:32:54.496521+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1quhFNEQYtIO_74d022QC5dcxSCOOyE66/view?usp=drivesdk",
+          "name": "Melissa Martin",
+          "resend_id": "ced72057-df9e-48d9-b839-8dc517bd2d3b",
+          "sent_at": "2026-07-28T15:32:26.493886+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1Uztknyz6AUsOoWSvIrdC3WW8o29la4oj/view?usp=drivesdk",
+          "name": "Monica Chavez",
+          "resend_id": "39a1d1fa-8506-4ed9-ad07-a0734232c893",
+          "sent_at": "2026-07-28T15:32:59.391654+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1QaCXrzaL1ZP-8x_j88Q7RU-7yUUjQltJ/view?usp=drivesdk",
+          "name": "Norma Negron",
+          "resend_id": "1f4c6b78-49f1-4965-8930-8ce62822bacd",
+          "sent_at": "2026-07-28T15:32:37.644181+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1vlotvStbzRDFyp-wv3vxqL6zbCVllXdW/view?usp=drivesdk",
+          "name": "Olivia Wright",
+          "resend_id": "775f1c03-f2bb-4ff2-8d9d-3d0ebdc8fea0",
+          "sent_at": "2026-07-28T15:31:50.851826+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1gO4OQaTklfHwc2vR4pkQqV9tW8gsAzyd/view?usp=drivesdk",
+          "name": "Rosa Judith Vazquez",
+          "resend_id": "9bb73ef5-3750-4826-9495-f6b4236f99d0",
+          "sent_at": "2026-07-28T15:32:18.005094+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1y0Q51f6q7Gy9oFv26aRniCW1FPjisGKj/view?usp=drivesdk",
+          "name": "Rushell Lawrence",
+          "resend_id": "d9de1115-2600-46ad-9689-4cc321da2066",
+          "sent_at": "2026-07-28T15:31:20.375488+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1NF-H0xLu5cgPmd771JBNl_qLA6M0iKY9/view?usp=drivesdk",
+          "name": "Sasha Serrano",
+          "resend_id": "ebe334a7-811f-4021-a720-42d13ad03fe0",
+          "sent_at": "2026-07-28T15:33:10.733766+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1-Pc6RjnqScJM7RAoIv3GpskGNrtNJfXJ/view?usp=drivesdk",
+          "name": "Stephanie Bell-Patterson",
+          "resend_id": "d65596ee-9660-40b1-a3d8-e900ff63da83",
+          "sent_at": "2026-07-28T15:31:59.745148+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1YLz9_r2O6230Di_9SS6mOLyXDlTDJ5l7/view?usp=drivesdk",
+          "name": "stephen Autenrieb",
+          "resend_id": "9ef42c8c-844a-4149-b07a-ca617d84d0fa",
+          "sent_at": "2026-07-28T15:31:48.017446+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/167FH44Xy3Q16CHZG42JXLu0lJqjrUfvd/view?usp=drivesdk",
+          "name": "Sue Kidwell",
+          "resend_id": "87fdf83e-768f-472c-9e1f-51b9c57fea29",
+          "sent_at": "2026-07-28T15:32:23.441161+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1msvoGuqsC49MzpiKrYe6hqBuJ3FgKj_U/view?usp=drivesdk",
+          "name": "Susan O\u2019Brien",
+          "resend_id": "9df526c5-98fb-4d19-8271-04c5b04b0906",
+          "sent_at": "2026-07-28T15:33:45.693597+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1xseVsCNkgCwZuUh7ZPqVKHkq3b40KrdY/view?usp=drivesdk",
+          "name": "Tiyannah Everett",
+          "resend_id": "6b5b1805-bd8f-4a0d-bdd2-e7bd9d134767",
+          "sent_at": "2026-07-28T15:32:46.115436+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1H4q-akH6xQsw0Xw4zTAqEEPjkdaEhzAE/view?usp=drivesdk",
+          "name": "Vanessa Portilla",
+          "resend_id": "6c0f05b6-f4d9-453b-b7e5-f1af06e9e18b",
+          "sent_at": "2026-07-28T15:32:02.526681+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1NP0e3pJZf7Cb3gnPqzV7mTYP3qkNaaGR/view?usp=drivesdk",
+          "name": "Virginia Traverzo",
+          "resend_id": "76b36449-c53e-426d-9929-a6fa867726ae",
+          "sent_at": "2026-07-28T15:33:21.833270+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1aL3fUSDcD0-tbrjJGNU_ZzKhqiqsDSWb/view?usp=drivesdk",
+          "name": "Yajaira Vega",
+          "resend_id": "bf3aa7c0-8ad7-4a32-ae22-1ed0d238fd70",
+          "sent_at": "2026-07-28T15:32:40.573995+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1A4g6NPg2MThpnY0kwfjfPRuebG2vN8tX/view?usp=drivesdk",
+          "name": "Yolanda Robinson",
+          "resend_id": "d03817d1-179e-4eb9-b36f-1fcb489358ab",
+          "sent_at": "2026-07-28T15:33:37.007096+00:00"
+        }
+      ],
+      "cert_count": 51,
+      "cert_error_count": 4,
+      "cert_pending_count": 0,
+      "course": "De-Escalation Techniques for Early Childhood Professionals",
+      "course_slug": "de-escalation-techniques-for-early-childhood-professionals",
+      "date": "2026-07-28",
+      "drive_folder_url": "https://drive.google.com/drive/folders/13Vtuqto-5YsZmG0-bZnBo_N_VPeFEbQ-",
+      "errors": [
+        {
+          "email": "Ahunt@youthrivefl.org",
+          "error": "email mismatch",
+          "name": "Alyssa Hunt",
+          "sheet_row": 1384,
+          "timestamp": "7/28/2026 7:47:46"
+        },
+        {
+          "email": "Aiken-Everett@youthrivefl.0rg",
+          "error": "email mismatch",
+          "name": "Margarita Aiken-Averett",
+          "sheet_row": 1426,
+          "timestamp": "7/28/2026 8:05:28"
+        },
+        {
+          "email": "Maguirreyouthrivefl.org",
+          "error": "Invalid `to` field. The email address needs to follow the `email@example.com` or `Name <email@example.com>` format.",
+          "name": "Maria Aguirre",
+          "sheet_row": 1399,
+          "timestamp": "7/28/2026 7:54:26"
+        },
+        {
+          "email": "blunecessity@gmail.com",
+          "error": "email mismatch",
+          "name": "Tameka Kelly",
+          "sheet_row": 1392,
+          "timestamp": "7/28/2026 7:51:48"
+        }
+      ],
+      "sign_in_count": 55
+    },
+    "2026-07-28|Home Visit Safety for Early Childhood Professionals": {
+      "attendees": [
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/15kMoBJ1nA3l4V7QUt5aOeP80Aekw8eVh/view?usp=drivesdk",
+          "name": "Alice short",
+          "resend_id": "48f7574f-b4e6-4915-bc37-5c275775fbd1",
+          "sent_at": "2026-07-28T15:34:30.800273+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1msTxMhYSZj5g3j7vFqS8LR6nKWBBXbvD/view?usp=drivesdk",
+          "name": "Amanda Randall",
+          "resend_id": "36f21039-3594-4252-85e7-0b906b5ec5b4",
+          "sent_at": "2026-07-28T15:34:36.051628+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/15gJryfBTWH8hhd6Bv5dZFu9QxtnX0Rf_/view?usp=drivesdk",
+          "name": "Andrew Roszak",
+          "resend_id": "cfa61467-c82e-41c4-afb2-8bc316951b08",
+          "sent_at": "2026-07-28T15:34:07.110464+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1ppEUBNtrhqMKFju-Zgvjqb212T4Myq_c/view?usp=drivesdk",
+          "name": "Audrey Hibbert",
+          "resend_id": "31ec87b5-9102-4393-ac40-03e411a9f3a0",
+          "sent_at": "2026-07-28T15:33:52.763533+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1KgLoY1hrP-u6ifIr0MbPe4znN-vsR_Jz/view?usp=drivesdk",
+          "name": "Beverly Martinez",
+          "resend_id": "2e17cca9-fa9f-482c-9187-3b8b67c1e40b",
+          "sent_at": "2026-07-28T15:34:54.375887+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/11iEjTqkE2cDAFagJsX5oqh3A8mbpd0gS/view?usp=drivesdk",
+          "name": "Blanca Rios Maldonado",
+          "resend_id": "d0e39a50-7771-4339-bc01-cfa1cabbe9bc",
+          "sent_at": "2026-07-28T15:36:23.663728+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1WSvPUAdq4C69-8J9hHXqBJmJvXwzi3Pn/view?usp=drivesdk",
+          "name": "Brianna Yuhasz",
+          "resend_id": "a1d4d0a6-4209-49d3-804e-c08a8777fa59",
+          "sent_at": "2026-07-28T15:33:50.021513+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1FziKKqzDPp6ZyrzdaX0LHzGfj_AvcHHv/view?usp=drivesdk",
+          "name": "Carmen Rosa Rosa",
+          "resend_id": "c1c5bcae-c7ec-4557-b721-38c4dfa8c03b",
+          "sent_at": "2026-07-28T15:35:39.247739+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1sXEJKEVqvDAMkVsG66cIJ5O3OHRitXTA/view?usp=drivesdk",
+          "name": "Devon Shields",
+          "resend_id": "8481da61-dfe6-4b44-af21-37bd797fce4b",
+          "sent_at": "2026-07-28T15:36:20.768797+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1EXjVj5EnnjYroJ8nJLrxQikOvEQjidBL/view?usp=drivesdk",
+          "name": "Donna KorthLoder",
+          "resend_id": "cd2d8db6-6d45-4a76-a98d-d8a15485afa5",
+          "sent_at": "2026-07-28T15:34:04.356205+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1J5dA8uU1AU4Wdo3ZPUBp-XhjD4qWBBCT/view?usp=drivesdk",
+          "name": "Dorasaly Aguirre",
+          "resend_id": "1fd42ca5-052f-4332-a668-7c4260707cd9",
+          "sent_at": "2026-07-28T15:34:27.974980+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1h89j5Hl_46C8wDD8S-ikYxDWEDesrXt0/view?usp=drivesdk",
+          "name": "Dulce Mancilla",
+          "resend_id": "d6e417e7-b24c-477d-9395-3adebfc79d23",
+          "sent_at": "2026-07-28T15:35:24.254371+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1eBtt3OyNm_CZi1MloJcXl3PQ_r4UKHqd/view?usp=drivesdk",
+          "name": "Elizabeth Castillo",
+          "resend_id": "ec7391a3-eb2b-4ed6-ab94-943080e50375",
+          "sent_at": "2026-07-28T15:34:46.445156+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1pkhCPVD3yqhEFPzTZkQvPezlN5eSkbxA/view?usp=drivesdk",
+          "name": "Elizabeth Meyers",
+          "resend_id": "11326dde-4cb0-41b6-a63a-d3b00454fc2b",
+          "sent_at": "2026-07-28T15:35:16.483871+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1VJ3VqtmUYOq3Aw_2aAdBX2sF-VBVcTqW/view?usp=drivesdk",
+          "name": "Emily Cruz",
+          "resend_id": "a6e17784-f7b8-40e2-b2ed-134da80bdcc8",
+          "sent_at": "2026-07-28T15:34:43.940936+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1c-kVtmcbNVVfK6v2g8r_CflIT8pH_glG/view?usp=drivesdk",
+          "name": "Ericka Davis",
+          "resend_id": "91e3e66d-33f3-45dc-91e6-d18e827f9fe4",
+          "sent_at": "2026-07-28T15:35:50.731487+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/13LM9Ys9YL3t50NcYfwOVXu7646AEnXcG/view?usp=drivesdk",
+          "name": "Frances De Jesus",
+          "resend_id": "aa9d15cb-614a-447b-83ba-a671ddd63fe1",
+          "sent_at": "2026-07-28T15:36:07.696561+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/179WJMmhIiqSY1hb9If6UDePXw0l6hxYL/view?usp=drivesdk",
+          "name": "Gabbie LaPlaca",
+          "resend_id": "cb51f2e0-1824-43f6-97bb-f949c90eb5bb",
+          "sent_at": "2026-07-28T15:34:12.863786+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1aPKHbvKkiwNUVmqQfw9LOt11QM8wuYMv/view?usp=drivesdk",
+          "name": "Gladys Alejo",
+          "resend_id": "f5ca55e4-0f9d-4556-bcfa-84c3c9ff8c79",
+          "sent_at": "2026-07-28T15:36:15.848019+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1AP6HlO1P24qpty1QCcBgQo19YYVb3DnI/view?usp=drivesdk",
+          "name": "Gloria Hanco",
+          "resend_id": "96eaaeab-6ce9-4163-a844-39f799f38ab4",
+          "sent_at": "2026-07-28T15:35:13.408596+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1FelFIFWe2-XiU88L7qxeK4calAJfpWgW/view?usp=drivesdk",
+          "name": "Isabela Aristizabal",
+          "resend_id": "d34bb3ed-57fb-4aee-be97-1ba4c1a930a5",
+          "sent_at": "2026-07-28T15:35:07.996391+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1eTZgFzWDuQHJgJJehFy9sC9p6KhA2Hj2/view?usp=drivesdk",
+          "name": "Jacqueline Clark",
+          "resend_id": "8843994e-2c48-4b93-903c-e7b34de7591f",
+          "sent_at": "2026-07-28T15:35:04.644410+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1Q5hPVdYa0Z0aDMs87Ewc945L6ntPnLuQ/view?usp=drivesdk",
+          "name": "Janet Thomas",
+          "resend_id": "a986b022-aa98-4891-8a1e-ca0a98124341",
+          "sent_at": "2026-07-28T15:33:58.435565+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1USpQgZvAYv-_LSn3kVj1TV0rV_odBdOU/view?usp=drivesdk",
+          "name": "Jeisha Soriano",
+          "resend_id": "1f5134e8-e241-49a7-af07-c16a3a66e5bc",
+          "sent_at": "2026-07-28T15:35:56.137432+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1G8w8v9pMM-A1Vm77GRZvhiHcSoG2M-86/view?usp=drivesdk",
+          "name": "Jessica Resto Cruz",
+          "resend_id": "6f48ee69-226b-4000-a9da-c195d1a0acb3",
+          "sent_at": "2026-07-28T15:35:42.539855+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1w6gGCnQrY9rgTVnGOZww8WOlAb1yRQZ8/view?usp=drivesdk",
+          "name": "Jody Hurley",
+          "resend_id": "250c292b-7451-4b84-9264-cba2791b00c5",
+          "sent_at": "2026-07-28T15:34:57.155777+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/18wANCRUwA-4RnHK9SrYCBxYipUm5J9wc/view?usp=drivesdk",
+          "name": "Jody Sherman",
+          "resend_id": "cc275af2-4167-4e6d-912a-6ef70bd88815",
+          "sent_at": "2026-07-28T15:34:33.558468+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/18wANCRUwA-4RnHK9SrYCBxYipUm5J9wc/view?usp=drivesdk",
+          "name": "Jody Sherman",
+          "resend_id": "f538abe1-8427-4978-85fb-ff38d8309c87",
+          "sent_at": "2026-07-28T15:35:36.558726+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1O_MQkHWFO_z3KzYbBgW-1zcKMHDJ2DQr/view?usp=drivesdk",
+          "name": "Kiara Roman Cardona",
+          "resend_id": "93fe1fff-6645-408c-bb2d-ee7ab7565f23",
+          "sent_at": "2026-07-28T15:34:15.548753+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1c_BoLWA3oBPUV4Vv46DJOUniUI4xNRpl/view?usp=drivesdk",
+          "name": "Krystina Small",
+          "resend_id": "b10af2f0-f8ea-435b-8fb6-33ef02edbf46",
+          "sent_at": "2026-07-28T15:34:41.209524+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1Bh9w8fuA4uw1zNZEFB1XO27aKUaBbVHz/view?usp=drivesdk",
+          "name": "Kylie Goldner",
+          "resend_id": "6a2cb321-0016-4c28-8a5c-ecdc8ada883c",
+          "sent_at": "2026-07-28T15:34:01.146204+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1ysKpApZ600iNdEYEYks6rQ4LBGznt6ig/view?usp=drivesdk",
+          "name": "Lizbeth V\u00e1zquez",
+          "resend_id": "61689ed7-a029-4225-a65a-3e22d252c7bb",
+          "sent_at": "2026-07-28T15:35:10.888547+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1K6N79ZbwAIo0s9GKG_S5IcYr71D7ibFV/view?usp=drivesdk",
+          "name": "Lorena Hernandez",
+          "resend_id": "c6a71c82-76d1-44fe-8b7a-3f8a6b2b5c08",
+          "sent_at": "2026-07-28T15:36:01.565572+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1ecYPU9egmwY63bPYdJy2WH5cy5qW9kBg/view?usp=drivesdk",
+          "name": "Ma.del Socorro Arcos",
+          "resend_id": "d40db2bd-630f-424f-bca5-6a7d994acc11",
+          "sent_at": "2026-07-28T15:36:28.845681+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1p2R5HZmxLRK9F3YXqCNG-AL5bKAxUn_m/view?usp=drivesdk",
+          "name": "Madelin Pineda",
+          "resend_id": "4fc3c399-efc5-426f-8419-486d9b704c81",
+          "sent_at": "2026-07-28T15:35:31.003968+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1bPyKgOS5zBEo43Y0fiJKzhLSyKbyecol/view?usp=drivesdk",
+          "name": "Mahjabin Chowdhury",
+          "resend_id": "ea88928c-7ef4-4aa6-9b63-8e35ba9152ff",
+          "sent_at": "2026-07-28T15:35:45.124333+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1lWf16-4A8USGOmkfq62gNhtECPU5k5Nz/view?usp=drivesdk",
+          "name": "Maria Aguirre",
+          "resend_id": "040dfcd3-3fcc-4cde-bb40-daf8d53c6783",
+          "sent_at": "2026-07-28T15:35:53.484723+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1ZR_QSN2ITvS0GJyEZzz0bDRcjoJ1Zap_/view?usp=drivesdk",
+          "name": "Marilyn Robles",
+          "resend_id": "96a8206c-d52a-4c9f-a5d2-ba945d25f995",
+          "sent_at": "2026-07-28T15:36:10.064203+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1pN1BR_vz-PL8Tj0bCHyZV6ZSxpdm9TLg/view?usp=drivesdk",
+          "name": "Marlene Bandala",
+          "resend_id": "7d1600ae-32c1-4a7d-b071-438055deab4f",
+          "sent_at": "2026-07-28T15:34:49.113752+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1O0oRtlT2j7LEk92AQVsZ6AK-ZbODQPXv/view?usp=drivesdk",
+          "name": "Miki Andrillon-Pena",
+          "resend_id": "e1005943-bff0-44d4-8cbf-55ec48e53ea3",
+          "sent_at": "2026-07-28T15:35:47.778709+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1j5sSkU6orTAphd5_emU4BHvLjEZEIWxL/view?usp=drivesdk",
+          "name": "Nichole Means",
+          "resend_id": "8bbb3f75-25f7-4d6b-af3e-79501605640f",
+          "sent_at": "2026-07-28T15:34:23.485516+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1ewpkB-E6o5HnPHShI4hctgFl2UoBMHp4/view?usp=drivesdk",
+          "name": "Norma Negron",
+          "resend_id": "5d485fe1-8e85-45ff-8472-2e8621b25cca",
+          "sent_at": "2026-07-28T15:34:10.417100+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1bS4yEPyt0tlRtHZ-27Fszm6zaRoKB0OD/view?usp=drivesdk",
+          "name": "Robyn Walker",
+          "resend_id": "665acc21-58a3-4dd6-b0de-ef46c1e04fcb",
+          "sent_at": "2026-07-28T15:36:31.600283+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1pLwOAf93NvXDKO6Dp8KC0wai4X-ppUoi/view?usp=drivesdk",
+          "name": "Rosa Judith Vazquez",
+          "resend_id": "8bfbecac-e2a8-4258-a0f5-c09f1dd8bff4",
+          "sent_at": "2026-07-28T15:34:51.730044+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1H0UpZjnwlHbEC51Cch4SGm3iDlcSh1gw/view?usp=drivesdk",
+          "name": "Rubiela Valentin",
+          "resend_id": "1c3e6748-b713-4073-8b3a-629d4081474c",
+          "sent_at": "2026-07-28T15:35:58.913833+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1mxCjKqB1lFgkiI-AyyMBHNEufxkqdAYD/view?usp=drivesdk",
+          "name": "Ryesha Brissett",
+          "resend_id": "1bc5fb59-6db5-4f1f-ace6-9b10b1fefb3b",
+          "sent_at": "2026-07-28T15:35:28.119634+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1TieRtOC-4eSpl7cHUmHG04u2ZKMglmbr/view?usp=drivesdk",
+          "name": "Silvana Solis",
+          "resend_id": "589d3d33-5564-4ce7-879d-c438eda84fe9",
+          "sent_at": "2026-07-28T15:36:13.302763+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1us7h-l_co-OB3nEtMKH_2nDblSWzL0Bw/view?usp=drivesdk",
+          "name": "Stephanie Fonseca",
+          "resend_id": "f4d443d2-1c05-487e-85de-2fd57a5ac2bc",
+          "sent_at": "2026-07-28T15:34:38.465827+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1XVxlvKGw5Hcge_a-1U3k6puFZw4oZu-z/view?usp=drivesdk",
+          "name": "Sue Kidwell",
+          "resend_id": "12bfc60f-4ee4-4faf-877f-53b650e3512b",
+          "sent_at": "2026-07-28T15:33:55.290985+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1GVmTbxFI5MvGIqbLbHvqp-5UF8ab5agG/view?usp=drivesdk",
+          "name": "Theresa Nunez",
+          "resend_id": "2934f2be-c40a-44c1-af2f-9fda41b5cf0b",
+          "sent_at": "2026-07-28T15:36:18.436186+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1ksfpGcQjpX_Itp09XNrvbs3rm3edMxeS/view?usp=drivesdk",
+          "name": "Theresa Scott",
+          "resend_id": "6028f398-1c77-4ceb-94cd-ac6e20daacb6",
+          "sent_at": "2026-07-28T15:36:34.719641+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1i97R6Hgjx5n_dQIUc4gKxvTRjTntpxba/view?usp=drivesdk",
+          "name": "Trixcy Santiago",
+          "resend_id": "87efe5c7-b6ee-4f37-ab02-bc24fd8ec8a9",
+          "sent_at": "2026-07-28T15:34:20.849432+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1WgX5aWQWy_Fb1ZbYRf3NINcRx7OI0bLP/view?usp=drivesdk",
+          "name": "Vanessa Portilla",
+          "resend_id": "2030c907-d003-43c7-b2a2-dc5742e784e3",
+          "sent_at": "2026-07-28T15:34:18.391023+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1BK9ktka3q5MB2Fd62NwzM0HoZL9vgK_V/view?usp=drivesdk",
+          "name": "Virginia Traverzo",
+          "resend_id": "bd156eb5-f0fe-4a31-a79d-8e01ae19e723",
+          "sent_at": "2026-07-28T15:34:59.667708+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1QZIGcpkp1FYEWhh1s8pjMuIYmyT4alF9/view?usp=drivesdk",
+          "name": "Wanda Pagan",
+          "resend_id": "5072182c-6774-46d8-b370-98f68adf565b",
+          "sent_at": "2026-07-28T15:36:26.266404+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1_pc3DKFKAEzdH7FWYSgwO_g9Bzpt2qv_/view?usp=drivesdk",
+          "name": "Yajaira Vega",
+          "resend_id": "e76f20e7-58b1-4b38-b638-339ef17bb646",
+          "sent_at": "2026-07-28T15:35:02.195170+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1GrEPV-_lPbmJInR0H8ZYhvz8-mVL6_Iv/view?usp=drivesdk",
+          "name": "Zulma Osorio",
+          "resend_id": "1db3c922-639f-4fbd-b64f-99acc0fbe013",
+          "sent_at": "2026-07-28T15:36:04.884405+00:00"
+        }
+      ],
+      "cert_count": 57,
+      "cert_error_count": 8,
+      "cert_pending_count": 0,
+      "course": "Home Visit Safety for Early Childhood Professionals",
+      "course_slug": "home-visit-safety-for-early-childhood-professionals",
+      "date": "2026-07-28",
+      "drive_folder_url": "https://drive.google.com/drive/folders/1sYcPT2Y6jeieif2ubUoLkLuJG_pcZWyq",
+      "errors": [
+        {
+          "email": "Aleonyouthrivefl.org",
+          "error": "email mismatch",
+          "name": "Antonia Leon",
+          "sheet_row": 1469,
+          "timestamp": "7/28/2026 9:04:30"
+        },
+        {
+          "email": "lalmodovar@youthrivefl.org",
+          "error": "email mismatch",
+          "name": "Lorraine Almodovar",
+          "sheet_row": 1465,
+          "timestamp": "7/28/2026 9:04:04"
+        },
+        {
+          "email": "Lquiles@youthrivefl.org",
+          "error": "email mismatch",
+          "name": "Lucia Quiles",
+          "sheet_row": 1499,
+          "timestamp": "7/28/2026 9:14:46"
+        },
+        {
+          "email": "Mgalvanyouthrivefl.org",
+          "error": "Invalid `to` field. The email address needs to follow the `email@example.com` or `Name <email@example.com>` format.",
+          "name": "Maria Galvan",
+          "sheet_row": 1497,
+          "timestamp": "7/28/2026 9:13:08"
+        },
+        {
+          "email": "msantiago@you thrieve.com",
+          "error": "Invalid `to` field. The email address needs to follow the `email@example.com` or `Name <email@example.com>` format.",
+          "name": "Marisol Santiago",
+          "sheet_row": 1463,
+          "timestamp": "7/28/2026 9:03:39"
+        },
+        {
+          "email": "Omccumsey@youthrivefl.org",
+          "error": "email mismatch",
+          "name": "Olena McCumsey",
+          "sheet_row": 1496,
+          "timestamp": "7/28/2026 9:12:05"
+        },
+        {
+          "email": "rarias@youthrivefl.com",
+          "error": "email mismatch",
+          "name": "Rosa Arias",
+          "sheet_row": 1444,
+          "timestamp": "7/28/2026 9:00:11"
+        },
+        {
+          "email": "Tbell@youthrive.org",
+          "error": "email mismatch",
+          "name": "Tehraun Bell",
+          "sheet_row": 1470,
+          "timestamp": "7/28/2026 9:04:31"
+        }
+      ],
+      "sign_in_count": 65
     }
   },
   "unknown_course_rows": []
