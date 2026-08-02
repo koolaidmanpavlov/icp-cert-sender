@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-02T12:54:22.389980+00:00",
+  "generated_at": "2026-08-02T18:51:47.316496+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -1183,21 +1183,21 @@
           "timestamp": "7/28/2026 7:47:46"
         },
         {
-          "email": "Aiken-Everett@youthrivefl.0rg",
+          "email": "Maiken-Everett@youthrivefl.org",
           "error": "email mismatch",
           "name": "Margarita Aiken-Averett",
           "sheet_row": 1426,
           "timestamp": "7/28/2026 8:05:28"
         },
         {
-          "email": "Maguirreyouthrivefl.org",
+          "email": "Maguirre@youthrivefl.org",
           "error": "Invalid `to` field. The email address needs to follow the `email@example.com` or `Name <email@example.com>` format.",
           "name": "Maria Aguirre",
           "sheet_row": 1399,
           "timestamp": "7/28/2026 7:54:26"
         },
         {
-          "email": "blunecessity@gmail.com",
+          "email": "k.tameka@yahoo.com",
           "error": "email mismatch",
           "name": "Tameka Kelly",
           "sheet_row": 1392,
@@ -1560,7 +1560,7 @@
       "drive_folder_url": "https://drive.google.com/drive/folders/1sYcPT2Y6jeieif2ubUoLkLuJG_pcZWyq",
       "errors": [
         {
-          "email": "Aleonyouthrivefl.org",
+          "email": "Aleon@youthrivefl.org",
           "error": "email mismatch",
           "name": "Antonia Leon",
           "sheet_row": 1469,
@@ -1581,14 +1581,14 @@
           "timestamp": "7/28/2026 9:14:46"
         },
         {
-          "email": "Mgalvanyouthrivefl.org",
+          "email": "Mgalvan@youthrivefl.org",
           "error": "Invalid `to` field. The email address needs to follow the `email@example.com` or `Name <email@example.com>` format.",
           "name": "Maria Galvan",
           "sheet_row": 1497,
           "timestamp": "7/28/2026 9:13:08"
         },
         {
-          "email": "msantiago@you thrieve.com",
+          "email": "msantiago@youthrivefl.org",
           "error": "Invalid `to` field. The email address needs to follow the `email@example.com` or `Name <email@example.com>` format.",
           "name": "Marisol Santiago",
           "sheet_row": 1463,
@@ -1602,14 +1602,14 @@
           "timestamp": "7/28/2026 9:12:05"
         },
         {
-          "email": "rarias@youthrivefl.com",
+          "email": "rarias@youthrivefl.org",
           "error": "email mismatch",
           "name": "Rosa Arias",
           "sheet_row": 1444,
           "timestamp": "7/28/2026 9:00:11"
         },
         {
-          "email": "Tbell@youthrive.org",
+          "email": "Tbell@youthrivefl.org",
           "error": "email mismatch",
           "name": "Tehraun Bell",
           "sheet_row": 1470,
