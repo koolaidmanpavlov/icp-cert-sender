@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-05T13:38:44.220142+00:00",
+  "generated_at": "2026-08-05T19:11:18.172168+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -755,6 +755,12 @@
           "sent_at": "2026-06-25T18:31:37.540822+00:00"
         },
         {
+          "drive_pdf_url": null,
+          "name": "Maria Santos",
+          "resend_id": null,
+          "sent_at": "dd"
+        },
+        {
           "drive_pdf_url": "https://drive.google.com/file/d/1UFJaRJndEnksysT2efNpXZ_2T9mNkV2t/view?usp=drivesdk",
           "name": "Myrna Delgadillo",
           "resend_id": "04b774d8-ac10-486a-bb5a-feb0a22c0acd",
@@ -809,9 +815,9 @@
           "sent_at": "2026-06-25T18:31:46.070370+00:00"
         }
       ],
-      "cert_count": 22,
+      "cert_count": 23,
       "cert_error_count": 1,
-      "cert_pending_count": 1,
+      "cert_pending_count": 0,
       "course": "De-Escalation Techniques for Early Childhood Professionals",
       "course_slug": "de-escalation-techniques-for-early-childhood-professionals",
       "date": "2026-06-25",
@@ -828,10 +834,17 @@
       "sign_in_count": 24
     },
     "2026-07-08|De-Escalation Techniques for Early Childhood Professionals": {
-      "attendees": [],
-      "cert_count": 0,
+      "attendees": [
+        {
+          "drive_pdf_url": null,
+          "name": "Dainya Cain",
+          "resend_id": null,
+          "sent_at": "dd"
+        }
+      ],
+      "cert_count": 1,
       "cert_error_count": 0,
-      "cert_pending_count": 1,
+      "cert_pending_count": 0,
       "course": "De-Escalation Techniques for Early Childhood Professionals",
       "course_slug": "de-escalation-techniques-for-early-childhood-professionals",
       "date": "2026-07-08",
