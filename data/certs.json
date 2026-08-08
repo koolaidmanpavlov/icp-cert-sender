@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T00:45:19.107905+00:00",
+  "generated_at": "2026-08-08T06:31:51.496893+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -1688,6 +1688,12 @@
           "sent_at": "2026-08-07T14:32:41.803884+00:00"
         },
         {
+          "drive_pdf_url": "https://drive.google.com/file/d/1RPU-3ysOnC6uNaCekwg0lBtZ9FnUxtOe/view?usp=drivesdk",
+          "name": "Elizabeth Landow",
+          "resend_id": "03108c95-b393-4c6a-9042-0dbc50378961",
+          "sent_at": "2026-08-08T06:31:41.126309+00:00"
+        },
+        {
           "drive_pdf_url": "https://drive.google.com/file/d/1cKgNULr71_bjbfEPix1ct8Te_MM7CEmu/view?usp=drivesdk",
           "name": "Emily Warren",
           "resend_id": "8f522e1f-01cc-46fb-8217-27adfba62d47",
@@ -1802,7 +1808,7 @@
           "sent_at": "2026-08-07T14:32:13.985551+00:00"
         }
       ],
-      "cert_count": 28,
+      "cert_count": 29,
       "cert_error_count": 4,
       "cert_pending_count": 0,
       "course": "Active Threat Preparedness for Early Childhood Programs",
@@ -1839,7 +1845,7 @@
           "timestamp": "8/7/2026 6:54:26"
         }
       ],
-      "sign_in_count": 32
+      "sign_in_count": 33
     }
   },
   "unknown_course_rows": []
