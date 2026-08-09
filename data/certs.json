@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T18:20:50.191337+00:00",
+  "generated_at": "2026-08-09T00:49:03.313929+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -1817,28 +1817,28 @@
       "drive_folder_url": "https://drive.google.com/drive/folders/1y4Pbt1vOQy3B-IB10Km9x_PkmKS_fUqR",
       "errors": [
         {
-          "email": "Catherine.barhold@chafl.org",
+          "email": "Catherine.barhold@chsfl.org",
           "error": "email mismatch",
           "name": "Cathy Barhold",
           "sheet_row": 1525,
           "timestamp": "8/7/2026 6:53:23"
         },
         {
-          "email": "Hely.martinez@chafl.org",
+          "email": "Hely.martinez@chsfl.org",
           "error": "email mismatch",
           "name": "Hely Martinez",
           "sheet_row": 1526,
           "timestamp": "8/7/2026 6:53:59"
         },
         {
-          "email": "Meralia.Renous @chsfl.org",
+          "email": "Meralia.Renous@chsfl.org",
           "error": "email mismatch",
           "name": "Meralia Renous",
           "sheet_row": 1531,
           "timestamp": "8/7/2026 6:58:13"
         },
         {
-          "email": "Philis.vazquez1@.com",
+          "email": "Philis.vazquez1@chsfl.org",
           "error": "Invalid `to` field. The email address needs to follow the `email@example.com` or `Name <email@example.com>` format.",
           "name": "Philis Vazquez",
           "sheet_row": 1528,
