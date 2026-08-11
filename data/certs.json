@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-11T15:01:51.671438+00:00",
+  "generated_at": "2026-08-11T15:07:04.718256+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -1676,6 +1676,12 @@
           "sent_at": "2026-08-07T14:31:24.737611+00:00"
         },
         {
+          "drive_pdf_url": null,
+          "name": "Cathy Barhold",
+          "resend_id": null,
+          "sent_at": "x"
+        },
+        {
           "drive_pdf_url": "https://drive.google.com/file/d/1W7khvbvvTdyqAt95Uk-TbHj0VB-YBdjC/view?usp=drivesdk",
           "name": "Colleen DaBose",
           "resend_id": "953f2237-b010-4ed9-bce6-da7e48840019",
@@ -1704,6 +1710,12 @@
           "name": "Gladys Patricia Torres Villamarin",
           "resend_id": "7f894305-993a-4b84-b8ca-ce4e456e12cb",
           "sent_at": "2026-08-07T14:32:31.930010+00:00"
+        },
+        {
+          "drive_pdf_url": null,
+          "name": "Hely Martinez",
+          "resend_id": null,
+          "sent_at": "x"
         },
         {
           "drive_pdf_url": "https://drive.google.com/file/d/1V-AUE38_7GelO1gxyzz_j5NYlq6V7Rgk/view?usp=drivesdk",
@@ -1736,6 +1748,12 @@
           "sent_at": "2026-08-07T14:32:22.850287+00:00"
         },
         {
+          "drive_pdf_url": null,
+          "name": "Meralia Renous",
+          "resend_id": null,
+          "sent_at": "x"
+        },
+        {
           "drive_pdf_url": "https://drive.google.com/file/d/146H1syqb7M_hlJvFIYx2KmkARKJ5A3lP/view?usp=drivesdk",
           "name": "Michelle Van Kramer",
           "resend_id": "03f8446c-7f02-4156-9132-e64d7f256527",
@@ -1746,6 +1764,12 @@
           "name": "Natasha Almonor",
           "resend_id": "48427b68-3601-40ed-8bef-bc4664dfd7ea",
           "sent_at": "2026-08-07T14:32:07.213401+00:00"
+        },
+        {
+          "drive_pdf_url": null,
+          "name": "Philis Vazquez",
+          "resend_id": null,
+          "sent_at": "x"
         },
         {
           "drive_pdf_url": "https://drive.google.com/file/d/1IDcwI-Ti18UgQXymA0_GAmOda3DAPAo1/view?usp=drivesdk",
@@ -1808,43 +1832,14 @@
           "sent_at": "2026-08-07T14:32:13.985551+00:00"
         }
       ],
-      "cert_count": 29,
-      "cert_error_count": 4,
+      "cert_count": 33,
+      "cert_error_count": 0,
       "cert_pending_count": 0,
       "course": "Active Threat Preparedness for Early Childhood Programs",
       "course_slug": "active-threat-preparedness-for-early-childhood-programs",
       "date": "2026-08-07",
       "drive_folder_url": "https://drive.google.com/drive/folders/1y4Pbt1vOQy3B-IB10Km9x_PkmKS_fUqR",
-      "errors": [
-        {
-          "email": "Catherine.barhold@chsfl.org",
-          "error": "email mismatch",
-          "name": "Cathy Barhold",
-          "sheet_row": 1525,
-          "timestamp": "8/7/2026 6:53:23"
-        },
-        {
-          "email": "Hely.martinez@chsfl.org",
-          "error": "email mismatch",
-          "name": "Hely Martinez",
-          "sheet_row": 1526,
-          "timestamp": "8/7/2026 6:53:59"
-        },
-        {
-          "email": "Meralia.Renous@chsfl.org",
-          "error": "email mismatch",
-          "name": "Meralia Renous",
-          "sheet_row": 1531,
-          "timestamp": "8/7/2026 6:58:13"
-        },
-        {
-          "email": "Philis.vazquez1@chsfl.org",
-          "error": "Invalid `to` field. The email address needs to follow the `email@example.com` or `Name <email@example.com>` format.",
-          "name": "Philis Vazquez",
-          "sheet_row": 1528,
-          "timestamp": "8/7/2026 6:54:26"
-        }
-      ],
+      "errors": [],
       "sign_in_count": 33
     }
   },
