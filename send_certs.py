@@ -4,7 +4,7 @@ ICP Cloud-Native Certificate Sender
 
 Runs on a GitHub Actions cron every 15 min. Reads the ICP sign-in sheet,
 finds rows where:
-  - Sign-in timestamp is between 90 min and 24 hours old
+  - Sign-in timestamp is between 90 min and 48 hours old
   - Training name matches a course in courses.json
   - cert_sent column is empty (idempotent — skips already-processed rows)
 
@@ -908,7 +908,11 @@ def main():
 
     now_utc = datetime.now(timezone.utc)
     min_age = timedelta(minutes=CERT_DELAY_MINUTES)
-    max_age = timedelta(hours=24)
+    # 48-hour window: a row that errors on its first pass (email typo, bad
+    # confirm-email) gets a second day of cron runs to be corrected in the
+    # sheet and picked up automatically. Past this, the row is silently
+    # skipped and needs send_one.py — the digest flags those as aged out.
+    max_age = timedelta(hours=48)
 
     processed = skipped_already_sent = skipped_too_new = skipped_other = errors = 0
 

@@ -32,11 +32,15 @@ import resend
 from send_certs import (
     COURSES_JSON,
     SHEET_ID,
+    SHEET_TAB,
     gcp_clients,
+    google_execute,
     known_course_names,
     read_sheet_rows,
     session_date_from_timestamp,
 )
+
+SHEET_URL = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/edit"
 
 DIGEST_FROM_EMAIL = "Institute for Childhood Preparedness <info@learn.icp.us>"
 DIGEST_TO_EMAIL = os.environ.get("DIGEST_TO_EMAIL", "andy@icp.us")
@@ -46,6 +50,46 @@ RESEND_API_KEY = os.environ.get("RESEND_API_KEY", "")
 # sent manually. Exclude them from the persistent-issue sections so the digest
 # only surfaces actionable problems.
 DIGEST_IGNORE_BEFORE = "2026-05-25"
+
+
+def sheet_tab_gid(sheets):
+    """Return the numeric gid of SHEET_TAB, or None if it can't be resolved.
+    The gid is needed for #gid=...&range=A<row> deep links that land on the
+    right tab AND the right row. Never fatal — links degrade to the plain
+    spreadsheet URL."""
+    try:
+        meta = google_execute(
+            sheets.spreadsheets().get(
+                spreadsheetId=SHEET_ID,
+                fields="sheets.properties(sheetId,title)",
+            ),
+            "read-sheet-metadata",
+        )
+        for s in meta.get("sheets", []):
+            props = s.get("properties", {})
+            if props.get("title") == SHEET_TAB:
+                return props.get("sheetId")
+    except Exception as exc:
+        print(f"WARNING: could not resolve gid for '{SHEET_TAB}': {exc}")
+    return None
+
+
+def row_link(gid, sheet_row):
+    """Deep link to a specific sheet row, e.g. ...edit#gid=123&range=A1525."""
+    if gid is None or not sheet_row:
+        return SHEET_URL
+    # &amp; — this lands in an HTML href attribute; browsers decode it back to &
+    return f"{SHEET_URL}#gid={gid}&amp;range=A{sheet_row}"
+
+
+def row_link_html(gid, sheet_row):
+    """Clickable row-number cell for the issue tables."""
+    if not sheet_row:
+        return "<span style='color:#888;'>—</span>"
+    return (
+        f"<a href='{row_link(gid, sheet_row)}' "
+        f"style='color:#29B6E7;font-weight:600;text-decoration:none;'>{sheet_row}</a>"
+    )
 
 
 def yesterday_eastern_date():
@@ -83,6 +127,7 @@ def collect(rows, courses):
                 "name": full_name,
                 "email": email,
                 "timestamp": row["timestamp"],
+                "sheet_row": row.get("sheet_row"),
             })
         elif row.get("cert_error") and not row.get("cert_sent"):
             persistent_errors.append({
@@ -92,6 +137,7 @@ def collect(rows, courses):
                 "email": email,
                 "error": row["cert_error"],
                 "timestamp": row["timestamp"],
+                "sheet_row": row.get("sheet_row"),
             })
 
         # Yesterday's per-session reconciliation
@@ -118,11 +164,17 @@ def collect(rows, courses):
     return yday, list(by_session_yday.values()), persistent_errors, persistent_unknowns
 
 
-def render_html(yday, yday_sessions, persistent_errors, persistent_unknowns):
+def render_html(yday, yday_sessions, persistent_errors, persistent_unknowns, sheet_gid=None):
     yday_label = datetime.strptime(yday, "%Y-%m-%d").strftime("%A, %B %d, %Y")
     parts = []
     parts.append(f"<h2 style='color:#0F2A3F;margin:0 0 8px 0;font-size:18px;'>ICP Cert Delivery — Daily Digest</h2>")
-    parts.append(f"<p style='color:#555;margin:0 0 18px 0;font-size:13px;'>Summary for <strong>{yday_label}</strong></p>")
+    parts.append(f"<p style='color:#555;margin:0 0 6px 0;font-size:13px;'>Summary for <strong>{yday_label}</strong></p>")
+    parts.append(
+        f"<p style='margin:0 0 18px 0;font-size:13px;'>"
+        f"<a href='{SHEET_URL}' style='color:#29B6E7;font-weight:600;text-decoration:none;'>"
+        f"📋 Open the sign-in sheet →</a>"
+        f"<span style='color:#888;'> &nbsp;(row numbers below link straight to the row)</span></p>"
+    )
 
     # Yesterday's sessions
     if yday_sessions:
@@ -158,10 +210,11 @@ def render_html(yday, yday_sessions, persistent_errors, persistent_unknowns):
     if persistent_errors:
         parts.append("<h3 style='color:#9a3412;margin:22px 0 6px 0;font-size:15px;'>⚠️ Cert send errors needing attention</h3>")
         parts.append("<table style='border-collapse:collapse;width:100%;font-size:13px;'>")
-        parts.append("<tr style='background:#FEE2E2;text-align:left;'><th style='padding:6px 8px;border:1px solid #ddd;'>Date</th><th style='padding:6px 8px;border:1px solid #ddd;'>Training</th><th style='padding:6px 8px;border:1px solid #ddd;'>Attendee</th><th style='padding:6px 8px;border:1px solid #ddd;'>Email</th><th style='padding:6px 8px;border:1px solid #ddd;'>Error</th></tr>")
+        parts.append("<tr style='background:#FEE2E2;text-align:left;'><th style='padding:6px 8px;border:1px solid #ddd;'>Row</th><th style='padding:6px 8px;border:1px solid #ddd;'>Date</th><th style='padding:6px 8px;border:1px solid #ddd;'>Training</th><th style='padding:6px 8px;border:1px solid #ddd;'>Attendee</th><th style='padding:6px 8px;border:1px solid #ddd;'>Email</th><th style='padding:6px 8px;border:1px solid #ddd;'>Error</th></tr>")
         for e in persistent_errors:
             parts.append(
-                f"<tr><td style='padding:6px 8px;border:1px solid #ddd;'>{escape(e['date'])}</td>"
+                f"<tr><td style='padding:6px 8px;border:1px solid #ddd;'>{row_link_html(sheet_gid, e['sheet_row'])}</td>"
+                f"<td style='padding:6px 8px;border:1px solid #ddd;'>{escape(e['date'])}</td>"
                 f"<td style='padding:6px 8px;border:1px solid #ddd;'>{escape(e['training'])}</td>"
                 f"<td style='padding:6px 8px;border:1px solid #ddd;'>{escape(e['name'])}</td>"
                 f"<td style='padding:6px 8px;border:1px solid #ddd;'>{escape(e['email'])}</td>"
@@ -174,17 +227,22 @@ def render_html(yday, yday_sessions, persistent_errors, persistent_unknowns):
         parts.append("<h3 style='color:#9a3412;margin:22px 0 6px 0;font-size:15px;'>⚠️ Sign-ins with unknown training name (no cert sent)</h3>")
         parts.append("<p style='color:#555;font-size:12px;margin:0 0 6px 0;'>The training name in column L doesn't match any key in courses.json, so the cert sender skipped these rows. Fix the form dropdown or add the training to courses.json — see the Salem VA incident (2026-05-30) for context.</p>")
         parts.append("<table style='border-collapse:collapse;width:100%;font-size:13px;'>")
-        parts.append("<tr style='background:#FEE2E2;text-align:left;'><th style='padding:6px 8px;border:1px solid #ddd;'>Date</th><th style='padding:6px 8px;border:1px solid #ddd;'>Training (as typed)</th><th style='padding:6px 8px;border:1px solid #ddd;'>Attendee</th><th style='padding:6px 8px;border:1px solid #ddd;'>Email</th></tr>")
+        parts.append("<tr style='background:#FEE2E2;text-align:left;'><th style='padding:6px 8px;border:1px solid #ddd;'>Row</th><th style='padding:6px 8px;border:1px solid #ddd;'>Date</th><th style='padding:6px 8px;border:1px solid #ddd;'>Training (as typed)</th><th style='padding:6px 8px;border:1px solid #ddd;'>Attendee</th><th style='padding:6px 8px;border:1px solid #ddd;'>Email</th></tr>")
         for u in persistent_unknowns:
             parts.append(
-                f"<tr><td style='padding:6px 8px;border:1px solid #ddd;'>{escape(u['date'])}</td>"
+                f"<tr><td style='padding:6px 8px;border:1px solid #ddd;'>{row_link_html(sheet_gid, u['sheet_row'])}</td>"
+                f"<td style='padding:6px 8px;border:1px solid #ddd;'>{escape(u['date'])}</td>"
                 f"<td style='padding:6px 8px;border:1px solid #ddd;'>{escape(u['training'])}</td>"
                 f"<td style='padding:6px 8px;border:1px solid #ddd;'>{escape(u['name'])}</td>"
                 f"<td style='padding:6px 8px;border:1px solid #ddd;'>{escape(u['email'])}</td></tr>"
             )
         parts.append("</table>")
 
-    parts.append("<p style='color:#888;font-size:11px;margin:24px 0 0 0;'>Generated by icp-cert-sender · daily-digest workflow · andy@icp.us</p>")
+    parts.append(
+        f"<p style='color:#888;font-size:11px;margin:24px 0 0 0;'>Generated by icp-cert-sender · "
+        f"daily-digest workflow · andy@icp.us · "
+        f"<a href='{SHEET_URL}' style='color:#888;'>sign-in sheet</a></p>"
+    )
     return "".join(parts)
 
 
@@ -199,6 +257,7 @@ def main():
 
     sheets, _drive = gcp_clients()
     rows = read_sheet_rows(sheets)
+    gid = sheet_tab_gid(sheets)
 
     yday, yday_sessions, persistent_errors, persistent_unknowns = collect(rows, courses)
 
@@ -208,7 +267,7 @@ def main():
         print(f"Nothing to report for {yday} (no sessions, no errors, no unknowns). Skipping email.")
         return
 
-    html = render_html(yday, yday_sessions, persistent_errors, persistent_unknowns)
+    html = render_html(yday, yday_sessions, persistent_errors, persistent_unknowns, sheet_gid=gid)
     subject_bits = []
     if has_issues:
         subject_bits.append(f"⚠️ {len(persistent_errors) + len(persistent_unknowns)} issue(s)")
