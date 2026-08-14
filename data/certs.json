@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T12:37:40.294801+00:00",
+  "generated_at": "2026-08-14T14:31:29.364900+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -1841,6 +1841,99 @@
       "drive_folder_url": "https://drive.google.com/drive/folders/1y4Pbt1vOQy3B-IB10Km9x_PkmKS_fUqR",
       "errors": [],
       "sign_in_count": 33
+    },
+    "2026-08-14|Active Threat Preparedness for Early Childhood Programs": {
+      "attendees": [
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1J1Q1o5LVu-f1HeOyDmEO1bpycA2BrLX7/view?usp=drivesdk",
+          "name": "Ada Lee",
+          "resend_id": "4ea2c387-7264-46e8-9778-62100f5581d3",
+          "sent_at": "2026-08-14T14:31:11.655085+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1dpTPVrKY5rEmJfPnBBhKGjOioXiTqygK/view?usp=drivesdk",
+          "name": "Ashley Grant",
+          "resend_id": "15b16d4b-0d67-44fa-8668-89c98d9fdede",
+          "sent_at": "2026-08-14T14:30:45.637082+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1XJh9rG9TYRjN9hQTkIymA44KV3gClkW9/view?usp=drivesdk",
+          "name": "Barbara Halpern",
+          "resend_id": "28c1263c-5e72-405e-8eb5-426695f21a3e",
+          "sent_at": "2026-08-14T14:30:48.888407+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/12Od96MHTHlH2MBn5zRhV--QQunVI1z-y/view?usp=drivesdk",
+          "name": "Bisrat Tesfamariam",
+          "resend_id": "f5cbec77-9668-4482-9c54-019b645fdbc4",
+          "sent_at": "2026-08-14T14:31:14.517507+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1d5UyJTMWe8tJxQsmyav5ISSiLFEH3Rbj/view?usp=drivesdk",
+          "name": "Daleen Ghname",
+          "resend_id": "5d3254d9-45a5-402b-9dfc-ce27aa3bc860",
+          "sent_at": "2026-08-14T14:31:02.468766+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1VL41WIBza6ojqdZCfr3R6OaQ_kYdjiO7/view?usp=drivesdk",
+          "name": "Emely Sermeno",
+          "resend_id": "bebfb0d1-9bcc-4fc4-98b2-4faaa9482423",
+          "sent_at": "2026-08-14T14:31:05.829646+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1JbgHKyFuAnawcbxs4-s5lyoPKj5ZTm_h/view?usp=drivesdk",
+          "name": "Jelizbet Nunjar",
+          "resend_id": "71b906fe-dc6b-4841-86ba-80f393545f3a",
+          "sent_at": "2026-08-14T14:30:55.158295+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1CLRIqHUzLukCu-S-UiqXyiZokhEFASpK/view?usp=drivesdk",
+          "name": "Joceline Ordonez",
+          "resend_id": "13996d9e-9031-45c3-9e0a-d8349c4bc7ea",
+          "sent_at": "2026-08-14T14:31:08.729768+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1e65qEBFFx_-V-DSQPd3ZMUtnInkvwPbi/view?usp=drivesdk",
+          "name": "Kimberly Dorsey",
+          "resend_id": "351281f2-d948-48d3-88ef-9675f2bb84b4",
+          "sent_at": "2026-08-14T14:31:17.399647+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1IMaGgwyqFMiFaAa5Wy9NdcjIZhKyGIE3/view?usp=drivesdk",
+          "name": "Lissa Crane",
+          "resend_id": "4efa203e-e8bf-4067-a3b9-8aa6e53d05f4",
+          "sent_at": "2026-08-14T14:30:58.226629+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1qB3tSnYd_LBHe6IQQ2-KLaB3M4xwyQDS/view?usp=drivesdk",
+          "name": "Rebecca Mancuso",
+          "resend_id": "39564f2c-c2c8-4b5e-88eb-162b4bde07f2",
+          "sent_at": "2026-08-14T14:30:51.811460+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1_zDghrOWOKEie7Uln-4rXbjmIPlIH4Jj/view?usp=drivesdk",
+          "name": "Shamika Stephens",
+          "resend_id": "4bbfd38d-faeb-41f5-ad17-cc3c6e01df87",
+          "sent_at": "2026-08-14T14:31:18.522900+00:00"
+        }
+      ],
+      "cert_count": 12,
+      "cert_error_count": 1,
+      "cert_pending_count": 0,
+      "course": "Active Threat Preparedness for Early Childhood Programs",
+      "course_slug": "active-threat-preparedness-for-early-childhood-programs",
+      "date": "2026-08-14",
+      "drive_folder_url": "https://drive.google.com/drive/folders/1m_j0-xgCpE1QL5IyiiGioZH7QEmatkxP",
+      "errors": [
+        {
+          "email": "Giselsaire @gmail.com",
+          "error": "Invalid `to` field. The email address needs to follow the `email@example.com` or `Name <email@example.com>` format.",
+          "name": "Gissela Saire",
+          "sheet_row": 1545,
+          "timestamp": "8/14/2026 7:30:35"
+        }
+      ],
+      "sign_in_count": 13
     }
   },
   "unknown_course_rows": []
