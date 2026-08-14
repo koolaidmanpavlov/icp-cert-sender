@@ -60,6 +60,12 @@ jobs:
 
       - name: Commit certs.json if changed
         if: ${{ !inputs.dry_run }}
+        # This step is bookkeeping only - certificates are already sent by the
+        # step above, and dedupe reads the Google Sheet, not certs.json. If a
+        # concurrent run wins the push race, that run's artifact is equally
+        # valid and already on main. Never fail the job (and email Andy) over
+        # it.
+        continue-on-error: true
         run: |
           if [ ! -f data/certs.json ]; then
             echo "data/certs.json not produced this run; nothing to commit"
