@@ -11,6 +11,14 @@ on:
         type: boolean
         default: false
 
+# Two dispatches can arrive for the same tick (the icp-scheduler Worker's
+# scheduled handler has no idempotency guard), which raced this job against
+# itself and made the loser fail on push. Serialize instead of cancelling —
+# the second run is harmless (it finds processed=0) and we want it to finish.
+concurrency:
+  group: send-pending-certificates
+  cancel-in-progress: false
+
 permissions:
   id-token: write       # required for WIF OIDC token
   contents: write       # required to commit refreshed data/certs.json
@@ -65,4 +73,15 @@ jobs:
             exit 0
           fi
           git commit -m "Refresh certs.json [skip ci]"
-          git push
+          # Another run may have pushed while we worked; rebase and retry
+          # rather than failing the whole job over a bookkeeping commit.
+          for attempt in 1 2 3; do
+            if git push; then
+              echo "pushed on attempt $attempt"
+              exit 0
+            fi
+            echo "push rejected (attempt $attempt) - rebasing on origin/main"
+            git pull --rebase --autostash origin main || exit 1
+          done
+          echo "could not push certs.json after 3 attempts" >&2
+          exit 1
