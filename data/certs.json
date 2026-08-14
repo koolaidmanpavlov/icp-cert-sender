@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T17:30:50.449278+00:00",
+  "generated_at": "2026-08-14T18:00:55.510890+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -1926,7 +1926,7 @@
       "drive_folder_url": "https://drive.google.com/drive/folders/1m_j0-xgCpE1QL5IyiiGioZH7QEmatkxP",
       "errors": [
         {
-          "email": "Giselsaire @gmail.com",
+          "email": "Giselsaire@gmail.com",
           "error": "Invalid `to` field. The email address needs to follow the `email@example.com` or `Name <email@example.com>` format.",
           "name": "Gissela Saire",
           "sheet_row": 1545,
