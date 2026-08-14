@@ -73,15 +73,26 @@ jobs:
             exit 0
           fi
           git commit -m "Refresh certs.json [skip ci]"
-          # Another run may have pushed while we worked; rebase and retry
-          # rather than failing the whole job over a bookkeeping commit.
+          # certs.json is a fully regenerated artifact, never hand-edited, so a
+          # concurrent run's copy is not worth merging - rebasing on it only
+          # produces a content conflict on the timestamp. Reset onto
+          # origin/main and reapply our freshly generated file instead.
+          cp data/certs.json "$RUNNER_TEMP/certs.json"
           for attempt in 1 2 3; do
             if git push; then
               echo "pushed on attempt $attempt"
               exit 0
             fi
-            echo "push rejected (attempt $attempt) - rebasing on origin/main"
-            git pull --rebase --autostash origin main || exit 1
+            echo "push rejected (attempt $attempt) - reapplying onto origin/main"
+            git fetch origin main || exit 1
+            git reset --hard origin/main || exit 1
+            cp "$RUNNER_TEMP/certs.json" data/certs.json
+            git add data/certs.json
+            if git diff --cached --quiet; then
+              echo "certs.json already current on origin; nothing to push"
+              exit 0
+            fi
+            git commit -m "Refresh certs.json [skip ci]"
           done
           echo "could not push certs.json after 3 attempts" >&2
           exit 1
