@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T18:30:44.991805+00:00",
+  "generated_at": "2026-09-03T19:00:45.158244+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -2004,6 +2004,12 @@
           "sent_at": "2026-09-03T18:01:31.059578+00:00"
         },
         {
+          "drive_pdf_url": "https://drive.google.com/file/d/1GN12ncKv1QvOokHg2jydP0aiicXf5Y8v/view?usp=drivesdk",
+          "name": "Lattice Jones",
+          "resend_id": "0e290efd-9b06-494b-a78c-e23b001c45a8",
+          "sent_at": "2026-09-03T19:00:32.475951+00:00"
+        },
+        {
           "drive_pdf_url": "https://drive.google.com/file/d/10xjmxmU1IG6GnB3s7K8d287l_SZoxT7T/view?usp=drivesdk",
           "name": "Laura Daniela Lozano Diaz",
           "resend_id": "01a0686e-c4ff-7119-b3f0-dd6eb1533d5e",
@@ -2028,7 +2034,7 @@
           "sent_at": "2026-09-03T18:01:21.032133+00:00"
         }
       ],
-      "cert_count": 15,
+      "cert_count": 16,
       "cert_error_count": 1,
       "cert_pending_count": 0,
       "course": "Emergency Preparedness for Early Childhood Programs",
@@ -2044,7 +2050,7 @@
           "timestamp": "9/3/2026 12:10:37"
         }
       ],
-      "sign_in_count": 16
+      "sign_in_count": 17
     }
   },
   "unknown_course_rows": []
