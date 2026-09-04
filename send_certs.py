@@ -144,6 +144,64 @@ def resolve_course_hours(course_name, date_str, default_hours):
             hours = round((end_m - start_m) / 60 * 4) / 4  # nearest quarter hour
             return str(int(hours)) if hours == int(hours) else str(hours)
     return default_hours
+
+# ============================================================
+# DELIVERY FORMAT FROM THE SCHEDULER
+#
+# The same course is taught in person one week and as a webinar the next, so
+# the format is a property of the *session*, not the course. The scheduler
+# (tools.icp.us) is the source of truth. Certificate wording is baked into
+# the blank PNGs, so the template MUST follow the resolved format — deriving
+# both from this single value is what keeps the PDF and the audit log from
+# disagreeing. (2026-09-03: 16 webinar attendees got in-person certificates
+# because the template and the logged format were two hand-synced settings.)
+# ============================================================
+TEMPLATE_BY_FORMAT = {
+    "in-person": "template_in_person.png",
+    "webinar": "template_webinar.png",
+}
+
+# The cert-log ingest (tools.icp.us/api/cert-log) recognises only the
+# underscore spelling and silently rewrites anything else to "webinar", which
+# is why every historical batch row reads "webinar" even for in-person
+# classes. Translate at the boundary rather than guessing there.
+CERT_LOG_FORMAT = {"in-person": "in_person", "webinar": "webinar"}
+
+# Any spelling we might see (scheduler delivery_mode, courses.json) -> our label.
+# 'on_demand' maps to nothing on purpose: there is no on-demand template, so it
+# falls through to the default rather than silently claiming a live session.
+_FORMAT_ALIASES = {
+    "in-person": "in-person",
+    "inperson": "in-person",
+    "live-webinar": "webinar",
+    "webinar": "webinar",
+}
+
+
+def normalize_format(value):
+    if not value:
+        return None
+    return _FORMAT_ALIASES.get(str(value).strip().lower().replace("_", "-"))
+
+
+def resolve_delivery_format(course_name, date_str, default_format):
+    """The format this session was actually delivered in, per the scheduler."""
+    for sess in fetch_scheduler_sessions():
+        if sess.get("date") != date_str:
+            continue
+        for seg in sess.get("segments", []):
+            if seg.get("course_name") != course_name:
+                continue
+            fmt = normalize_format(sess.get("delivery_mode"))
+            if fmt:
+                return fmt
+            print(f"  [scheduler] session {sess.get('id')} delivery_mode="
+                  f"{sess.get('delivery_mode')!r} has no certificate template — "
+                  f"falling back to the courses.json default")
+    fallback = normalize_format(default_format) or "webinar"
+    print(f"  [scheduler] no session matched {course_name!r} on {date_str} — "
+          f"using courses.json default format {fallback!r}")
+    return fallback
 CERT_DELAY_MINUTES = int(os.environ.get("CERT_DELAY_MINUTES", "90"))
 DRY_RUN = os.environ.get("DRY_RUN", "") == "1"
 
@@ -389,8 +447,8 @@ def draw_multiline_centered(draw, lines, font, center_y, w, color, spacing):
         draw.text(((w - tw) / 2, start_y + i * (lh + spacing)), line, font=font, fill=color)
 
 
-def render_cert(full_name, course_config, course_date_str):
-    template_path = os.path.join(TEMPLATE_DIR, course_config["template"])
+def render_cert(full_name, course_config, course_date_str, course_format):
+    template_path = os.path.join(TEMPLATE_DIR, TEMPLATE_BY_FORMAT[course_format])
     img = Image.open(template_path).convert("RGB")
     draw = ImageDraw.Draw(img)
     W, _ = img.size
@@ -628,14 +686,16 @@ def process_row(row, course_names, courses, sheets, drive):
     for course_name in course_names:
         course_config = courses[course_name]
         hours = resolve_course_hours(course_name, sign_in_date_str, course_config["hours"])
-        pdf_bytes = render_cert(full_name, {**course_config, "hours": hours}, course_date)
-        certs.append({"course_name": course_name, "config": course_config, "hours": hours, "pdf_bytes": pdf_bytes})
+        fmt = resolve_delivery_format(course_name, sign_in_date_str, course_config.get("format"))
+        pdf_bytes = render_cert(full_name, {**course_config, "hours": hours}, course_date, fmt)
+        certs.append({"course_name": course_name, "config": course_config, "hours": hours,
+                      "format": fmt, "pdf_bytes": pdf_bytes})
 
     safe = sanitize(full_name)
 
     if DRY_RUN:
         for c in certs:
-            print(f"  [DRY] would send {full_name} <{row['email']}> for {c['course_name']} ({c['hours']} hrs) on {course_date}")
+            print(f"  [DRY] would send {full_name} <{row['email']}> for {c['course_name']} ({c['hours']} hrs, {c['format']}) on {course_date}")
         return "dry-run"
 
     # Send email — with idempotency + retry + List-Unsubscribe + suppression-aware.
@@ -676,7 +736,7 @@ def process_row(row, course_names, courses, sheets, drive):
             "course_title": c["course_name"],
             "course_date": course_date,
             "pd_hours": str(c["hours"]),
-            "course_format": c["config"].get("format", "webinar"),
+            "course_format": CERT_LOG_FORMAT[c["format"]],
             "status": "sent",
             "timestamp_iso": datetime.now(timezone.utc).isoformat(),
             "resend_id": resend_id,

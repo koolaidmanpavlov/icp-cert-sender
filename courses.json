@@ -1,55 +1,73 @@
 {
   "Situational Awareness for Early Childhood Professionals": {
-    "template": "template_webinar.png",
-    "title_lines": ["Situational Awareness for", "Early Childhood Professionals"],
+    "title_lines": [
+      "Situational Awareness for",
+      "Early Childhood Professionals"
+    ],
     "hours": "1.5",
     "format": "webinar"
   },
   "Legal Preparedness for Early Childhood Leaders": {
-    "template": "template_in_person.png",
-    "title_lines": ["Legal Preparedness for", "Early Childhood Leaders"],
+    "title_lines": [
+      "Legal Preparedness for",
+      "Early Childhood Leaders"
+    ],
     "hours": "2",
     "format": "in-person"
   },
   "Fire Safety for Early Childhood Programs": {
-    "template": "template_in_person.png",
-    "title_lines": ["Fire Safety for", "Early Childhood Programs"],
+    "title_lines": [
+      "Fire Safety for",
+      "Early Childhood Programs"
+    ],
     "hours": "1.5",
     "format": "in-person"
   },
   "Active Threat Preparedness for Early Childhood Programs": {
-    "template": "template_in_person.png",
-    "title_lines": ["Active Threat Preparedness for", "Early Childhood Programs"],
+    "title_lines": [
+      "Active Threat Preparedness for",
+      "Early Childhood Programs"
+    ],
     "hours": "2",
     "format": "in-person"
   },
   "De-Escalation Techniques for Early Childhood Professionals": {
-    "template": "template_in_person.png",
-    "title_lines": ["De-Escalation Techniques for", "Early Childhood Professionals"],
+    "title_lines": [
+      "De-Escalation Techniques for",
+      "Early Childhood Professionals"
+    ],
     "hours": "2",
     "format": "in-person"
   },
   "Home Visit Safety for Early Childhood Professionals": {
-    "template": "template_in_person.png",
-    "title_lines": ["Home Visit Safety for", "Early Childhood Professionals"],
+    "title_lines": [
+      "Home Visit Safety for",
+      "Early Childhood Professionals"
+    ],
     "hours": "2",
     "format": "in-person"
   },
   "Cybersecurity for Early Childhood Programs": {
-    "template": "template_in_person.png",
-    "title_lines": ["Cybersecurity for", "Early Childhood Programs"],
+    "title_lines": [
+      "Cybersecurity for",
+      "Early Childhood Programs"
+    ],
     "hours": "2",
     "format": "in-person"
   },
   "Emergency Preparedness for Early Childhood Programs": {
-    "template": "template_in_person.png",
-    "title_lines": ["Emergency Preparedness for", "Early Childhood Programs"],
-    "hours": "1.5",
+    "title_lines": [
+      "Emergency Preparedness for",
+      "Early Childhood Programs"
+    ],
+    "hours": "2",
     "format": "in-person"
   },
   "Creating a Culture of Safety in Early Childhood Programs": {
-    "template": "template_in_person.png",
-    "title_lines": ["Creating a Culture of Safety", "in Early Childhood Programs"],
+    "title_lines": [
+      "Creating a Culture of Safety",
+      "in Early Childhood Programs"
+    ],
     "hours": "1.5",
     "format": "in-person"
   }

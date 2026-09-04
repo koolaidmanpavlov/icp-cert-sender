@@ -13,7 +13,9 @@ import json
 import os
 import re
 import sys
+from datetime import datetime
 
+import requests
 import resend
 from PIL import Image, ImageDraw, ImageFont
 
@@ -65,8 +67,54 @@ def draw_multiline_centered(draw, lines, font, center_y, w, color, spacing):
         draw.text(((w - tw) / 2, start_y + i * (lh + spacing)), line, font=font, fill=color)
 
 
-def render_cert(full_name, course_config, course_date_str):
-    template_path = os.path.join(TEMPLATE_DIR, course_config["template"])
+SCHEDULER_SESSIONS_URL = os.environ.get(
+    "SCHEDULER_SESSIONS_URL", "https://tools.icp.us/api/sessions/list")
+
+# Kept in step with send_certs.py — see the DELIVERY FORMAT block there.
+TEMPLATE_BY_FORMAT = {
+    "in-person": "template_in_person.png",
+    "webinar": "template_webinar.png",
+}
+_FORMAT_ALIASES = {
+    "in-person": "in-person",
+    "inperson": "in-person",
+    "live-webinar": "webinar",
+    "webinar": "webinar",
+}
+
+
+def normalize_format(value):
+    if not value:
+        return None
+    return _FORMAT_ALIASES.get(str(value).strip().lower().replace("_", "-"))
+
+
+def resolve_delivery_format(course_name, date_iso, default_format):
+    """Match send_certs.py: the scheduler decides how the session was delivered."""
+    try:
+        r = requests.get(SCHEDULER_SESSIONS_URL, timeout=8)
+        r.raise_for_status()
+        sessions = r.json().get("sessions", [])
+    except Exception as exc:
+        print(f"  [scheduler] warning: could not fetch session list — {exc}")
+        sessions = []
+    for sess in sessions:
+        if sess.get("date") != date_iso:
+            continue
+        for seg in sess.get("segments", []):
+            if seg.get("course_name") != course_name:
+                continue
+            fmt = normalize_format(sess.get("delivery_mode"))
+            if fmt:
+                return fmt
+    fallback = normalize_format(default_format) or "webinar"
+    print(f"  [scheduler] no session matched {course_name!r} on {date_iso} — "
+          f"using default format {fallback!r}")
+    return fallback
+
+
+def render_cert(full_name, course_config, course_date_str, course_format):
+    template_path = os.path.join(TEMPLATE_DIR, TEMPLATE_BY_FORMAT[course_format])
     img = Image.open(template_path).convert("RGB")
     draw = ImageDraw.Draw(img)
     W, _ = img.size
@@ -151,7 +199,19 @@ def main():
     course_config = courses[course_key]
     first_name = full_name.split()[0] if full_name else ""
 
-    pdf_bytes = render_cert(full_name, course_config, course_date)
+    # COURSE_DATE is a display string ("September 3, 2026"); the scheduler keys
+    # on ISO. Accept COURSE_DATE_ISO explicitly, else derive it.
+    course_date_iso = os.environ.get("COURSE_DATE_ISO", "").strip()
+    if not course_date_iso:
+        try:
+            course_date_iso = datetime.strptime(course_date, "%B %d, %Y").strftime("%Y-%m-%d")
+        except ValueError:
+            course_date_iso = ""
+    course_format = resolve_delivery_format(course_key, course_date_iso,
+                                            course_config.get("format"))
+    print(f"  format: {course_format} (template {TEMPLATE_BY_FORMAT[course_format]})")
+
+    pdf_bytes = render_cert(full_name, course_config, course_date, course_format)
 
     course_slug = re.sub(r"[^a-z0-9]+", "-", course_key.lower()).strip("-")
     date_slug = re.sub(r"[^a-z0-9]+", "-", course_date.lower()).strip("-")

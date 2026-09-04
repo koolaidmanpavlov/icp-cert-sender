@@ -19,6 +19,10 @@ on:
         description: "Date string for cert (e.g., 'May 30, 2026')"
         type: string
         required: true
+      course_date_iso:
+        description: "Optional YYYY-MM-DD. Only needed if course_date isn't 'Month D, YYYY' — used to look up the session's delivery format in the scheduler."
+        type: string
+        required: false
 
 permissions:
   contents: read
@@ -38,7 +42,7 @@ jobs:
           cache: pip
 
       - name: Install Python deps
-        run: pip install resend Pillow
+        run: pip install resend Pillow requests
 
       - name: Render and send cert
         env:
@@ -47,4 +51,5 @@ jobs:
           ATTENDEE_EMAIL: ${{ inputs.email }}
           COURSE_KEY: ${{ inputs.course_key }}
           COURSE_DATE: ${{ inputs.course_date }}
+          COURSE_DATE_ISO: ${{ inputs.course_date_iso }}
         run: python send_one.py
