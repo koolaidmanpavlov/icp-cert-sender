@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T15:20:02.781419+00:00",
+  "generated_at": "2026-09-04T19:59:30.857578+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -2032,24 +2032,22 @@
           "name": "Zaria Brathwaite",
           "resend_id": "01a0686e-aa28-73d2-bdeb-301928ee4514",
           "sent_at": "2026-09-03T18:01:21.032133+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1lXuhxww_HuibItSoQTTq9_qpjMuTKKxx/view?usp=drivesdk",
+          "name": "Zijing Li",
+          "resend_id": "48ce0d14-91c1-4fb0-8d73-602cc259846c",
+          "sent_at": "2026-09-04T19:59:19.287039+00:00"
         }
       ],
-      "cert_count": 16,
-      "cert_error_count": 1,
+      "cert_count": 17,
+      "cert_error_count": 0,
       "cert_pending_count": 0,
       "course": "Emergency Preparedness for Early Childhood Programs",
       "course_slug": "emergency-preparedness-for-early-childhood-programs",
       "date": "2026-09-03",
       "drive_folder_url": "https://drive.google.com/drive/folders/1LNHx_Zd69Kqep0u27dnNZZSGEWGC7YQn",
-      "errors": [
-        {
-          "email": "zijingli64@gmail.com",
-          "error": "email mismatch",
-          "name": "Zijing Li",
-          "sheet_row": 1560,
-          "timestamp": "9/3/2026 12:10:37"
-        }
-      ],
+      "errors": [],
       "sign_in_count": 17
     }
   },
