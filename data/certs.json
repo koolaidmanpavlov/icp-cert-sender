@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T21:02:12.702138+00:00",
+  "generated_at": "2026-09-08T21:32:03.603279+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -2089,6 +2089,12 @@
           "sent_at": "2026-09-08T17:30:47.757253+00:00"
         },
         {
+          "drive_pdf_url": "https://drive.google.com/file/d/1HUx3kC563mAqtVIkLOcA5nU9H0ePTk4J/view?usp=drivesdk",
+          "name": "Gulshan Gurbanova",
+          "resend_id": "4f0c51f2-371e-4f94-b705-023b766a109e",
+          "sent_at": "2026-09-08T21:31:50.531662+00:00"
+        },
+        {
           "drive_pdf_url": "https://drive.google.com/file/d/1Lhw9uddn_spT586BHLCNpd3HslAsr1FJ/view?usp=drivesdk",
           "name": "Jill Meadors",
           "resend_id": "e6b55813-c711-4e0f-a223-14b6de2334a8",
@@ -2119,7 +2125,7 @@
           "sent_at": "2026-09-08T17:30:53.769818+00:00"
         }
       ],
-      "cert_count": 11,
+      "cert_count": 12,
       "cert_error_count": 0,
       "cert_pending_count": 0,
       "course": "Active Threat Preparedness for Early Childhood Programs",
@@ -2127,7 +2133,7 @@
       "date": "2026-09-08",
       "drive_folder_url": "https://drive.google.com/drive/folders/1Zv4MAW0-htrYuO0IfY83Y0vqCu9pXStB",
       "errors": [],
-      "sign_in_count": 11
+      "sign_in_count": 12
     }
   },
   "unknown_course_rows": []
