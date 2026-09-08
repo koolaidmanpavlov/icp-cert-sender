@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T15:33:36.081699+00:00",
+  "generated_at": "2026-09-08T17:31:24.077166+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -2049,6 +2049,79 @@
       "drive_folder_url": "https://drive.google.com/drive/folders/1LNHx_Zd69Kqep0u27dnNZZSGEWGC7YQn",
       "errors": [],
       "sign_in_count": 17
+    },
+    "2026-09-08|Active Threat Preparedness for Early Childhood Programs": {
+      "attendees": [
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1GoeMbDnDzoL1ji3fMbn5O4HmWaa0OMAK/view?usp=drivesdk",
+          "name": "Ada Ruiz",
+          "resend_id": "5cf95789-a7b3-4a9f-b35d-2f4102d6fc83",
+          "sent_at": "2026-09-08T17:31:08.020157+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1mWPAJiCxD1wSoXrkmV_7k7m-Cmh0S1oq/view?usp=drivesdk",
+          "name": "Beth Posey",
+          "resend_id": "b4313557-260e-4e74-bd78-6300f6611dd1",
+          "sent_at": "2026-09-08T17:30:50.849534+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1Zy0K5r4OG-oJ4c55Qu4q78J1_mEnCbLD/view?usp=drivesdk",
+          "name": "Christy Harvey",
+          "resend_id": "af4ab807-65aa-4ef9-b679-8671e744b59d",
+          "sent_at": "2026-09-08T17:31:12.193354+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1fXxDJFZfYJHxdvMF2eSJisNwUTLmZgqb/view?usp=drivesdk",
+          "name": "Deekshitha ThoppaeRamprakash",
+          "resend_id": "f7676ed2-3742-4e40-9583-85fad4ba0e82",
+          "sent_at": "2026-09-08T17:30:59.898367+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1KxFm3Na2Q4m_7MUDcuPLIhMd2cQ9cwmf/view?usp=drivesdk",
+          "name": "Graciela Velasco",
+          "resend_id": "25d45478-387c-4a44-ab5f-8fdff28a1b57",
+          "sent_at": "2026-09-08T17:30:47.757253+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1Lhw9uddn_spT586BHLCNpd3HslAsr1FJ/view?usp=drivesdk",
+          "name": "Jill Meadors",
+          "resend_id": "e6b55813-c711-4e0f-a223-14b6de2334a8",
+          "sent_at": "2026-09-08T17:31:05.427191+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/13LDBOaFGNgMQuwf6MsFfkNxeb21nnHzo/view?usp=drivesdk",
+          "name": "Kristin Mclennon",
+          "resend_id": "6ec7e9c9-da3c-47c0-86bb-acde4fe9f48e",
+          "sent_at": "2026-09-08T17:30:57.014707+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1RaTbfvXmDeK0UXp-ey7M1i5nR9Ik_Ar7/view?usp=drivesdk",
+          "name": "Nur Ibrahim",
+          "resend_id": "ae738d8a-c5f9-4b32-9b5b-a5713612f04d",
+          "sent_at": "2026-09-08T17:31:15.112680+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1iSMNYekdmfful0PE3JeUb7nWWpGdDD1b/view?usp=drivesdk",
+          "name": "Shona Colglazier",
+          "resend_id": "d8ecf37e-91a3-400a-82f5-a7ab196fceda",
+          "sent_at": "2026-09-08T17:31:02.745859+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1dPxp612Ejcri7_4Oks0CKAQDi6-EzDOZ/view?usp=drivesdk",
+          "name": "Soraya Espichan",
+          "resend_id": "2b66916a-d2bb-41ab-b198-068ec4dd4358",
+          "sent_at": "2026-09-08T17:30:53.769818+00:00"
+        }
+      ],
+      "cert_count": 10,
+      "cert_error_count": 0,
+      "cert_pending_count": 0,
+      "course": "Active Threat Preparedness for Early Childhood Programs",
+      "course_slug": "active-threat-preparedness-for-early-childhood-programs",
+      "date": "2026-09-08",
+      "drive_folder_url": "https://drive.google.com/drive/folders/1Zv4MAW0-htrYuO0IfY83Y0vqCu9pXStB",
+      "errors": [],
+      "sign_in_count": 10
     }
   },
   "unknown_course_rows": []
