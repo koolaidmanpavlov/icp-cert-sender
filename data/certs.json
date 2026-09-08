@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T18:31:11.939423+00:00",
+  "generated_at": "2026-09-08T19:00:59.578862+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -2065,6 +2065,12 @@
           "sent_at": "2026-09-08T17:30:50.849534+00:00"
         },
         {
+          "drive_pdf_url": "https://drive.google.com/file/d/1Xpdv7v0jheaNLsbjYCswBjlRIQ7kOGUg/view?usp=drivesdk",
+          "name": "Cheryl Geduldig",
+          "resend_id": "2ce714d5-5535-4fae-b0ef-2b1dfd35cc73",
+          "sent_at": "2026-09-08T19:00:49.921817+00:00"
+        },
+        {
           "drive_pdf_url": "https://drive.google.com/file/d/1Zy0K5r4OG-oJ4c55Qu4q78J1_mEnCbLD/view?usp=drivesdk",
           "name": "Christy Harvey",
           "resend_id": "af4ab807-65aa-4ef9-b679-8671e744b59d",
@@ -2113,7 +2119,7 @@
           "sent_at": "2026-09-08T17:30:53.769818+00:00"
         }
       ],
-      "cert_count": 10,
+      "cert_count": 11,
       "cert_error_count": 0,
       "cert_pending_count": 0,
       "course": "Active Threat Preparedness for Early Childhood Programs",
@@ -2121,7 +2127,7 @@
       "date": "2026-09-08",
       "drive_folder_url": "https://drive.google.com/drive/folders/1Zv4MAW0-htrYuO0IfY83Y0vqCu9pXStB",
       "errors": [],
-      "sign_in_count": 10
+      "sign_in_count": 11
     }
   },
   "unknown_course_rows": []
