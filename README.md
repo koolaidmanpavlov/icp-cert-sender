@@ -41,13 +41,24 @@ WIF config:
 
 ## Adding a new course
 
-1. Add a new entry to `courses.json` with:
-   - The exact training-name string as it appears in the sign-in form dropdown (must match Notion course catalog page title)
-   - `template`: `template_webinar.png` or `template_in_person.png`
-   - `title_lines`: course title broken into the line(s) you want on the cert
-   - `hours`: PD hours as a string (e.g., `"1.5"`, `"2"`, `"3"`)
-   - `format`: `"webinar"` or `"in-person"` (informational)
-2. Commit and push. Next cron run picks it up.
+**Add it in the scheduler, not here.** Go to <https://tools.icp.us/crm/settings/courses> → *Add a course*. The form requires the
+certificate settings (title lines, PD hours, template), and a course cannot be made active without them. The cert sender reads
+every active course's certificate config from `https://tools.icp.us/api/courses/certs` on each run (`course_config.py`),
+so a course added there gets certificates with no change in this repo.
+
+`courses.json` is now only the **fallback**: it is used alone if the scheduler cannot be reached (a warning is printed), and its
+entries for retired courses stay valid so old sign-ins still certify. Scheduler entries win over the file. You do not need to edit
+it for a new course, but editing it still works as before:
+
+1. Add an entry with the exact training-name string as it appears in the sign-in form dropdown (must match the Notion course catalog page title)
+   - `template`/`format`: `"webinar"` or `"in-person"`
+   - `title_lines`: the line(s) printed on the cert
+   - `hours`: PD hours as a string
+2. Commit and push.
+
+Safety nets: an active scheduler course with no certificate settings prints a GitHub `::error::` on every run and is listed at
+the top of the daily digest email. Unknown training names in the sign-in sheet are still flagged in the digest. Tests:
+`python3 -m unittest tests.test_course_config` (no network).
 
 ## Combined multi-course sessions (e.g. two abbreviated back-to-back trainings)
 

@@ -43,8 +43,8 @@ def main():
     if not SHEET_ID:
         sys.exit("ERROR: SHEET_ID not set.")
 
-    with open(COURSES_JSON) as f:
-        courses = json.load(f)
+    from course_config import load_courses
+    courses, _course_info = load_courses()
 
     print("Authenticating to Google...")
     sheets, _ = gcp_clients()

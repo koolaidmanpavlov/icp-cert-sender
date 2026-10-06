@@ -191,8 +191,8 @@ def main():
     course_date = os.environ["COURSE_DATE"].strip()
     resend_api_key = os.environ["RESEND_API_KEY"]
 
-    with open(os.path.join(REPO_ROOT, "courses.json")) as f:
-        courses = json.load(f)
+    from course_config import load_courses
+    courses, _course_info = load_courses()
     if course_key not in courses:
         sys.exit(f"course_key '{course_key}' not found in courses.json")
 

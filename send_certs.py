@@ -956,8 +956,8 @@ def main():
     if not RESEND_API_KEY or not SHEET_ID or not DRIVE_BACKUP_FOLDER_ID:
         sys.exit("ERROR: RESEND_API_KEY, SHEET_ID, DRIVE_BACKUP_FOLDER_ID required")
 
-    with open(COURSES_JSON) as f:
-        courses = json.load(f)
+    from course_config import load_courses
+    courses, _course_info = load_courses()
 
     try:
         sheets, drive = gcp_clients()

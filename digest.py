@@ -252,8 +252,8 @@ def main():
     if not SHEET_ID:
         sys.exit("ERROR: SHEET_ID required")
 
-    with open(COURSES_JSON) as f:
-        courses = json.load(f)
+    from course_config import load_courses
+    courses, course_info = load_courses()
 
     sheets, _drive = gcp_clients()
     rows = read_sheet_rows(sheets)
@@ -261,16 +261,23 @@ def main():
 
     yday, yday_sessions, persistent_errors, persistent_unknowns = collect(rows, courses)
 
-    has_issues = persistent_errors or persistent_unknowns
+    course_problems = list(course_info["uncertified"])
+    has_issues = persistent_errors or persistent_unknowns or course_problems
     has_news = bool(yday_sessions) or has_issues
     if not has_news:
         print(f"Nothing to report for {yday} (no sessions, no errors, no unknowns). Skipping email.")
         return
 
     html = render_html(yday, yday_sessions, persistent_errors, persistent_unknowns, sheet_gid=gid)
+    if course_problems:
+        banner = ("<div style='background:#fcebe9;color:#b3261e;padding:12px 14px;border-radius:8px;margin:0 0 16px 0;font-size:14px;'>"
+                  "<b>Courses offered with no certificate settings:</b> " + ", ".join(course_problems) +
+                  ". Attendees would NOT get certificates. Fix at "
+                  "<a href='https://tools.icp.us/crm/settings/courses'>tools.icp.us/crm/settings/courses</a>.</div>")
+        html = banner + html
     subject_bits = []
     if has_issues:
-        subject_bits.append(f"⚠️ {len(persistent_errors) + len(persistent_unknowns)} issue(s)")
+        subject_bits.append(f"⚠️ {len(persistent_errors) + len(persistent_unknowns) + len(course_problems)} issue(s)")
     if yday_sessions:
         n_sessions = len(yday_sessions)
         subject_bits.append(f"{n_sessions} session{'' if n_sessions == 1 else 's'} on {yday}")

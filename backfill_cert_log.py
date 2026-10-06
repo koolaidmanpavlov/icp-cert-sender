@@ -44,8 +44,8 @@ def main():
     with open(CERTS_JSON) as f:
         certs = json.load(f)
 
-    with open(COURSES_JSON) as f:
-        courses = json.load(f)
+    from course_config import load_courses
+    courses, _course_info = load_courses()
 
     records = []
     skipped = 0
