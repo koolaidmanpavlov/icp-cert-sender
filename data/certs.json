@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T21:58:17.538202+00:00",
+  "generated_at": "2026-10-07T03:05:36.631600+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -2143,6 +2143,38 @@
       "name": "Andy Roszak",
       "sheet_row": 1575,
       "timestamp": "10/6/2026 15:23:36",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-06",
+      "email": "ron@icp.us",
+      "name": "Ron Roszak",
+      "sheet_row": 1576,
+      "timestamp": "10/6/2026 16:53:37",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-06",
+      "email": "andy@icp.us",
+      "name": "Andy Roszak",
+      "sheet_row": 1577,
+      "timestamp": "10/6/2026 16:53:36",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-06",
+      "email": "andy@icp.us",
+      "name": "Andy Roszak",
+      "sheet_row": 1578,
+      "timestamp": "10/6/2026 16:54:09",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-06",
+      "email": "ron@icp.us",
+      "name": "Ron Roszak",
+      "sheet_row": 1579,
+      "timestamp": "10/6/2026 16:54:09",
       "training": "Safety Summit"
     }
   ]
