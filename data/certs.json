@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T14:30:43.212282+00:00",
+  "generated_at": "2026-10-10T15:00:44.662922+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -2142,9 +2142,15 @@
           "name": "Karla Arriaga",
           "resend_id": "01a12638-e4cf-74b4-bd9e-b24a724c109b",
           "sent_at": "2026-10-10T14:30:30.020104+00:00"
+        },
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1mBCUB_t7U8AJwRXRgLgd52RSV3QRqu6e/view?usp=drivesdk",
+          "name": "Nicholas Smith",
+          "resend_id": "01a12654-7b9e-7510-999d-3fbc9de313a9",
+          "sent_at": "2026-10-10T15:00:35.634020+00:00"
         }
       ],
-      "cert_count": 1,
+      "cert_count": 2,
       "cert_error_count": 0,
       "cert_pending_count": 0,
       "course": "Emergency Preparedness for Early Childhood Programs",
@@ -2152,7 +2158,7 @@
       "date": "2026-10-10",
       "drive_folder_url": "https://drive.google.com/drive/folders/1XkpvLViME24iVHHrJ3iwHEwBaxqVC69q",
       "errors": [],
-      "sign_in_count": 1
+      "sign_in_count": 2
     }
   },
   "unknown_course_rows": [
@@ -2514,6 +2520,22 @@
       "name": "Tina Calloway",
       "sheet_row": 1620,
       "timestamp": "10/10/2026 8:18:59",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "thomaspamela231@gmail.com",
+      "name": "Pamela Thomas",
+      "sheet_row": 1621,
+      "timestamp": "10/10/2026 8:36:26",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "amoore@cwdacademy.com",
+      "name": "Angela Moore",
+      "sheet_row": 1622,
+      "timestamp": "10/10/2026 8:37:44",
       "training": "Safety Summit"
     }
   ]
