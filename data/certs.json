@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T19:00:32.985190+00:00",
+  "generated_at": "2026-10-10T19:30:39.000870+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -2544,6 +2544,14 @@
       "name": "Rukhsana Baloch",
       "sheet_row": 1624,
       "timestamp": "10/10/2026 11:07:51",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "karliss842@gmail.com",
+      "name": "Karla Arriaga",
+      "sheet_row": 1625,
+      "timestamp": "10/10/2026 13:02:12",
       "training": "Safety Summit"
     }
   ]
