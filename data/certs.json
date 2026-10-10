@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T11:30:38.579376+00:00",
+  "generated_at": "2026-10-10T14:30:43.212282+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -2134,6 +2134,25 @@
       "drive_folder_url": "https://drive.google.com/drive/folders/1Zv4MAW0-htrYuO0IfY83Y0vqCu9pXStB",
       "errors": [],
       "sign_in_count": 12
+    },
+    "2026-10-10|Emergency Preparedness for Early Childhood Programs": {
+      "attendees": [
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1-z72O5LtrmaZionP3jxOP8f8VLLa_HQm/view?usp=drivesdk",
+          "name": "Karla Arriaga",
+          "resend_id": "01a12638-e4cf-74b4-bd9e-b24a724c109b",
+          "sent_at": "2026-10-10T14:30:30.020104+00:00"
+        }
+      ],
+      "cert_count": 1,
+      "cert_error_count": 0,
+      "cert_pending_count": 0,
+      "course": "Emergency Preparedness for Early Childhood Programs",
+      "course_slug": "emergency-preparedness-for-early-childhood-programs",
+      "date": "2026-10-10",
+      "drive_folder_url": "https://drive.google.com/drive/folders/1XkpvLViME24iVHHrJ3iwHEwBaxqVC69q",
+      "errors": [],
+      "sign_in_count": 1
     }
   },
   "unknown_course_rows": [
@@ -2175,6 +2194,326 @@
       "name": "Ron Roszak",
       "sheet_row": 1579,
       "timestamp": "10/6/2026 16:54:09",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "Honilynn.hendricks@wayne.edu",
+      "name": "Honilynn Hendricks",
+      "sheet_row": 1580,
+      "timestamp": "10/10/2026 7:24:33",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "hungerfordmonica@gmail.com",
+      "name": "Monica Hungerford",
+      "sheet_row": 1581,
+      "timestamp": "10/10/2026 7:26:20",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "s.atwood77@yahoo.com",
+      "name": "Stephanie Atwood",
+      "sheet_row": 1582,
+      "timestamp": "10/10/2026 7:28:11",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "kiara@kreativebuttercups.com",
+      "name": "Kiara Smith",
+      "sheet_row": 1583,
+      "timestamp": "10/10/2026 7:28:14",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "Mboynton59@comcast.net",
+      "name": "Mary Boynton",
+      "sheet_row": 1584,
+      "timestamp": "10/10/2026 7:28:19",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "marniejin@yahoo.com",
+      "name": "Marnie McKnightTomioka",
+      "sheet_row": 1585,
+      "timestamp": "10/10/2026 7:33:50",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "northcote1570@att.net",
+      "name": "MaryAnn Northcote",
+      "sheet_row": 1586,
+      "timestamp": "10/10/2026 7:33:57",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "Rterrana@rosebrookchildcare.com",
+      "name": "Rachelle TERRANA",
+      "sheet_row": 1587,
+      "timestamp": "10/10/2026 7:38:10",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "dwade@cwdacademy.com",
+      "name": "Dana Wade",
+      "sheet_row": 1588,
+      "timestamp": "10/10/2026 7:45:12",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "thetaylormadelearning@gmail.com",
+      "name": "Danielle Taylor",
+      "sheet_row": 1589,
+      "timestamp": "10/10/2026 7:48:21",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "Barneseliteservice@childrenwelcome.net",
+      "name": "Rosa Barnes",
+      "sheet_row": 1590,
+      "timestamp": "10/10/2026 7:51:43",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "choyce@judefamilychildcarelearningcenter.org",
+      "name": "Choyce Harris",
+      "sheet_row": 1592,
+      "timestamp": "10/10/2026 7:53:03",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "ahreben714@gmail.com",
+      "name": "Alexandra Hreben",
+      "sheet_row": 1593,
+      "timestamp": "10/10/2026 7:55:28",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "mynanny98@yahoo.com",
+      "name": "Peranica Williams",
+      "sheet_row": 1594,
+      "timestamp": "10/10/2026 7:57:50",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "Barberr146@detroitmi.gov",
+      "name": "NPO Robert Barber",
+      "sheet_row": 1595,
+      "timestamp": "10/10/2026 8:01:58",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "sunshinelittledarlings@gmail.com",
+      "name": "Sharon Craighead",
+      "sheet_row": 1596,
+      "timestamp": "10/10/2026 8:02:06",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "Harris",
+      "name": "Sylvester Harris",
+      "sheet_row": 1597,
+      "timestamp": "10/10/2026 8:03:27",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "smccullough@franklinwright.org",
+      "name": "Shirley McCullough",
+      "sheet_row": 1598,
+      "timestamp": "10/10/2026 8:05:01",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "Jebeck1759@yahoo.com",
+      "name": "Janet Beck",
+      "sheet_row": 1599,
+      "timestamp": "10/10/2026 8:07:05",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "reeseslittlehaven@gmail.com",
+      "name": "Cherise McCurdy",
+      "sheet_row": 1600,
+      "timestamp": "10/10/2026 8:08:47",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "Eathorj@resa.net",
+      "name": "Jamie Eathorne",
+      "sheet_row": 1601,
+      "timestamp": "10/10/2026 8:09:49",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "grant_markita@yahoo.com",
+      "name": "Markita Grant",
+      "sheet_row": 1602,
+      "timestamp": "10/10/2026 8:11:06",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "jaszyhouston@yahoo.com",
+      "name": "Jasmine Dunbar",
+      "sheet_row": 1603,
+      "timestamp": "10/10/2026 8:11:17",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "kourtney.lots22@gmail.com",
+      "name": "Kourtney Lots",
+      "sheet_row": 1604,
+      "timestamp": "10/10/2026 8:11:28",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "sonyahunter40@gmail.com",
+      "name": "Sonya Hunter",
+      "sheet_row": 1605,
+      "timestamp": "10/10/2026 8:11:31",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "sarahmcguire148@gmail.com",
+      "name": "Sarah McGuire",
+      "sheet_row": 1606,
+      "timestamp": "10/10/2026 8:11:57",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "Totslearningcentercc@yahoo.com",
+      "name": "Tina Caverly",
+      "sheet_row": 1607,
+      "timestamp": "10/10/2026 8:12:00",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "braydenmyrick09@gmail.com",
+      "name": "Latasha Myrick",
+      "sheet_row": 1608,
+      "timestamp": "10/10/2026 8:12:10",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "ziyarose426@gmail.com",
+      "name": "Shaiann McGuire",
+      "sheet_row": 1609,
+      "timestamp": "10/10/2026 8:12:11",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "Perdue2980@gmail.com",
+      "name": "Tina Calloway",
+      "sheet_row": 1610,
+      "timestamp": "10/10/2026 8:12:17",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "Pippenpalacecc@aol.com",
+      "name": "Jacqueline Pippen",
+      "sheet_row": 1611,
+      "timestamp": "10/10/2026 8:12:21",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "sterling@judefamilychildcarelearningcenter.org",
+      "name": "Sterling Sherman",
+      "sheet_row": 1612,
+      "timestamp": "10/10/2026 8:12:27",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "dsharronn@gmail.com",
+      "name": "Dana Hill",
+      "sheet_row": 1613,
+      "timestamp": "10/10/2026 8:12:33",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "handshelpingchildcare@yahoo.com",
+      "name": "Erica Rodgers",
+      "sheet_row": 1614,
+      "timestamp": "10/10/2026 8:12:45",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "person.alethea330@gmail.com",
+      "name": "Alethea Person",
+      "sheet_row": 1615,
+      "timestamp": "10/10/2026 8:12:56",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "Queendyna1@outlook.com",
+      "name": "Dara  aka The Official Queen Dyna Owens",
+      "sheet_row": 1616,
+      "timestamp": "10/10/2026 8:13:01",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "yhlynn40@yahoo.com",
+      "name": "Yolanda Herring",
+      "sheet_row": 1617,
+      "timestamp": "10/10/2026 8:13:03",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "qdexpressions025@gmail.com",
+      "name": "Dara aka The Official Queen Dyna Owens",
+      "sheet_row": 1618,
+      "timestamp": "10/10/2026 8:15:58",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "mary_mathis@yahoo.com",
+      "name": "Mary Mathis",
+      "sheet_row": 1619,
+      "timestamp": "10/10/2026 8:18:36",
+      "training": "Safety Summit"
+    },
+    {
+      "date": "2026-10-10",
+      "email": "perdue2980@gmail.com",
+      "name": "Tina Calloway",
+      "sheet_row": 1620,
+      "timestamp": "10/10/2026 8:18:59",
       "training": "Safety Summit"
     }
   ]
