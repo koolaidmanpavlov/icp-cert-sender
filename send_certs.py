@@ -82,12 +82,32 @@ def split_training_names(training):
     return [t.strip() for t in training.split(TRAINING_SEPARATOR) if t.strip()]
 
 
-def known_course_names(training, courses):
+def course_enabled_for_date(course_config, date_str):
+    """A course with an `event_dates` allow-list (e.g. Safety Summit) is only
+    certified on those dates. Other dates are NOT ours to certify — for example
+    the Detroit Safety Summit (2026-10-10), where the Michigan registry issues
+    the credit. Courses without `event_dates` are enabled on every date."""
+    allowed = course_config.get("event_dates")
+    if allowed is None:
+        return True
+    return bool(date_str) and date_str in allowed
+
+
+def event_topics(course_config, date_str):
+    """Topic names printed under the title for an event-dated course, else []."""
+    return list(((course_config.get("event_dates") or {}).get(date_str) or {}).get("topics") or [])
+
+
+def known_course_names(training, courses, date_str=None):
     """Returns the list of individual course names if `training` is either a
     single known course or a ' + '-joined combo where every part is known;
-    otherwise None (unknown-course row, same as before)."""
+    otherwise None (unknown-course row, same as before). When `date_str` is
+    given, a date-restricted course (see course_enabled_for_date) that isn't
+    enabled that day also counts as unknown, so it is never certified."""
     names = split_training_names(training)
     if names and all(n in courses for n in names):
+        if date_str is not None and not all(course_enabled_for_date(courses[n], date_str) for n in names):
+            return None
         return names
     return None
 
@@ -134,7 +154,7 @@ def resolve_course_hours(course_name, date_str, default_hours):
         if sess.get("date") != date_str:
             continue
         for seg in sess.get("segments", []):
-            if seg.get("course_name") != course_name:
+            if (seg.get("course_name") or seg.get("topic_override")) != course_name:
                 continue
             start = seg.get("start_time") or sess.get("start_time")
             end = seg.get("end_time") or sess.get("end_time")
@@ -190,7 +210,7 @@ def resolve_delivery_format(course_name, date_str, default_format):
         if sess.get("date") != date_str:
             continue
         for seg in sess.get("segments", []):
-            if seg.get("course_name") != course_name:
+            if (seg.get("course_name") or seg.get("topic_override")) != course_name:
                 continue
             fmt = normalize_format(sess.get("delivery_mode"))
             if fmt:
@@ -234,6 +254,11 @@ COURSE_TITLE_CENTER_Y = 625
 COURSE_TITLE_FONT_SIZE = 38
 COURSE_TITLE_COLOR = (41, 182, 231)
 COURSE_TITLE_LINE_SPACING = 12
+
+# Multi-topic events: title sits higher, topics line between it and the date line
+TOPICS_TITLE_CENTER_Y = 600
+TOPICS_CENTER_Y = 660
+TOPICS_FONT_SIZE = 25
 
 DATE_LINE_CENTER_Y = 715
 DATE_LINE_FONT_SIZE = 26
@@ -459,14 +484,22 @@ def render_cert(full_name, course_config, course_date_str, course_format):
         name_font = fit_font(full_name, NAME_FONT_PATH, NAME_FONT_SIZE, W * NAME_MAX_WIDTH_RATIO)
     draw_centered(draw, full_name, name_font, NAME_CENTER_Y, W, NAME_COLOR)
 
-    # Title
+    # Title (+ optional topics line for multi-topic events like Safety Summit)
+    topics = course_config.get("topics") or []
     title_font = ImageFont.truetype(TITLE_FONT_PATH, COURSE_TITLE_FONT_SIZE)
     title_lines = course_config["title_lines"]
     longest = max(title_lines, key=lambda s: title_font.getlength(s))
     if title_font.getlength(longest) > W * 0.85:
         title_font = fit_font(longest, TITLE_FONT_PATH, COURSE_TITLE_FONT_SIZE, W * 0.85)
-    draw_multiline_centered(draw, title_lines, title_font, COURSE_TITLE_CENTER_Y, W,
+    title_y = TOPICS_TITLE_CENTER_Y if topics else COURSE_TITLE_CENTER_Y
+    draw_multiline_centered(draw, title_lines, title_font, title_y, W,
                             COURSE_TITLE_COLOR, COURSE_TITLE_LINE_SPACING)
+    if topics:
+        topics_text = "Covering: " + "  •  ".join(topics)
+        topics_font = ImageFont.truetype(DATE_FONT_PATH, TOPICS_FONT_SIZE)
+        if topics_font.getlength(topics_text) > W * 0.85:
+            topics_font = fit_font(topics_text, DATE_FONT_PATH, TOPICS_FONT_SIZE, W * 0.85)
+        draw_centered(draw, topics_text, topics_font, TOPICS_CENTER_Y, W, NAME_COLOR)
 
     # Date | Hours
     hours = course_config["hours"]
@@ -681,13 +714,21 @@ def process_row(row, course_names, courses, sheets, drive):
     course_date = format_course_date(sign_in_utc)
     sign_in_date_str = session_date_from_timestamp(row["timestamp"])
 
+    # Last line of defense: never certify a date-restricted course (Safety Summit)
+    # on a date it isn't enabled for, whatever path got us here.
+    for course_name in course_names:
+        if not course_enabled_for_date(courses[course_name], sign_in_date_str):
+            print(f"  {course_name!r} is not certified by ICP on {sign_in_date_str} — skipping")
+            return "skipped-course-not-enabled-for-date"
+
     # One PDF + resolved hours per course.
     certs = []
     for course_name in course_names:
         course_config = courses[course_name]
         hours = resolve_course_hours(course_name, sign_in_date_str, course_config["hours"])
         fmt = resolve_delivery_format(course_name, sign_in_date_str, course_config.get("format"))
-        pdf_bytes = render_cert(full_name, {**course_config, "hours": hours}, course_date, fmt)
+        topics = event_topics(course_config, sign_in_date_str)
+        pdf_bytes = render_cert(full_name, {**course_config, "hours": hours, "topics": topics}, course_date, fmt)
         certs.append({"course_name": course_name, "config": course_config, "hours": hours,
                       "format": fmt, "pdf_bytes": pdf_bytes})
 
@@ -859,7 +900,7 @@ def build_certs_json(sheets, drive, courses, rows):
         if date_str < "2026-05-25":
             continue
 
-        course_names = known_course_names(training, courses)
+        course_names = known_course_names(training, courses, date_str)
         if not course_names:
             unknown_course_rows.append({
                 "date": date_str,
@@ -980,7 +1021,8 @@ def main():
         if row["cert_sent"]:
             skipped_already_sent += 1
             continue
-        course_names = known_course_names(row["training"], courses)
+        course_names = known_course_names(row["training"], courses,
+                                          session_date_from_timestamp(row["timestamp"]))
         if not course_names:
             skipped_other += 1
             continue

@@ -111,7 +111,7 @@ def collect(rows, courses):
         # Combined multi-course sign-ins (e.g. "A + B") are known as long as
         # every part matches a course — see known_course_names() in
         # send_certs.py, which the cert sender uses for the same gate.
-        is_known = bool(known_course_names(training, courses))
+        is_known = bool(known_course_names(training, courses, date_str))
         first = row.get("first", "")
         last = row.get("last", "")
         full_name = f"{first} {last}".strip() or "(no name)"

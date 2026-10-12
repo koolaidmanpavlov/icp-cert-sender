@@ -102,7 +102,7 @@ def resolve_delivery_format(course_name, date_iso, default_format):
         if sess.get("date") != date_iso:
             continue
         for seg in sess.get("segments", []):
-            if seg.get("course_name") != course_name:
+            if (seg.get("course_name") or seg.get("topic_override")) != course_name:
                 continue
             fmt = normalize_format(sess.get("delivery_mode"))
             if fmt:
@@ -122,13 +122,20 @@ def render_cert(full_name, course_config, course_date_str, course_format):
     if name_font.getlength(full_name) > W * NAME_MAX_WIDTH_RATIO:
         name_font = fit_font(full_name, NAME_FONT_PATH, NAME_FONT_SIZE, W * NAME_MAX_WIDTH_RATIO)
     draw_centered(draw, full_name, name_font, NAME_CENTER_Y, W, NAME_COLOR)
+    topics = course_config.get("topics") or []
     title_font = ImageFont.truetype(TITLE_FONT_PATH, COURSE_TITLE_FONT_SIZE)
     title_lines = course_config["title_lines"]
     longest = max(title_lines, key=lambda s: title_font.getlength(s))
     if title_font.getlength(longest) > W * 0.85:
         title_font = fit_font(longest, TITLE_FONT_PATH, COURSE_TITLE_FONT_SIZE, W * 0.85)
-    draw_multiline_centered(draw, title_lines, title_font, COURSE_TITLE_CENTER_Y, W,
+    draw_multiline_centered(draw, title_lines, title_font, 600 if topics else COURSE_TITLE_CENTER_Y, W,
                             COURSE_TITLE_COLOR, COURSE_TITLE_LINE_SPACING)
+    if topics:
+        topics_text = "Covering: " + "  •  ".join(topics)
+        topics_font = ImageFont.truetype(DATE_FONT_PATH, 25)
+        if topics_font.getlength(topics_text) > W * 0.85:
+            topics_font = fit_font(topics_text, DATE_FONT_PATH, 25, W * 0.85)
+        draw_centered(draw, topics_text, topics_font, 660, W, NAME_COLOR)
     hours = course_config["hours"]
     hours_word = "Hour" if str(hours).strip() == "1" else "Hours"
     date_text = f"{course_date_str}   |   {hours} {hours_word} of Professional Development"
@@ -207,6 +214,13 @@ def main():
             course_date_iso = datetime.strptime(course_date, "%B %d, %Y").strftime("%Y-%m-%d")
         except ValueError:
             course_date_iso = ""
+    # Date-restricted courses (Safety Summit) are only certified on their listed event
+    # dates. Refuse anything else — e.g. Detroit 2026-10-10 is credited by the Michigan registry.
+    allowed = course_config.get("event_dates")
+    if allowed is not None and course_date_iso not in allowed:
+        sys.exit(f"REFUSING: '{course_key}' is not certified by ICP on {course_date_iso or course_date!r} "
+                 f"(allowed event dates: {', '.join(sorted(allowed)) or 'none'}).")
+    course_config = {**course_config, "topics": list((allowed or {}).get(course_date_iso, {}).get("topics") or [])}
     course_format = resolve_delivery_format(course_key, course_date_iso,
                                             course_config.get("format"))
     print(f"  format: {course_format} (template {TEMPLATE_BY_FORMAT[course_format]})")

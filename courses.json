@@ -70,5 +70,21 @@
     ],
     "hours": "1.5",
     "format": "in-person"
+  },
+  "Safety Summit": {
+    "title_lines": [
+      "Safety Summit"
+    ],
+    "hours": "4",
+    "format": "in-person",
+    "event_dates": {
+      "2026-10-13": {
+        "topics": [
+          "Active Threat Preparedness",
+          "Situational Awareness",
+          "De-Escalation"
+        ]
+      }
+    }
   }
 }

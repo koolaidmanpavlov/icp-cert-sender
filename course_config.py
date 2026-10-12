@@ -4,7 +4,8 @@ The master course list lives in the scheduler (tools.icp.us, /crm/settings/cours
 course carries its own certificate settings there (title lines, PD hours, template), and a
 course cannot be made active without them. This module merges that list over courses.json:
 
-  - scheduler entry present and valid  -> used (it wins over the file)
+  - scheduler entry present and valid  -> used (it wins over the file, except `event_dates`,
+                                          the per-date allow-list, which always comes from the file)
   - course only in courses.json        -> kept (old sign-ins for retired courses still certify)
   - scheduler unreachable / bad reply  -> courses.json alone, with a warning (never a hard stop)
 
@@ -60,6 +61,10 @@ def load_courses(url=None, get=requests.get, path=None):
             if _valid(cfg):
                 if name not in courses:
                     info["from_scheduler"].append(name)
+                # `event_dates` (the allow-list of dates a course may be certified on)
+                # only ever lives in courses.json; a scheduler entry must not drop it.
+                if "event_dates" in courses.get(name, {}):
+                    cfg = {**cfg, "event_dates": courses[name]["event_dates"]}
                 courses[name] = cfg
             else:
                 print(f"::warning::Scheduler course {name!r} has an invalid certificate config; ignoring it.")
