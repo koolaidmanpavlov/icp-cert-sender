@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T17:02:37.437451+00:00",
+  "generated_at": "2026-10-13T17:31:48.474480+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -2211,6 +2211,12 @@
           "sent_at": "2026-10-13T17:01:22.556351+00:00"
         },
         {
+          "drive_pdf_url": "https://drive.google.com/file/d/14rhptfCI3nyheFjR2wE0pZ7G1HIG1RoS/view?usp=drivesdk",
+          "name": "Mar\u00eda Salom\u00e9 Buruca",
+          "resend_id": "01a13651-c0b2-7c52-a2d2-2dcc4be36427",
+          "sent_at": "2026-10-13T17:31:33.226030+00:00"
+        },
+        {
           "drive_pdf_url": "https://drive.google.com/file/d/1C6b0QXsWF-oDgkt5_RWw9vnlVD6ePidv/view?usp=drivesdk",
           "name": "Mar\u00eda Vilma Melgar",
           "resend_id": "01a13636-febd-726c-bc3e-c3c8cf591f0c",
@@ -2289,7 +2295,7 @@
           "sent_at": "2026-10-13T17:01:50.365654+00:00"
         }
       ],
-      "cert_count": 21,
+      "cert_count": 22,
       "cert_error_count": 1,
       "cert_pending_count": 0,
       "course": "Safety Summit",
@@ -2305,7 +2311,7 @@
           "timestamp": "10/13/2026 10:55:20"
         }
       ],
-      "sign_in_count": 22
+      "sign_in_count": 23
     }
   },
   "unknown_course_rows": [
