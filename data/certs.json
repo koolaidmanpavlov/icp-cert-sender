@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T18:01:20.244853+00:00",
+  "generated_at": "2026-10-13T18:32:08.984028+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -2199,6 +2199,12 @@
           "sent_at": "2026-10-13T17:01:42.713266+00:00"
         },
         {
+          "drive_pdf_url": "https://drive.google.com/file/d/124RWBqtAEh50yyePzCYoBzH8CJRvw93_/view?usp=drivesdk",
+          "name": "Maria I Argueta Canales",
+          "resend_id": "01a13688-eba8-7338-ad1b-919b19cf191f",
+          "sent_at": "2026-10-13T18:31:52.858290+00:00"
+        },
+        {
           "drive_pdf_url": "https://drive.google.com/file/d/1gv-MS0C3OO1Zyb8y9VkJoxr-_UJtRQmh/view?usp=drivesdk",
           "name": "Maria Lemus Berganza",
           "resend_id": "01a13636-b84a-748d-aec1-25c830a86495",
@@ -2295,7 +2301,7 @@
           "sent_at": "2026-10-13T17:01:50.365654+00:00"
         }
       ],
-      "cert_count": 22,
+      "cert_count": 23,
       "cert_error_count": 1,
       "cert_pending_count": 0,
       "course": "Safety Summit",
@@ -2311,7 +2317,7 @@
           "timestamp": "10/13/2026 10:55:20"
         }
       ],
-      "sign_in_count": 23
+      "sign_in_count": 24
     }
   },
   "unknown_course_rows": [
