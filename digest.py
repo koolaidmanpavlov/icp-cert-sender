@@ -112,13 +112,17 @@ def collect(rows, courses):
         # every part matches a course — see known_course_names() in
         # send_certs.py, which the cert sender uses for the same gate.
         is_known = bool(known_course_names(training, courses, date_str))
+        # A real course on a date its `event_dates` allow-list excludes (e.g.
+        # the Detroit Safety Summit, credited by the Michigan registry) is
+        # skipped on purpose — not an unknown course, so don't nag about it.
+        date_excluded = not is_known and bool(known_course_names(training, courses))
         first = row.get("first", "")
         last = row.get("last", "")
         full_name = f"{first} {last}".strip() or "(no name)"
         email = row.get("email", "")
 
         # Persistent issues — only rows from the automated-system era
-        if date_str and date_str < DIGEST_IGNORE_BEFORE:
+        if (date_str and date_str < DIGEST_IGNORE_BEFORE) or date_excluded:
             pass
         elif not is_known:
             persistent_unknowns.append({
