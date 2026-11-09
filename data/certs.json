@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T19:01:02.292333+00:00",
+  "generated_at": "2026-11-09T19:31:02.328286+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -2937,6 +2937,78 @@
       "sheet_row": 1676,
       "timestamp": "11/9/2026 12:14:15",
       "training": "Train the Trainer for Active Threat Preparedness"
+    },
+    {
+      "date": "2026-11-09",
+      "email": "SMcKeon@hsmc.org",
+      "name": "Sean McKeon",
+      "sheet_row": 1677,
+      "timestamp": "11/9/2026 13:08:48",
+      "training": "Tabletop Exercise"
+    },
+    {
+      "date": "2026-11-09",
+      "email": "jalbisneal@evergreenctr.org",
+      "name": "Jen Neal",
+      "sheet_row": 1678,
+      "timestamp": "11/9/2026 13:09:45",
+      "training": "Tabletop Exercise"
+    },
+    {
+      "date": "2026-11-09",
+      "email": "jsouza@hsmc.org",
+      "name": "James Souza",
+      "sheet_row": 1679,
+      "timestamp": "11/9/2026 13:09:51",
+      "training": "Tabletop Exercise"
+    },
+    {
+      "date": "2026-11-09",
+      "email": "tcornell@hsmc.org",
+      "name": "Tara Cornell",
+      "sheet_row": 1680,
+      "timestamp": "11/9/2026 13:11:24",
+      "training": "Tabletop Exercise"
+    },
+    {
+      "date": "2026-11-09",
+      "email": "mgauthier@evergreenctr.org",
+      "name": "Michael Gauthier",
+      "sheet_row": 1681,
+      "timestamp": "11/9/2026 13:12:04",
+      "training": "Tabletop Exercise"
+    },
+    {
+      "date": "2026-11-09",
+      "email": "acaviness@evergreenctr.org",
+      "name": "Allie Caviness",
+      "sheet_row": 1682,
+      "timestamp": "11/9/2026 13:12:32",
+      "training": "Tabletop Exercise"
+    },
+    {
+      "date": "2026-11-09",
+      "email": "EZeibig@evergreenctr.org",
+      "name": "Elizabeth zeibig Elizabeth zeibig",
+      "sheet_row": 1683,
+      "timestamp": "11/9/2026 13:13:03",
+      "training": "Tabletop Exercise"
+    },
+    {
+      "date": "2026-11-09",
+      "email": "Cliffrcabral@gmail.com",
+      "name": "Cliff Cabral",
+      "sheet_row": 1684,
+      "timestamp": "11/9/2026 13:14:15",
+      "training": "Tabletop Exercise"
+    },
+    {
+      "date": "2026-11-09",
+      "email": "Lgordon@evergreenctr.org",
+      "name": "Leslie Gordon",
+      "sheet_row": 1685,
+      "timestamp": "11/9/2026 13:14:17",
+      "training": "Tabletop Exercise"
     }
   ]
 }
