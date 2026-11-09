@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T03:26:05.487631+00:00",
+  "generated_at": "2026-11-09T14:35:26.049371+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -2324,6 +2324,25 @@
         }
       ],
       "sign_in_count": 25
+    },
+    "2026-11-09|Active Threat Preparedness for Early Childhood Programs": {
+      "attendees": [
+        {
+          "drive_pdf_url": "https://drive.google.com/file/d/1dvGDyx9Dei2L9xsFvNSSZPVjmeUFrcDq/view?usp=drivesdk",
+          "name": "Maggie Johnson",
+          "resend_id": "01a1c0bb-f4c5-7f38-a110-eba71bc540d6",
+          "sent_at": "2026-11-09T14:35:10.113431+00:00"
+        }
+      ],
+      "cert_count": 1,
+      "cert_error_count": 0,
+      "cert_pending_count": 0,
+      "course": "Active Threat Preparedness for Early Childhood Programs",
+      "course_slug": "active-threat-preparedness-for-early-childhood-programs",
+      "date": "2026-11-09",
+      "drive_folder_url": "https://drive.google.com/drive/folders/1gsNh9Ss37g6P3HpIBlgS28rfyIA8tWuh",
+      "errors": [],
+      "sign_in_count": 1
     }
   },
   "unknown_course_rows": [
@@ -2742,6 +2761,78 @@
       "sheet_row": 1646,
       "timestamp": "10/13/2026 10:56:03",
       "training": "Other"
+    },
+    {
+      "date": "2026-11-09",
+      "email": "SMcKeon@hsmc.org",
+      "name": "Sean McKeon",
+      "sheet_row": 1654,
+      "timestamp": "11/9/2026 7:53:16",
+      "training": "Tabletop Exercise"
+    },
+    {
+      "date": "2026-11-09",
+      "email": "jsouza@hsmc.org",
+      "name": "James Souza",
+      "sheet_row": 1655,
+      "timestamp": "11/9/2026 7:53:24",
+      "training": "Tabletop Exercise"
+    },
+    {
+      "date": "2026-11-09",
+      "email": "PBrandt@beaconservices.org",
+      "name": "Patrick Brandt",
+      "sheet_row": 1656,
+      "timestamp": "11/9/2026 7:57:40",
+      "training": "Tabletop Exercise"
+    },
+    {
+      "date": "2026-11-09",
+      "email": "acutting@beaconservices.org",
+      "name": "Alicen Cutting",
+      "sheet_row": 1657,
+      "timestamp": "11/9/2026 7:57:53",
+      "training": "Tabletop Exercise"
+    },
+    {
+      "date": "2026-11-09",
+      "email": "AMuehlberger@beaconservices.org",
+      "name": "Amy Muehlberger",
+      "sheet_row": 1658,
+      "timestamp": "11/9/2026 7:57:57",
+      "training": "Tabletop Exercise"
+    },
+    {
+      "date": "2026-11-09",
+      "email": "clafrance@criterionchild.com",
+      "name": "Carol LaFrance",
+      "sheet_row": 1660,
+      "timestamp": "11/9/2026 7:58:58",
+      "training": "Tabletop Exercise"
+    },
+    {
+      "date": "2026-11-09",
+      "email": "Srapoza@beaconservices.org",
+      "name": "Susan Rapoza",
+      "sheet_row": 1661,
+      "timestamp": "11/9/2026 7:59:31",
+      "training": "Tabletop Exercise"
+    },
+    {
+      "date": "2026-11-09",
+      "email": "tcornell@hsmc.org",
+      "name": "Tara Cornell",
+      "sheet_row": 1662,
+      "timestamp": "11/9/2026 7:59:44",
+      "training": "Tabletop Exercise"
+    },
+    {
+      "date": "2026-11-09",
+      "email": "Lrenaud@criterionchild.com",
+      "name": "Lianne Renaud",
+      "sheet_row": 1663,
+      "timestamp": "11/9/2026 7:59:56",
+      "training": "Tabletop Exercise"
     }
   ]
 }
