@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T13:53:53.941867+00:00",
+  "generated_at": "2026-11-10T22:37:43.903213+00:00",
   "sessions": {
     "2026-05-26|Situational Awareness for Early Childhood Professionals": {
       "attendees": [
@@ -3008,6 +3008,14 @@
       "name": "Leslie Gordon",
       "sheet_row": 1685,
       "timestamp": "11/9/2026 13:14:17",
+      "training": "Tabletop Exercise"
+    },
+    {
+      "date": "2026-11-10",
+      "email": "Srapoza@beaconservices.org",
+      "name": "Susan Rapoza",
+      "sheet_row": 1686,
+      "timestamp": "11/10/2026 10:28:29",
       "training": "Tabletop Exercise"
     }
   ]
